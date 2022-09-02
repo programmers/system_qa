@@ -6,7 +6,7 @@
 
 # Install Complete!
 
-🎉 _Congratulations!_ Your system is now ready for all things development. Before diving in, please review the [Master Software Document](https://github.com/programmers/system_qa/blob/master/docs/Software/Software%20Docs.md) to see all of the software descriptions, how-to guides, and licenses for the ecosystems and choices you selected.
+🎉 _Congratulations!_ Your system is now ready for all things development. Before diving in, please review the [Master Software Document](https://github.com/programmers/system_qa/blob/main/docs/Software/Software%20Docs.md) to see all of the software descriptions, how-to guides, and licenses for the ecosystems and choices you selected.
 
 <br/>
 
@@ -16,7 +16,7 @@
 
 ## 1. The Guides
 
-First, open up and bookmark the [Master Software Document](https://github.com/programmers/system_qa/blob/master/docs/Software/Software%20Docs.md). The guides column links come in the form of articles, official docs, and YouTube videos.
+First, open up and bookmark the [Master Software Document](https://github.com/programmers/system_qa/blob/main/docs/Software/Software%20Docs.md). The guides column links come in the form of articles, official docs, and YouTube videos.
 
 
 Note that some may contain install steps and information on an operating system you don't use. This means that software is multi-platform (i.e: Windows). Skip through the OS-specific section to get to core information for learning.
