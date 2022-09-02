@@ -1,0 +1,79 @@
+---
+- name: Scientific
+  hosts: localhost
+  ignore_errors: yes
+  become: true
+  tasks:
+    # Miniconda is great for selecting your scientific packages individually. While it's parent project,
+    # Anaconda, has a lot more packages and features out of the box, it's massive and requires a modern
+    # system with many resource requirements. You can still install it with `conda install anaconda`.
+    - name: Miniconda
+      runscript:
+        script: miniconda.sh
+        creates: .miniconda
+      tags:
+        - miniconda
+
+    # Core scientific software repos:
+    #   - https://wiki.debian.org/DebianScience/
+    #   - https://help.ubuntu.com/community/UbuntuScience
+    #   - ...add more
+    #
+    # It isn't feasible to have the CLI ask about each of these, so copy this string and
+    # remove what you don't need. Just a regular apt-get install. Most software is massive.
+  
+    # sudo apt-get install -y science-chemistry \
+    #                         science-config \
+    #                         science-dataacquisition \
+    #                         science-dataacquisition-dev \
+    #                         science-distributedcomputing \
+    #                         science-imageanalysis \
+    #                         science-imageanalysis-dev \
+    #                         science-machine-learning \
+    #                         science-numericalcomputation \
+    #                         science-presentation \
+    #                         science-simulations \
+    #                         science-statistics \
+    #                         science-typesetting \
+    #                         science-viewing \
+    #                         science-viewing-dev \
+    #                         science-workflow \
+    #                         science-biology \
+    #                         science-chemistry \
+    #                         science-economics \
+    #                         science-electronics \
+    #                         science-electrophysiology \
+    #                         science-engineering \
+    #                         science-engineering-dev \
+    #                         science-financial \
+    #                         science-geography \
+    #                         science-geometry \
+    #                         science-highenergy-physics \
+    #                         science-highenergy-physics-dev \
+    #                         science-imageanalysis \
+    #                         science-imageanalysis-dev \
+    #                         science-linguistics \
+    #                         science-logic \
+    #                         science-machine-learning \
+    #                         science-mathematics \
+    #                         science-mathematics-dev \
+    #                         science-meteorology \
+    #                         science-meteorology-dev \
+    #                         science-nanoscale-physics \
+    #                         science-nanoscale-physics-dev \
+    #                         science-neuroscience-cognitive \
+    #                         science-neuroscience-modeling \
+    #                         science-numericalcomputation \
+    #                         science-physics \
+    #                         science-physics-dev \
+    #                         science-presentation \
+    #                         science-psychophysics \
+    #                         science-robotics \
+    #                         science-robotics-dev \
+    #                         science-simulations \
+    #                         science-statistics \
+    #                         science-tasks \
+    #                         science-typesetting \
+    #                         science-viewing \
+    #                         science-viewing-dev \
+    #                         science-workflow

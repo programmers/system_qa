@@ -1,0 +1,58 @@
+---
+- name: PHP
+  hosts: localhost
+  ignore_errors: yes
+  become: true
+  tasks:
+    - name: PHP 8 Repository
+      apt_repository: repo=ppa:ondrej/php
+      tags:
+        - default
+
+    - name: PHP 8
+      apt:
+        pkg:
+          - php
+          - php-common
+          - php-cli
+          - php-json
+          - php-xml
+          - php-zip
+          - php-gd
+          - php-mbstring
+          - php-curl
+          - php-pear
+      tags:
+        - default
+
+    - name: VSCode PHP
+      vscodeextension: name=xdebug.php-pack
+      tags:
+        - default
+
+    - name: Phpenv
+      runscript:
+        script: phpenv.sh
+        creates: .phpenv/bin/phpenv
+      tags:
+        - default
+
+    - name: Composer
+      runscript:
+        script: composer.sh
+        shared: true
+        creates: /usr/local/bin/composer
+      tags:
+        - default
+
+    - name: Eclipse PHP
+      runscript:
+        script: eclipse_php.sh
+        creates: /usr/bin/eclipse-php
+      tags:
+        - eclipse_php
+
+    - name: PHPStorm Trial
+      snap: name=phpstorm classic=yes
+      tags:
+        - phpstorm_trial

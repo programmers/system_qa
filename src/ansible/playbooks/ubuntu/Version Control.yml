@@ -1,0 +1,45 @@
+---
+- name: Version Control 
+  hosts: localhost
+  ignore_errors: yes
+  become: true
+  tasks:
+    - name: Git
+      apt: name=git
+      tags:
+        - git
+ 
+    - name: Git Extras
+      apt: name=git-extras
+      tags:
+        - git
+
+    - name: Git Cola
+      apt: name=git-cola
+      tags:
+        - git
+
+    - name: Meld
+      apt: name=meld
+      tags:
+        - merge_tool
+
+    - name: KDiff3
+      apt: name=kdiff3
+      tags:
+        - merge_tool
+
+    - name: Mercurial
+      apt: name=mercurial
+      tags:
+        - mercurial
+
+    - name: Subversion
+      apt: name=subversion
+      tags:
+        - subversion
+
+    - name: CVS
+      apt: name=cvs
+      tags:
+        - cvs

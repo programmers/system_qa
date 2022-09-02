@@ -1,0 +1,48 @@
+---
+- name: Containers and VMs
+  hosts: localhost
+  ignore_errors: yes
+  become: true
+  tasks:
+    - name: Docker Key
+      apt_key: url=https://download.docker.com/linux/ubuntu/gpg
+      tags:
+        - docker
+
+    - name: Docker Repository
+      apt_repository:
+        repo: deb https://download.docker.com/linux/ubuntu focal stable
+      tags:
+        - docker
+
+    - name: Docker
+      apt: name=docker-ce
+
+    - name: VSCode Docker
+      vscodeextension: name=ms-azuretools.vscode-docker
+      tags:
+        - docker
+
+    - name: Docker Compose
+      runscript:
+        script: docker_compose.sh
+        creates: /usr/local/bin/docker-compose
+      tags:
+        - docker
+
+    - name: Qemu/KVM/Virt
+      apt:
+        pkg:
+          - virt-viewer
+          - virt-manager
+          - libvirt-daemon-system
+          - libvirt-clients
+          - bridge-utils
+          - qemu-kvm
+      tags:
+        - qemu_kvm_virt
+
+    - name: VirtualBox
+      apt: name=virtualbox
+      tags:
+        - virtualbox
