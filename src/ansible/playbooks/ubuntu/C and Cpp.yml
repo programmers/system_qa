@@ -1,0 +1,110 @@
+---
+- name: C and Cpp
+  hosts: localhost
+  ignore_errors: yes
+  tasks:
+    - name: Build Essential
+      apt: name=build-essential
+      tags:
+        - default
+
+    - name: Binutils
+      apt: name=binutils
+      tags:
+        - default
+
+    - name: Clang/LLVM
+      runscript:
+        script: clang_llvm.sh
+        creates: /usr/bin/clang
+      tags:
+        - default
+        
+    - name: Cmake
+      apt: name=cmake
+      tags:
+        - default
+
+    - name: Automake
+      apt: name=automake
+      tags:
+        - default
+    
+    - name: Autoconf
+      apt: name=autoconf
+      tags:
+        - default
+
+    - name: Libtool
+      apt: name=libtool
+      tags:
+        - default
+
+    - name: VSCode C++
+      vscodeextension: name=ms-vscode.cpptools
+      tags:
+        - default
+
+    - name: Gdb
+      apt: name=gdb
+      tags:
+        - default
+
+    - name: Valgrind
+      apt: name=valgrind
+      tags:
+        - default
+
+    - name: QT Creator
+      apt: name=qtcreator 
+      tags:
+        - qt_creator
+
+    - name: QT Creator
+      apt:
+        pkg:
+          - qtcreator
+          - qtbase5-dev
+          - qt5-qmake
+      tags:
+        - qt_creator
+
+    - name: Eclipse C++
+      runscript:
+        script: eclipse_cpp.sh
+        creates: /usr/bin/eclipse-cpp
+      tags:
+        - eclipse_cpp
+
+    - name: CLion Trial
+      snap: name=clion classic=yes
+      tags:
+        - clion_trial
+
+    - name: Codeblocks
+      apt:
+        pkg:
+          - codeblocks
+          - codeblocks-contrib
+      tags:
+        - codeblocks
+
+    - name: Boost
+      apt: name=libboost-all-dev
+      tags:
+        - boost
+
+    - name: Conan
+      pip: name=conan
+      tags:
+        - default
+
+    - name: Ninja
+      apt: name=ninja-build
+      tags:
+        - default
+
+    - name: Meson
+      pip: name=meson
+      tags:
+        - default

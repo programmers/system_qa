@@ -1,0 +1,63 @@
+---
+- name: Cloud Tools
+  hosts: localhost
+  ignore_errors: yes
+  become: true
+  tasks:
+    - name: AWS CLI
+      runscript:
+        script: aws_cli.sh
+        creates: /usr/local/bin/aws
+      tags:
+        - aws
+
+    - name: Google Cloud CLI Key
+      apt_key: url=https://packages.cloud.google.com/apt/doc/apt-key.gpg
+      tags:
+        - gcloud
+
+    - name: Google Cloud CLI Repository
+      apt_repository:
+        repo: deb https://packages.cloud.google.com/apt cloud-sdk main
+      tags:
+        - gcloud
+
+    - name: Google Cloud CLI
+      apt: name=google-cloud-sdk
+      tags:
+        - gcloud
+
+    - name: Azure CLI
+      runscript:
+        script: azure_cli.sh
+        creates: /usr/bin/az
+      tags:
+        - azure
+
+    - name: DigitalOcean CLI
+      runscript:
+        script: digital_ocean.sh
+        creates: /usr/local/bin/doctl
+      tags:
+        - digitalocean
+
+    - name: Kubernetes Kind
+      runscript:
+        script: kind.sh
+        creates: /usr/local/bin/kind
+      tags:
+        - k8s
+
+    - name: Kubernetes Kubectl
+      runscript:
+        script: kubectl.sh
+        creates: /usr/local/bin/kubectl
+      tags:
+        - k8s
+
+    - name: Kubernetes Minikube
+      runscript:
+        script: minikube.sh
+        creates: /usr/local/bin/minikube
+      tags:
+        - k8s

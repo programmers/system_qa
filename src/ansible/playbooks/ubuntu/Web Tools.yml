@@ -1,0 +1,96 @@
+---
+- name: Web Tools
+  hosts: localhost
+  ignore_errors: yes
+  become: true
+  tasks:
+    - name: VSCode ESLint
+      vscodeextension: name=dbaeumer.vscode-eslint
+      tags:
+        - default
+
+    - name: VSCode Prettier
+      vscodeextension: name=esbenp.prettier-vscode
+      tags:
+        - default
+
+    - name: VSCode CSS Peek
+      vscodeextension: name=pranaygp.vscode-css-peek
+      tags:
+        - default
+
+    - name: Angular CLI
+      npm: name=@angular/cli global=yes
+      tags:
+        - angular
+
+    - name: VSCode Angular
+      vscodeextension: name=johnpapa.angular-essentials
+      tags:
+        - angular
+
+    - name: Vue CLI
+      npm: name=@vue/cli global=yes
+      tags:
+        - vue
+
+    - name: VSCode Vue
+      vscodeextension: name=hollowtree.vue-snippets
+      tags:
+        - vue
+        
+    - name: VSCode React
+      vscodeextension: name=jawandarajbir.react-vscode-extension-pack
+      tags:
+        - react
+
+    - name: VSCode TypeScript
+      vscodeextension: name=loiane.ts-extension-pack
+      tags:
+        - typescript
+
+    - name: Yarn
+      npm: name=yarn global=yes
+      tags:
+        - yarn
+
+    - name: Postman
+      runscript:
+        script: postman.sh
+        creates: /usr/bin/Postman
+      tags:
+        - api tools
+
+    # using snap b/c release deb urls change.
+    - name: Mockoon
+      snap: name=mockoon classic=yes
+      tags:
+        - api tools
+
+    - name: Ngrok
+      runscript:
+        script: ngrok.sh
+        creates: /usr/bin/ngrok
+      tags:
+        - api tools
+
+    - name: localtunnel
+      npm: name=localtunnel global=yes
+      tags:
+        - api tools
+
+    - name: Local Web Server
+      npm: name=local-web-server global=yes
+      tags:
+        - api tools
+
+    - name: Insomnia 
+      apt:
+        deb: https://github.com/Kong/insomnia/releases/download/core%402021.6.0/Insomnia.Core-2021.6.0.deb
+      tags:
+        - api tools
+    
+    - name: WebStorm Trial
+      snap: name=webstorm classic=yes
+      tags:
+        - webstorm_trial

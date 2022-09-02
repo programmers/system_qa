@@ -1,0 +1,59 @@
+---
+- name: JavaScript and Node
+  hosts: localhost
+  ignore_errors: yes
+  become: true
+  tasks:
+    - name: Node
+      runscript:
+        creates: /usr/bin/node
+        script: nodejs.sh
+      tags:
+        - default
+
+    - name: VSCode Node
+      vscodeextension: name=chris-noring.node-snippets
+      tags:
+        - default
+
+    - name: VSCode JavaScript
+      vscodeextension: name=xabikos.JavaScriptSnippets
+      tags:
+        - default
+
+    - name: Nvm
+      runscript:
+        script: nvm.sh
+        creates: .nvm
+      tags:
+        - default
+
+    - name: Node Debugger
+      npm: name=ndb global=yes
+      tags:
+        - default
+
+    - name: Nodemon
+      npm: name=nodemon global=yes
+      tags:
+        - default
+
+    - name: VSCode Path Intellisense
+      vscodeextension: name=christian-kohler.path-intellisense
+      tags:
+        - default
+
+    - name: Node TypeScript Engine
+      npm: name=ts-node global=yes
+      tags:
+        - node_typescript_engine
+
+    - name: Yarn
+      npm: name=yarn global=yes
+      tags:
+        - yarn
+
+    - name: WebStorm Trial
+      snap: name=webstorm classic=yes
+      tags:
+        - webstorm_trial
