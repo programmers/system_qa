@@ -1,4 +1,4 @@
-_note: just a throwaway repo for experimentation and QA!_
+_note: non-official repo for experimentation and QA!_
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/programmers/system_qa/main/img/logo/logo.png" alt="Logo">
