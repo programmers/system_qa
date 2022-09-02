@@ -1,0 +1,23 @@
+#!/bin/bash
+
+os=$1
+
+if ! [[ $os == "ubuntu" || $os == "macos" || $os == "fedora" ]]; then
+	echo "Invalid system supplied... try:"
+	echo "  sudo ./run.sh ubuntu"
+	echo "  sudo ./run.sh macos"
+	exit 1
+fi
+
+{
+	# try
+	bash "./src/install/base/"$os"_base.sh" > /dev/null && # only shows stderr
+	python src/main.py $os &&
+	bash ./src/install/run_ansible.sh &&
+	echo "Open/copy this link to access the very important \"Post Install\" page:"
+	echo "https://github.com/programmers/system_qa/blob/master/docs/Post%20Install/Overview.md"
+} || {
+	# catch
+    echo "Exiting..."
+    exit 1
+}
