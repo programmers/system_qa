@@ -2,7 +2,7 @@ _note: non-official repo for experimentation and QA!_
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/programmers/system_qa/main/img/logo/logo.png" alt="Logo">
-            
+
 </p>
 
 ## About
@@ -57,22 +57,23 @@ cd ~/.progsys && sudo ./run ubuntu
 
 ## Project TODOs
 
-**OS**: Support macOS 12 Monterey[*](https://github.com/programmers/system_qa/issues/1), Linux Mint[*](https://github.com/programmers/system_qa/issues/1), and 
-Fedora 36[*](https://github.com/programmers/system_qa/issues/1)
+**OS**: Support macOS 12 Monterey[*](https://github.com/programmers/system_qa/issues/21), and Fedora 36[*](https://github.com/programmers/system_qa/issues/20)
 
-**Ansible**: Standard project structure[*](https://github.com/programmers/system_qa/issues/1), better logging[*](https://github.com/programmers/system_qa/issues/1), Support ZSH/Oh-My-ZSH[*](https://github.com/programmers/system_qa/issues/1)
+**Ansible**:
+Standard project structure[*](https://github.com/programmers/system_qa/issues/19), better logging[*](https://github.com/programmers/system_qa/issues/18), Support ZSH/Oh-My-ZSH[*](https://github.com/programmers/system_qa/issues/4)
 
-**Base Install**: Loading indicator[*](https://github.com/programmers/system_qa/issues/1), new lock file approach[*](https://github.com/programmers/system_qa/issues/1), redo var.yml approach[*](https://github.com/programmers/system_qa/issues/1)
+**Base Install**:
+Loading indicator[*](https://github.com/programmers/system_qa/issues/17), new lock file approach[*](https://github.com/programmers/system_qa/issues/16), redo var.yml approach[*](https://github.com/programmers/system_qa/issues/15)
 
-**CLI**: More relevant ecosystem questions[*](https://github.com/programmers/system_qa/issues/1), more Writer docs[*](https://github.com/programmers/system_qa/issues/1), address TODOs in prompt.py[*](https://github.com/programmers/system_qa/issues/1)
+**CLI**: More relevant ecosystem questions[*](https://github.com/programmers/system_qa/issues/14), more Writer docs[*](https://github.com/programmers/system_qa/issues/13), address TODOs in prompt.py[*](https://github.com/programmers/system_qa/issues/12)
 
-**Modules**: Support existing OS upgrades by updating runscript[*](https://github.com/programmers/system_qa/issues/1)
+**Modules**: Support existing OS upgrades by updating runscript[*](https://github.com/programmers/system_qa/issues/11)
 
-**Playbooks**: Add a mobile playbook[*](https://github.com/programmers/system_qa/issues/1), redo Ruby playbook[*](https://github.com/programmers/system_qa/issues/1)
+**Playbooks**: Add a mobile playbook[*](https://github.com/programmers/system_qa/issues/10), redo Ruby playbook[*](https://github.com/programmers/system_qa/issues/9)
 
-**Docs Gen**: Refactor license link function in generate_page.py[*](https://github.com/programmers/system_qa/issues/1)
+**Docs Gen**: Refactor license link function in generate_page.py[*](https://github.com/programmers/system_qa/issues/8)
 
-**Scripts**: Spring Tool Suite not showing in search[*](https://github.com/programmers/system_qa/issues/1), Use a local "tmp" directory for install assets[*](https://github.com/programmers/system_qa/issues/1)
+**Scripts**: Spring Tool Suite not showing in search[*](https://github.com/programmers/system_qa/issues/5), Use a local "tmp" directory for install assets[*](https://github.com/programmers/system_qa/issues/7)
 
 <br/>
 
