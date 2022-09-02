@@ -45,6 +45,7 @@ sudo apt install git -y && git clone git@github.com:programmers/system_qa.git ~/
 cd ~/.progsys && sudo ./run ubuntu
 
 # When finished, a "Post Install" page link will appear to provide helpful considerations
+# such as setting up keys, improving your shell, vim/emacs distros, and general configurations.
 ```
 
 ## Dev Guide
