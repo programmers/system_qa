@@ -15,7 +15,7 @@ fi
 	python src/main.py $os &&
 	bash ./src/install/run_ansible.sh &&
 	echo "Open/copy this link to access the very important \"Post Install\" page:"
-	echo "https://github.com/programmers/system_qa/blob/master/docs/Post%20Install/Overview.md"
+	echo "https://github.com/programmers/system_qa/blob/main/docs/Post%20Install/Overview.md"
 } || {
 	# catch
     echo "Exiting..."

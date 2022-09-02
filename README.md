@@ -17,7 +17,7 @@ This project is in **alpha** and currently supports fresh installs of Ubuntu 22.
 
 **Ecosystems**: General, Python, JavaScript and Node, Web Tools, Version Control, Database Clients, Containers and VMs, Scientific, Cloud Tools, Java, C and Cpp, Go, PHP, Rust, Ruby.
 
-**(**_Review the [Master Software Document](https://github.com/programmers/system_qa/blob/master/docs/Software/Software%20Docs.md) to see all software descriptions, how-to guides, and licenses for the ecosystems._**)**
+**(**_Review the [Master Software Document](https://github.com/programmers/system_qa/blob/main/docs/Software/Software%20Docs.md) to see all software descriptions, how-to guides, and licenses for the ecosystems._**)**
 
 **Software**: All (mostly open source) software and tools are carefully selected based on industry standards with security in mind.
 
@@ -27,7 +27,7 @@ This project is in **alpha** and currently supports fresh installs of Ubuntu 22.
 
 **Restrictions**: No backends (DB engines, web servers, etc), only clients (DBeaver, Azure CLI, etc). Snaps/Flatpaks Ansible modules are allowed, but use them as a last resort due to performance.
 
-**Editors**: VSCode is the "default" editor and has many relevant extensions installed in each ecosystem. A large amount of editors/IDEs are selectable as well. Vim/Emacs distribution/configurations are recommended [here](https://github.com/programmers/system_qa/blob/master/docs/Post%20Install/Overview.md#4-consider-setting-up-vim-or-emacs).
+**Editors**: VSCode is the "default" editor and has many relevant extensions installed in each ecosystem. A large amount of editors/IDEs are selectable as well. Vim/Emacs distribution/configurations are recommended [here](https://github.com/programmers/system_qa/blob/main/docs/Post%20Install/Overview.md#4-consider-setting-up-vim-or-emacs).
 
 ## Running
 
@@ -49,9 +49,9 @@ cd ~/.progsys && sudo ./run ubuntu
 
 ## Dev Guide
 
-1. **[Ansible Usage](https://github.com/programmers/system_qa/blob/master/docs/Dev%20Guide/1.%20Ansible%20Usage.md)**
-2. **[Install & Run](https://github.com/programmers/system_qa/blob/master/docs/Dev%20Guide/2.%20Install%20%26%20Run.md)**
-3. **[Contributing](https://github.com/programmers/system_qa/blob/master/docs/Dev%20Guide/3.%20Contributing.md)**
+1. **[Ansible Usage](https://github.com/programmers/system_qa/blob/main/docs/Dev%20Guide/1.%20Ansible%20Usage.md)**
+2. **[Install & Run](https://github.com/programmers/system_qa/blob/main/docs/Dev%20Guide/2.%20Install%20%26%20Run.md)**
+3. **[Contributing](https://github.com/programmers/system_qa/blob/main/docs/Dev%20Guide/3.%20Contributing.md)**
 
 <br />
 
@@ -79,4 +79,4 @@ Loading indicator[*](https://github.com/programmers/system_qa/issues/17), new lo
 
 ## License
 
-[MIT](https://github.com/programmers/system_qa/blob/master/LICENSE)
+[MIT](https://github.com/programmers/system_qa/blob/main/LICENSE)
