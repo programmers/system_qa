@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="https://github.com/programmers/system_qa/blob/master/img/logo/logo.png" alt="Logo">
+  <img src="https://raw.githubusercontent.com/programmers/system_qa/main/img/logo/logo.png" alt="Logo">
+            
 </p>
 
 ## About
@@ -30,7 +31,7 @@ This project is in **alpha** and currently supports fresh installs of Ubuntu 22.
 
 _(middle-click for new tab)_
 
-[![programerssystemvid](https://github.com/programmers/system_qa/blob/master/img/youtube/thumbnail.png)](https://www.youtube.com/watch?v=fZ_3YuxSKpk)
+[![programerssystemvid](https://raw.githubusercontent.com/programmers/system_qa/main/img/youtube/thumbnail.png)](https://www.youtube.com/watch?v=fZ_3YuxSKpk)
 
 For Ubuntu, you may wish extend the sudoers timeout for bigger installs (many ecosystems). [Video Instructions](https://www.youtube.com/watch?v=EvZ4gu-C5gM).
 
