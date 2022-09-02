@@ -5,7 +5,7 @@
   become: true
   tasks:
 
-    # This playbooks is VERY BUGGY. Refer to this issue: https://github.com/programmers/system_qa/issues/1
+    # This playbooks is VERY BUGGY. Refer to this issue: https://github.com/programmers/system_qa/issues/9
     # ...and, as always, contributions are very welcomed.
 
     - name: RubyMine Trial

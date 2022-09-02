@@ -42,7 +42,7 @@ ssh-add ~/.ssh/id_ed25519
 [This code](https://gist.github.com/programmers/093a2522020c2cf1ec136463419d5b06) represents a small, unopinioned collection of bashrc functions and aliases that one can append to `~/.bashrc`. They will provide a lot of conveniences with day-to-day usage and can be extended per your use cases. Do not replace your .bashrc with this file, simply append it.
 
 
-**ZSH Shell Notice**: [ZSH shell](https://www.zsh.org/) and [Oh My ZSH!](https://ohmyz.sh/) are incredibly popular in the industry for all things terminal. Unfortunately, many Programmer's System's scripts and Ansible arrangements do not currently target `~/.zshrc`. Using ZSH will limit the value of what Programmer's System provides. Including these is a major project TODO ([weekend project?](https://github.com/programmers/system_qa/issues/1)).
+**ZSH Shell Notice**: [ZSH shell](https://www.zsh.org/) and [Oh My ZSH!](https://ohmyz.sh/) are incredibly popular in the industry for all things terminal. Unfortunately, many Programmer's System's scripts and Ansible arrangements do not currently target `~/.zshrc`. Using ZSH will limit the value of what Programmer's System provides. Including these is a major project TODO ([weekend project?](https://github.com/programmers/system_qa/issues/4)).
 
 <br/>
 
