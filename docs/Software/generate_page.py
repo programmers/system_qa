@@ -28,7 +28,7 @@ class SoftwareDocsGenerator:
         "Ruby"
     ]
 
-    # TODO: redo this... https://github.com/programmers/system_qa/issues/1
+    # TODO: redo this... https://github.com/programmers/system_qa/issues/8
     def format_license_links(self, links):
         # Forces "links" to be a list, even if it's a single string.
         # This allows for sharing of the formatting logic/is simple.
