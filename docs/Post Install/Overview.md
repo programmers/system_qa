@@ -1,5 +1,6 @@
 <p align="center">
-  <img src="https://github.com/programmers/system_qa/blob/master/img/logo/logo.png" alt="Logo">
+  <img src="https://raw.githubusercontent.com/programmers/system_qa/main/img/logo/logo.png" alt="Logo">
+            
 </p>
 <hr>
 
