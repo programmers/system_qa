@@ -70,7 +70,7 @@ Loading indicator[*](https://github.com/programmers/system_qa/issues/17), new lo
 
 **Modules**: Support existing OS upgrades by updating runscript[*](https://github.com/programmers/system_qa/issues/11)
 
-**Playbooks**: Add a mobile playbook[*](https://github.com/programmers/system_qa/issues/10), redo Ruby playbook[*](https://github.com/programmers/system_qa/issues/9)
+**Ecosystems** (playbooks): Add a mobile playbook[*](https://github.com/programmers/system_qa/issues/10), redo Ruby playbook[*](https://github.com/programmers/system_qa/issues/9), include C# playbook?[*](https://github.com/programmers/system_qa/issues/27)
 
 **Docs Gen**: Refactor license link function in generate_page.py[*](https://github.com/programmers/system_qa/issues/8)
 
