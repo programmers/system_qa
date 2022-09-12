@@ -39,7 +39,7 @@ For Ubuntu, you may wish extend the sudoers timeout for bigger installs (many ec
 
 ```
 # Git pull the project to ~/.progsys
-sudo apt install git -y && git clone git@github.com:programmers/system_qa.git ~/.progsys
+sudo apt install git -y && git clone https://github.com/programmers/system_qa.git ~/.progsys
 
 # Install the base dependencies, launch the CLI, and then installs everything
 cd ~/.progsys && sudo ./run ubuntu
