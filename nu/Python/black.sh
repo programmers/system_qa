@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pip install black
+CALL SHARED

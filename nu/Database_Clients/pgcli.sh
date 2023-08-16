@@ -1,3 +1,3 @@
 #!/bin/bash
 
-pip3 install pgcli
+CALL SHARED

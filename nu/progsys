@@ -1,0 +1,85 @@
+#!/bin/bash
+
+sudo apt-get update -y > /dev/null
+
+sudo apt-get install -y jq > /dev/null
+
+validate_args() {
+    local file="$1"
+    shift
+
+    object=$(cat "$file")
+
+    for key in "$@"; do
+        if ! jq -e ".\"$key\"" <<< "$object" > /dev/null; then
+            echo "$key"
+            return 0
+        fi
+    done
+
+    return 1
+}
+
+missing_key=$(validate_args  "./src/argument_map.json" "$@")
+
+if [[ "$@" == *"-h"* ]] || [[ "$@" == *"--help"* ]]; then
+    help_text="Welcome. Pass in your ecosystem with the args below."
+elif [ -z "$missing_key" ]; then
+    help_text=""
+else
+    help_text="Argument '$missing_key' was not found."
+fi
+
+if [ -z "$missing_key" ]; then
+    # found
+
+    if cat /etc/os-release | grep -q "ubuntu"; then
+        echo "ubuntu"
+        #sudo ./ubuntu.sh 
+
+        # this is really bad code... should not be loading the file again
+        # also I'm using a hack to get over the fact that ecosystem is 
+        # in double quotes.............
+        file="./src/argument_map.json"
+        object=$(cat "$file")
+        for key in "$@"; do
+            ecosystem=$(jq -e ".\"$key\"" <<< "$object")
+            VAR=$(eval echo $ecosystem)
+
+            sudo ./ubuntu.sh
+        done
+    fi
+
+
+    # how to check for fedora
+
+    # how to check for mac
+else
+cat << EOF
+
+#=======================#
+#| Programmer's System |#
+#=======================#
+
+$help_text 
+
+Usage: $0 [options]
+
+Options:
+    --c_and_cpp
+    --cloud
+    --containers_vms
+    --database
+    --go
+    --java
+    --javascript_and_node
+    --php
+    --python
+    --ruby
+    --rust
+    --version_control
+    --web
+-h, --help
+
+EOF
+fi

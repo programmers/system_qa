@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pip install ipython
+CALL SHARED

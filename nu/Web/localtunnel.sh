@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npm install -g localtunnel
+CALL SHARED

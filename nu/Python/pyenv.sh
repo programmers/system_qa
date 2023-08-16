@@ -1,3 +1,3 @@
 #!/bin/bash
 
-curl https://pyenv.run | bash
+CALL SHARED

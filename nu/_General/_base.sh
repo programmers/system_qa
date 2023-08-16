@@ -19,6 +19,8 @@ sudo apt-get install -y curl \
 sudo add-apt-repository ppa:deadsnakes/ppa
 sudo apt-get update -y
 sudo apt-get install -y python3.10
+sudo apt-get install -y python-is-python3
+curl https://bootstrap.pypa.io/get-pip.py | sudo python
 
 # Need Node for global npm installs
 curl -sL https://deb.nodesource.com/setup_current.x | bash

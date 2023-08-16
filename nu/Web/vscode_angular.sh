@@ -1,3 +1,3 @@
 #!/bin/bash
 
-code --install-extension johnpapa.angular-essentials
+CALL SHARED

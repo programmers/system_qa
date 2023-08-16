@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo -H pip install meson
+CALL SHARED

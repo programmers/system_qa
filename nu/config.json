@@ -1,0 +1,157 @@
+{
+    "INSTRUCTIONS": {
+        "Notes": "To exclude packages, add the following inline...",
+        "include": false
+    },
+
+
+    "_General": [
+        { "name": "_base", "required": true },
+        { "name": "7zip" },
+        { "name": "doom_emacs" },
+        { "name": "dos2unix" },
+        { "name": "fd" },
+        { "name": "fzf" },
+        { "name": "htop" },
+        { "name": "jq" },
+        { "name": "ripgrep" },
+        { "name": "screen" },
+        { "name": "space_vim" },
+        { "name": "terminator" },
+        { "name": "thefuck" },
+        { "name": "tmux" },
+        { "name": "unrar" },
+        { "name": "vscode_plugins" }
+    ],
+
+
+    "C_and_C++": [
+        { "name": "build_essential", "required": true },
+        { "name": "clang_llvm", "required": true },
+        { "name": "autoconf" },
+        { "name": "cmake" },
+        { "name": "automake" },
+        { "name": "binutils" },
+        { "name": "boost" },
+        { "name": "clion" },
+        { "name": "libtool" },
+        { "name": "gdb" },
+        { "name": "codeblocks" },
+        { "name": "conan" },
+        { "name": "eclipse_c++" },
+        { "name": "meson" },
+        { "name": "ninja_build" },
+        { "name": "qt_creator" },
+        { "name": "valgrind" },
+        { "name": "vscode_c++" }
+    ],
+    
+
+    "Cloud": [
+        { "name": "docker", "required": true },
+        { "name": "aws_cli" },
+        { "name": "azure_cli" },
+        { "name": "digital_ocean_cli" },
+        { "name": "gcloud_cli" },
+        { "name": "helm" },
+        { "name": "kubectl" },
+        { "name": "kubenetes_kind" },
+        { "name": "terraform" }
+    ],
+
+
+    "Containers_and_VMs": [
+        { "name": "docker", "required": true },
+        { "name": "docker_compose" },
+        { "name": "qemu_kvm" },
+        { "name": "virtualbox" },
+        { "name": "vscode_docker" }
+    ],
+
+
+    "Database_Clients": [
+        { "name": "datagrip" },
+        { "name": "dbeaver" },
+        { "name": "mongodb_compass" },
+        { "name": "mycli" },
+        { "name": "mysql_workbench" },
+        { "name": "pgadmin_desktop" },
+        { "name": "pgcli" },
+        { "name": "redis_commander" },
+        { "name": "sqlite_browser" },
+        { "name": "usql" }
+    ],
+
+
+    "Go": [
+        { "name": "go", "required": true },
+        { "name": "goland" },
+        { "name": "go_version_manager" },
+        { "name": "vscode_go" }
+    ],
+
+
+    "Java": [
+        { "name": "java", "required": true },
+        { "name": "ant" },
+        { "name": "eclipse_java" },
+        { "name": "gradle" },
+        { "name": "intellij_idea_community" },
+        { "name": "ivy" },
+        { "name": "jabba_version_manager" },
+        { "name": "maven" },
+        { "name": "spring_tools" },
+        { "name": "vscode_java" },
+        { "name": "vscode_spring_tool_suite" }
+    ],
+
+    
+    "JavaScript_and_Node": [
+        { "name": "nvm" },
+        { "name": "nodemon" },
+        { "name": "node_typescript" },
+        { "name": "vscode_eslint" },
+        { "name": "vscode_javascript" },
+        { "name": "vscode_node" },
+        { "name": "vscode_path_Intellisense" },
+        { "name": "vscode_prettier" },
+        { "name": "vscode_typescript" },
+        { "name": "yarn" }
+    ],
+
+
+    "PHP": [
+        { "name": "php", "required": true },
+        { "name": "composer" },
+        { "name": "eclipse_php" },
+        { "name": "phpenv" },
+        { "name": "phpstorm" },
+        { "name": "vscode_php" }
+    ],
+
+
+    "Python": [
+        { "name": "black" },
+        { "name": "flake8" },
+        { "name": "ipython" },
+        { "name": "pipenv" },
+        { "name": "pipx" },
+        { "name": "poetry" },
+        { "name": "pycharm" },
+        { "name": "pyenv" },
+        { "name": "vscode_python" }
+    ],
+
+
+    "Ruby": [
+        { "name": "rvm_ruby", "required": true },
+        { "name": "rubymine" },
+        { "name": "vscode_ruby" }
+    ],
+
+
+    "Rust": [
+        { "name": "rust", "required": true },
+        { "name": "vscode_rust" }
+    ]
+}

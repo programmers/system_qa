@@ -1,5 +1,3 @@
 #!/bin/bash
 
-pip3 install mycli
-
-
+CALL SHARED
