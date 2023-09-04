@@ -1,0 +1,461 @@
+{
+    "_General": [
+        { "name": "_base", "required": true,
+          "about": "Base system utilities."
+        },
+        {
+          "name": "7zip", "include": true,
+          "about": "File archiver with a high compression ratio."
+        },
+        {
+          "name": "doom_emacs", "include": true,
+          "about": "Emacs configuration for modern times."
+        },
+        {
+          "name": "dos2unix", "include": true,
+          "about": "Utility to convert DOS line endings to Unix format."
+        },
+        {
+          "name": "fd", "include": true,
+          "about": "Simple, fast, user-friendly alternative to 'find'."
+        },
+        {
+          "name": "fzf", "include": true,
+          "about": "Fuzzy finder for the command-line."
+        },
+        {
+          "name": "htop", "include": true,
+          "about": "Interactive process viewer for Unix systems."
+        },
+        {
+          "name": "jq", "include": true,
+          "about": "Lightweight and flexible command-line JSON processor."
+        },
+        {
+          "name": "ripgrep", "include": true,
+          "about": "Fast and user-friendly search tool like 'grep'."
+        },
+        {
+          "name": "screen", "include": true,
+          "about": "Terminal multiplexer for managing multiple sessions."
+        },
+        {
+          "name": "space_vim", "include": true,
+          "about": "Community-driven Vim distribution."
+        },
+        {
+          "name": "terminator", "include": true,
+          "about": "Terminal emulator supporting multiple terminals in one window."
+        },
+        {
+          "name": "thefuck", "include": true,
+          "about": "Mistyped command auto-correction tool."
+        },
+        {
+          "name": "tmux", "include": true,
+          "about": "Terminal multiplexer for enhancing productivity."
+        },
+        {
+          "name": "unrar", "include": true,
+          "about": "Utility for extracting, testing, and viewing RAR archives."
+        },
+        {
+          "name": "vscode_plugins", "include": true,
+          "about": "Plugins for Visual Studio Code editor."
+        }
+    ],
+
+    "C_and_C++": [
+    {
+      "name": "build_essential", "required": true,
+      "about": "Essential packages for building software in C/C++."
+    },
+    {
+      "name": "clang_llvm", "required": true,
+      "about": "Compiler front end for the LLVM compiler infrastructure."
+    },
+    {
+      "name": "autoconf", "include": true,
+      "about": "Tool for generating configure scripts."
+    },
+    {
+      "name": "cmake", "include": true,
+      "about": "Cross-platform build system."
+    },
+    {
+      "name": "automake", "include": true,
+      "about": "Tool for generating GNU Standards-compliant Makefiles."
+    },
+    {
+      "name": "binutils", "include": true,
+      "about": "Collection of binary tools for handling binary files."
+    },
+    {
+      "name": "boost", "include": true,
+      "about": "Collection of high-quality libraries for C++."
+    },
+    {
+      "name": "clion", "include": true,
+      "about": "Cross-platform C/C++ IDE."
+    },
+    {
+      "name": "libtool", "include": true,
+      "about": "Generic library support script."
+    },
+    {
+      "name": "gdb", "include": true,
+      "about": "GNU Debugger for debugging C/C++ programs."
+    },
+    {
+      "name": "codeblocks", "include": true,
+      "about": "Free C/C++ IDE."
+    },
+    {
+      "name": "conan", "include": true,
+      "about": "C/C++ package manager."
+    },
+    {
+      "name": "eclipse_c++", "include": true,
+      "about": "Integrated development environment for C/C++."
+    },
+    {
+      "name": "meson", "include": true,
+      "about": "Build system designed to optimize developer productivity."
+    },
+    {
+      "name": "ninja_build", "include": true,
+      "about": "Popular build tool for faster builds."
+    },
+    {
+      "name": "qt_creator", "include": true,
+      "about": "Cross-platform C++ integrated development environment."
+    },
+    {
+      "name": "valgrind", "include": true,
+      "about": "Programming tool for memory debugging, memory leak detection, and profiling."
+    },
+    {
+      "name": "vscode_c++", "include": true,
+      "about": "C/C++ extension for Visual Studio Code."
+    }
+],
+
+
+
+    
+"Cloud": [
+    {
+        "name": "docker", "required": true,
+        "about": "Containerization platform for developing, shipping, and running applications."
+    },
+    {
+        "name": "aws_cli", "include": true,
+        "about": "Command-line interface for Amazon Web Services (AWS)."
+    },
+    {
+        "name": "azure_cli", "include": true,
+        "about": "Command-line interface for Microsoft Azure."
+    },
+    {
+        "name": "digital_ocean_cli", "include": true,
+        "about": "Command-line interface for DigitalOcean cloud platform."
+    },
+    {
+        "name": "gcloud_cli", "include": true,
+        "about": "Command-line interface for Google Cloud Platform (GCP)."
+    },
+    {
+        "name": "helm", "include": true,
+        "about": "Package manager for Kubernetes."
+    },
+    {
+        "name": "kubectl", "include": true,
+        "about": "Command-line tool for interacting with Kubernetes clusters."
+    },
+    {
+        "name": "kubenetes_kind", "include": true,
+        "about": "Kubernetes IN Docker - local clusters for testing Kubernetes."
+    },
+    {
+        "name": "terraform", "include": true,
+        "about": "Infrastructure as Code (IaC) tool for building, changing, and versioning infrastructure efficiently."
+    }
+],
+
+    "Containers_and_VMs": [
+    {
+        "name": "docker", "required": true,
+        "about": "Containerization platform for developing, shipping, and running applications."
+    },
+    {
+        "name": "docker_compose", "include": true,
+        "about": "Tool for defining and running multi-container Docker applications."
+    },
+    {
+        "name": "qemu_kvm", "include": true,
+        "about": "Virtualization solution for running multiple virtual machines on Linux."
+    },
+    {
+        "name": "virtualbox", "include": true,
+        "about": "Open-source virtualization software for running multiple operating systems on a single host."
+    },
+    {
+        "name": "vscode_docker", "include": true,
+        "about": "Docker extension for Visual Studio Code, providing Docker integration."
+    }
+],
+
+
+
+    "Database_Clients": [
+    {
+        "name": "datagrip", "include": true,
+        "about": "Integrated development environment (IDE) for databases."
+    },
+    {
+        "name": "dbeaver", "include": true,
+        "about": "Universal database tool and SQL client."
+    },
+    {
+        "name": "mongodb_compass", "include": true,
+        "about": "Official graphical user interface (GUI) for MongoDB."
+    },
+    {
+        "name": "mycli", "include": true,
+        "about": "Command-line interface for MySQL databases with auto-completion and syntax highlighting."
+    },
+    {
+        "name": "mysql_workbench", "include": true,
+        "about": "Visual database design tool and SQL development environment for MySQL."
+    },
+    {
+        "name": "pgadmin_desktop", "include": true,
+        "about": "Open-source administration and management tool for PostgreSQL."
+    },
+    {
+        "name": "pgcli", "include": true,
+        "about": "Command-line interface for PostgreSQL databases with auto-completion and syntax highlighting."
+    },
+    {
+        "name": "redis_commander", "include": true,
+        "about": "Visual management tool for Redis."
+    },
+    {
+        "name": "sqlite_browser", "include": true,
+        "about": "Lightweight, open-source tool for working with SQLite databases."
+    },
+    {
+        "name": "usql", "include": true,
+        "about": "Universal command-line interface for SQL databases, supporting multiple database systems."
+    }
+],
+
+    "Go": [
+    {
+        "name": "go", "required": true,
+        "about": "The Go programming language compiler and toolchain."
+    },
+    {
+        "name": "goland", "include": true,
+        "about": "JetBrains GoLand IDE for Go development."
+    },
+    {
+        "name": "go_version_manager", "include": true,
+        "about": "A version manager for the Go programming language (e.g., GVM)."
+    },
+    {
+        "name": "vscode_go", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for Go development."
+    }
+],
+
+
+    "Java": [
+    {
+        "name": "java", "required": true,
+        "about": "The Java programming language runtime environment."
+    },
+    {
+        "name": "ant", "include": true,
+        "about": "Apache Ant, a build tool for Java projects."
+    },
+    {
+        "name": "eclipse_java", "include": true,
+        "about": "Eclipse IDE with Java Development Tools (JDT)."
+    },
+    {
+        "name": "gradle", "include": true,
+        "about": "Gradle, a build automation tool for Java projects."
+    },
+    {
+        "name": "intellij_idea_community", "include": true,
+        "about": "IntelliJ IDEA Community Edition, an IDE for Java development."
+    },
+    {
+        "name": "ivy", "include": true,
+        "about": "Apache Ivy, a dependency manager for Java projects."
+    },
+    {
+        "name": "jabba_version_manager", "include": true,
+        "about": "Jabba, a version manager for Java runtimes."
+    },
+    {
+        "name": "maven", "include": true,
+        "about": "Apache Maven, a build automation and project management tool for Java projects."
+    },
+    {
+        "name": "spring_tools", "include": true,
+        "about": "Spring Tools Suite, an Eclipse-based IDE for Spring Framework development."
+    },
+    {
+        "name": "vscode_java", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for Java development."
+    },
+    {
+        "name": "vscode_spring_tool_suite", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for Spring Tool Suite."
+    }
+],
+
+
+    
+
+    "JavaScript_and_Node": [
+    {
+        "name": "nvm", "include": true,
+        "about": "Node Version Manager (NVM), a version manager for Node.js."
+    },
+    {
+        "name": "nodemon", "include": true,
+        "about": "Nodemon, a utility that monitors for changes in Node.js applications and automatically restarts them."
+    },
+    {
+        "name": "node_typescript", "include": true,
+        "about": "Node.js with TypeScript support."
+    },
+    {
+        "name": "vscode_eslint", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for ESLint, a JavaScript linter."
+    },
+    {
+        "name": "vscode_javascript", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for JavaScript development."
+    },
+    {
+        "name": "vscode_node", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for Node.js development."
+    },
+    {
+        "name": "vscode_path_Intellisense", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for path IntelliSense."
+    },
+    {
+        "name": "vscode_prettier", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for Prettier, a code formatter."
+    },
+    {
+        "name": "vscode_typescript", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for TypeScript development."
+    },
+    {
+        "name": "yarn", "include": true,
+        "about": "Yarn, a package manager for Node.js projects."
+    }
+],
+
+
+    "PHP": [
+    {
+        "name": "php", "required": true,
+        "about": "PHP, a popular server-side scripting language."
+    },
+    {
+        "name": "composer", "include": true,
+        "about": "Composer, a dependency manager for PHP."
+    },
+    {
+        "name": "eclipse_php", "include": true,
+        "about": "Eclipse IDE for PHP development."
+    },
+    {
+        "name": "phpenv", "include": true,
+        "about": "phpenv, a PHP environment manager."
+    },
+    {
+        "name": "phpstorm", "include": true,
+        "about": "PhpStorm, an integrated development environment (IDE) for PHP."
+    },
+    {
+        "name": "vscode_php", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for PHP development."
+    }
+],
+
+
+
+    "Python": [
+    {
+        "name": "black", "include": true,
+        "about": "Black, a Python code formatter."
+    },
+    {
+        "name": "flake8", "include": true,
+        "about": "Flake8, a Python linting tool."
+    },
+    {
+        "name": "ipython", "include": true,
+        "about": "IPython, an interactive command-line shell for Python."
+    },
+    {
+        "name": "pipenv", "include": true,
+        "about": "pipenv, a Python dependency management tool."
+    },
+    {
+        "name": "pipx", "include": true,
+        "about": "pipx, a tool to install and run Python applications in isolated environments."
+    },
+    {
+        "name": "poetry", "include": true,
+        "about": "Poetry, a dependency management and packaging tool for Python."
+    },
+    {
+        "name": "pycharm", "include": true,
+        "about": "PyCharm, an integrated development environment (IDE) for Python."
+    },
+    {
+        "name": "pyenv", "include": true,
+        "about": "pyenv, a Python version management tool."
+    },
+    {
+        "name": "vscode_python", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for Python development."
+    }
+],
+
+"Ruby": [
+    {
+        "name": "rvm_ruby", "required": true,
+        "about": "RVM (Ruby Version Manager) for managing Ruby environments." },
+    {
+        "name": "rubymine", "include": true,
+        "about": "RubyMine, an integrated development environment (IDE) for Ruby."
+    },
+    {
+        "name": "vscode_ruby", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for Ruby development."
+    }
+],
+
+
+"Rust": [
+    {
+        "name": "rust", "required": true,
+    "about": "The Rust programming language and compiler." },
+    {
+        "name": "vscode_rust", "include": true,
+        "about": "Visual Studio Code (VSCode) extension for Rust development."
+    }
+]
+
+
+}

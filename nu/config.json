@@ -1,9 +1,4 @@
 {
-    "INSTRUCTIONS": {
-        "Notes": "To exclude packages, add the following inline...",
-        "include": false
-    },
-
 
     "_General": [
         { "name": "_base", "required": true },
@@ -28,9 +23,20 @@
     "C_and_C++": [
         { "name": "build_essential", "required": true },
         { "name": "clang_llvm", "required": true },
-        { "name": "autoconf" },
-        { "name": "cmake" },
-        { "name": "automake" },
+        {
+          "name": "autoconf",
+          "about": "asf",
+          "include": true
+        },
+        {
+          "name": "cmake", "include": true,
+          "about": "test test test test test"
+         },
+        {
+          "name": "automake",
+          "about": "asf",
+          "include": true
+        },
         { "name": "binutils" },
         { "name": "boost" },
         { "name": "clion" },
@@ -40,7 +46,10 @@
         { "name": "conan" },
         { "name": "eclipse_c++" },
         { "name": "meson" },
-        { "name": "ninja_build" },
+        {
+          "name": "ninja_build", "include": true,
+          "about": "popular build toolasdfasdf"
+        },
         { "name": "qt_creator" },
         { "name": "valgrind" },
         { "name": "vscode_c++" }
