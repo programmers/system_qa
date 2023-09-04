@@ -362,6 +362,113 @@
     }
   ],
 
+  "Web": [
+    {
+      "name": "angular_cli", "include": true,
+      "about": "Angular CLI is a command-line interface for Angular, a popular JavaScript framework. It provides tools for creating, building, testing, and deploying Angular applications."
+    },
+    {
+      "name": "ngrok", "include": true,
+      "about": "ngrok is a secure tunneling tool that allows you to expose local web servers, APIs, and other services to the internet. It's often used for testing and development."
+    },
+    {
+      "name": "vscode_eslint", "include": true,
+      "about": "VS Code ESLint is an extension for Visual Studio Code that integrates ESLint, a popular JavaScript linter, into the code editor. It helps developers find and fix code quality issues."
+    },
+    {
+      "name": "vscode_vue", "include": true,
+      "about": "VS Code Vue is an extension for Visual Studio Code that enhances support for Vue.js, a progressive JavaScript framework. It provides syntax highlighting, IntelliSense, and debugging features for Vue.js projects."
+    },
+    {
+      "name": "insomnia", "include": true,
+      "about": "Insomnia is a popular open-source REST client that makes it easy to test and debug APIs. It provides a user-friendly interface for making API requests and organizing workspaces."
+    },
+    {
+      "name": "postman", "include": true,
+      "about": "Postman is a widely used API development tool that allows developers to design, test, and document APIs. It offers features for creating and sharing API collections."
+    },
+    {
+      "name": "vscode_prettier", "include": true,
+      "about": "VS Code Prettier is an extension for Visual Studio Code that integrates Prettier, a code formatter, into the code editor. It helps maintain consistent code formatting in projects."
+    },
+    {
+      "name": "vue_cli", "include": true,
+      "about": "Vue CLI is a command-line tool for scaffolding and managing Vue.js projects. It offers a range of features for project setup, development, and building."
+    },
+    {
+      "name": "localtunnel", "include": true,
+      "about": "localtunnel is a tool that allows you to share your locally hosted web applications with others over the internet. It creates temporary public URLs for your local development server."
+    },
+    {
+      "name": "react_create_app_cli", "include": true,
+      "about": "Create React App CLI is a command-line tool for quickly setting up and bootstrapping React.js applications. It simplifies the process of starting a new React project."
+    },
+    {
+      "name": "vscode_react", "include": true,
+      "about": "VS Code React is an extension for Visual Studio Code that provides enhanced support for React.js development. It includes features like JSX syntax highlighting and React component IntelliSense."
+    },
+    {
+      "name": "webstorm", "include": true,
+      "about": "WebStorm is a popular integrated development environment (IDE) for web development. It offers advanced tools and features for JavaScript, HTML, and CSS development."
+    },
+    {
+      "name": "local_web_server", "include": true,
+      "about": "A local web server is a software or tool used for serving web content from a local machine during development. It's often used for testing web applications."
+    },
+    {
+      "name": "vscode_angular", "include": true,
+      "about": "VS Code Angular is an extension for Visual Studio Code that enhances support for Angular development. It provides features like Angular language service and code snippets."
+    },
+    {
+      "name": "vscode_svelte", "include": true,
+      "about": "VS Code Svelte is an extension for Visual Studio Code that improves support for Svelte, a modern JavaScript framework. It offers syntax highlighting and Svelte-specific features."
+    },
+    {
+      "name": "mockoon", "include": true,
+      "about": "Mockoon is an open-source API mocking tool that allows you to create and run mock APIs. It's useful for simulating API responses during development and testing."
+    },
+    {
+      "name": "vscode_css_peak", "include": true,
+      "about": "VS Code CSS Peak is an extension for Visual Studio Code that enables you to quickly navigate to and peek at CSS definitions within your HTML or JavaScript code."
+    },
+    {
+      "name": "vscode_typescript", "include": true,
+      "about": "VS Code TypeScript is an extension for Visual Studio Code that enhances TypeScript development. It provides features like TypeScript IntelliSense and code navigation."
+    }
+  ],
+
+  
+  "Version_Control": [
+    {
+      "name": "cvs", "include": true,
+      "about": "CVS (Concurrent Versions System) is a legacy version control system that helps teams manage and track changes in their source code. It's less commonly used today, with Git being more popular."
+    },
+    {
+      "name": "git_extras", "include": true,
+      "about": "git-extras is a set of additional Git commands that extend the functionality of the Git version control system. It provides helpful utilities for common Git tasks."
+    },
+    {
+      "name": "meld", "include": true,
+      "about": "Meld is a visual diff and merge tool that helps developers compare and merge files and directories. It provides a graphical interface for resolving conflicts."
+    },
+    {
+      "name": "subversion", "include": true,
+      "about": "Subversion (SVN) is a centralized version control system that allows teams to track changes in their codebase. While less popular than Git, SVN is still used in some projects."
+    },
+    {
+      "name": "git_cola", "include": true,
+      "about": "Git Cola is a Git GUI client that provides a user-friendly interface for interacting with Git repositories. It simplifies common Git operations."
+    },
+    {
+      "name": "kdiff3", "include": true,
+      "about": "KDiff3 is a visual file and directory diff and merge tool. It helps developers compare and merge text files and directories efficiently."
+    },
+    {
+      "name": "mercurial", "include": true,
+      "about": "Mercurial (Hg) is a distributed version control system that enables teams to manage and track changes in their codebase. It offers simplicity and performance."
+    }
+  ],
+
 
   "PHP": [
     {
