@@ -1,8 +1,10 @@
 {
   "_General": [
     {
-      "name": "_base", "required": true,
-      "about": "Base system utilities."
+      "name": "_base",
+      "required": true,
+      "about": "Base system utilities.",
+      "type": "apt"
     },
     {
       "name": "7zip", "include": true,
@@ -201,7 +203,11 @@
       "about": "Open-source virtualization software for running multiple operating systems on a single host."
     },
     {
-      "name": "vscode_docker", "include": true,
+      "name": "vscode_docker",
+      "include": true,
+      "type": "vscode_extension",
+      "creates": "purplestone.savebackup",
+      "just set to creates": true,
       "about": "Docker extension for Visual Studio Code, providing Docker integration."
     }
   ],

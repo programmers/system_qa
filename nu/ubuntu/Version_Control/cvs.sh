@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt-get install -y cvs 
+source ~/repo/nu/src/validate.sh 

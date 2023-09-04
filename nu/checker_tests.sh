@@ -3,7 +3,7 @@
 
 # Matthew, just do everything in config... labels, desc, persona, skip section
 
-source ./src/install_vscode_extension.sh
+source ./src/installers/install_vscode_ext.sh
 source ./src/config_handler.sh
 
 check_config "black"
