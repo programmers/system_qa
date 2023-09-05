@@ -1,4 +1,28 @@
 {
+  "_Test_Area": [
+    {
+      "name": "vscode_docker",
+      "include": true,
+      "about": "something a",
+      "creates": "ms-azuretools.vscode-docker",
+      "type": "vscode_extension"
+    },
+    {
+      "name": "ant",
+      "include": true,
+      "about": "something b",
+      "creates": "/usr/bin/ant",
+      "type": "package"
+    },
+    {
+      "name": "azure_cli",
+      "include": true,
+      "about": "something c",
+      "creates": "/usr/bin/az",
+      "type": "package"
+    }
+  ],
+
   "_General": [
     {
       "name": "_base",

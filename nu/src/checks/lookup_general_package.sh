@@ -5,8 +5,8 @@ lookup_general_package() {
 
     #if [ -e "/usr/bin/python" ]; then
     if [ -e "$package" ]; then
-        echo "exists."
+        return 0
     else
-        echo "does not exist."
+        return 1
     fi
 }

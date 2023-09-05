@@ -1,3 +1,5 @@
 #!/bin/bash
 
-source ~/repo/nu/src/validate.sh 
+. ../checks
+
+echo 123

@@ -1,11 +1,10 @@
 ==NOW==
-- Do checks
-- Allow for both config.json and flags
+- parse args
+- cleanup
 - Dual boot
 
 
 ==NEXT==
-- set everything to HOME
 - redo spring
 - print banners
   - maybe spinners?
