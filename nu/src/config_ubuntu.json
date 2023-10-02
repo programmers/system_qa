@@ -26,572 +26,950 @@
   "_General": [
     {
       "name": "_base",
-      "required": true,
       "about": "Base system utilities.",
-      "type": "apt"
+      "required": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "7zip", "include": true,
-      "about": "File archiver with a high compression ratio."
+      "name": "7zip",
+      "about": "File archiver with a high compression ratio.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "doom_emacs", "include": true,
-      "about": "Emacs configuration for modern times."
+      "name": "doom_emacs",
+      "about": "Emacs configuration for modern times.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "dos2unix", "include": true,
-      "about": "Utility to convert DOS line endings to Unix format."
+      "name": "dos2unix",
+      "about": "Utility to convert DOS line endings to Unix format.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "fd", "include": true,
-      "about": "Simple, fast, user-friendly alternative to 'find'."
+      "name": "fd",
+      "about": "Simple, fast, user-friendly alternative to 'find'.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "fzf", "include": true,
-      "about": "Fuzzy finder for the command-line."
+      "name": "fzf",
+      "about": "Fuzzy finder for the command-line.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "htop", "include": true,
-      "about": "Interactive process viewer for Unix systems."
+      "name": "htop",
+      "about": "Interactive process viewer for Unix systems.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "jq", "include": true,
-      "about": "Lightweight and flexible command-line JSON processor."
+      "name": "jq",
+      "about": "Lightweight and flexible command-line JSON processor.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "ripgrep", "include": true,
-      "about": "Fast and user-friendly search tool like 'grep'."
+      "name": "ripgrep",
+      "about": "Fast and user-friendly search tool like 'grep'.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "screen", "include": true,
-      "about": "Terminal multiplexer for managing multiple sessions."
+      "name": "screen",
+      "about": "Terminal multiplexer for managing multiple sessions.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "space_vim", "include": true,
-      "about": "Community-driven Vim distribution."
+      "name": "space_vim",
+      "about": "Community-driven Vim distribution.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "terminator", "include": true,
-      "about": "Terminal emulator supporting multiple terminals in one window."
+      "include": true,
+      "name": "terminator",
+      "creates": "/usr/bin/something",
+      "about": "Terminal emulator supporting multiple terminals in one window.",
+      "type": "package"
     },
     {
-      "name": "thefuck", "include": true,
-      "about": "Mistyped command auto-correction tool."
+      "name": "thefuck",
+      "about": "Mistyped command auto-correction tool.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "tmux", "include": true,
-      "about": "Terminal multiplexer for enhancing productivity."
+      "name": "tmux",
+      "about": "Terminal multiplexer for enhancing productivity.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "unrar", "include": true,
-      "about": "Utility for extracting, testing, and viewing RAR archives."
+      "name": "unrar",
+      "about": "Utility for extracting, testing, and viewing RAR archives.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_plugins", "include": true,
-      "about": "Plugins for Visual Studio Code editor."
+      "name": "vscode_plugins",
+      "about": "Plugins for Visual Studio Code editor.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
 
   "C_and_C++": [
     {
-      "name": "build_essential", "required": true,
-      "about": "Essential packages for building software in C/C++."
+      "name": "build_essential",
+      "about": "Essential packages for building software in C/C++.",
+      "required": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "clang_llvm", "required": true,
-      "about": "Compiler front end for the LLVM compiler infrastructure."
+      "name": "clang_llvm",
+      "about": "Compiler front end for the LLVM compiler infrastructure.",
+      "required": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "autoconf", "include": true,
-      "about": "Tool for generating configure scripts."
+      "name": "autoconf",
+      "about": "Tool for generating configure scripts.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "cmake", "include": true,
-      "about": "Cross-platform build system."
+      "name": "cmake",
+      "about": "Cross-platform build system.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "automake", "include": true,
-      "about": "Tool for generating GNU Standards-compliant Makefiles."
+      "name": "automake",
+      "about": "Tool for generating GNU Standards-compliant Makefiles.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "binutils", "include": true,
-      "about": "Collection of binary tools for handling binary files."
+      "name": "binutils",
+      "about": "Collection of binary tools for handling binary files.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "boost", "include": true,
-      "about": "Collection of high-quality libraries for C++."
+      "name": "boost",
+      "about": "Collection of high-quality libraries for C++.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "clion", "include": true,
-      "about": "Cross-platform C/C++ IDE."
+      "name": "clion",
+      "about": "Cross-platform C/C++ IDE.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "libtool", "include": true,
-      "about": "Generic library support script."
+      "name": "libtool",
+      "about": "Generic library support script.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "gdb", "include": true,
-      "about": "GNU Debugger for debugging C/C++ programs."
+      "name": "gdb",
+      "about": "GNU Debugger for debugging C/C++ programs.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "codeblocks", "include": true,
-      "about": "Free C/C++ IDE."
+      "name": "codeblocks",
+      "about": "Free C/C++ IDE.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "conan", "include": true,
-      "about": "C/C++ package manager."
+      "name": "conan",
+      "about": "C/C++ package manager.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "eclipse_c++", "include": true,
-      "about": "Integrated development environment for C/C++."
+      "name": "eclipse_c++",
+      "about": "Integrated development environment for C/C++.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "meson", "include": true,
-      "about": "Build system designed to optimize developer productivity."
+      "name": "meson",
+      "about": "Build system designed to optimize developer productivity.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "ninja_build", "include": true,
-      "about": "Popular build tool for faster builds."
+      "name": "ninja_build",
+      "about": "Popular build tool for faster builds.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "qt_creator", "include": true,
-      "about": "Cross-platform C++ integrated development environment."
+      "name": "qt_creator",
+      "about": "Cross-platform C++ integrated development environment.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "valgrind", "include": true,
-      "about": "Programming tool for memory debugging, memory leak detection, and profiling."
+      "name": "valgrind",
+      "about": "Programming tool for memory debugging, memory leak detection, and profiling.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_c++", "include": true,
-      "about": "C/C++ extension for Visual Studio Code."
+      "name": "vscode_c++",
+      "about": "C/C++ extension for Visual Studio Code.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
 
   "Cloud": [
     {
-      "name": "docker", "required": true,
-      "about": "Containerization platform for developing, shipping, and running applications."
+      "name": "docker",
+      "about": "Containerization platform for developing, shipping, and running applications.",
+      "required": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "aws_cli", "include": true,
-      "about": "Command-line interface for Amazon Web Services (AWS)."
+      "name": "aws_cli",
+      "about": "Command-line interface for Amazon Web Services (AWS).",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "azure_cli", "include": true,
-      "about": "Command-line interface for Microsoft Azure."
+      "name": "azure_cli",
+      "about": "Command-line interface for Microsoft Azure.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "digital_ocean_cli", "include": true,
-      "about": "Command-line interface for DigitalOcean cloud platform."
+      "name": "digital_ocean_cli",
+      "about": "Command-line interface for DigitalOcean cloud platform.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "gcloud_cli", "include": true,
-      "about": "Command-line interface for Google Cloud Platform (GCP)."
+      "name": "gcloud_cli",
+      "about": "Command-line interface for Google Cloud Platform (GCP).",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "helm", "include": true,
-      "about": "Package manager for Kubernetes."
+      "name": "helm",
+      "about": "Package manager for Kubernetes.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "kubectl", "include": true,
-      "about": "Command-line tool for interacting with Kubernetes clusters."
+      "name": "kubectl",
+      "about": "Command-line tool for interacting with Kubernetes clusters.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "kubenetes_kind", "include": true,
-      "about": "Kubernetes IN Docker - local clusters for testing Kubernetes."
+      "name": "kubenetes_kind",
+      "about": "Kubernetes IN Docker - local clusters for testing Kubernetes.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "terraform", "include": true,
-      "about": "Infrastructure as Code (IaC) tool for building, changing, and versioning infrastructure efficiently."
+      "name": "terraform",
+      "about": "Infrastructure as Code (IaC) tool for building, changing, and versioning infrastructure efficiently.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
 
   "Containers_and_VMs": [
     {
-      "name": "docker", "required": true,
-      "about": "Containerization platform for developing, shipping, and running applications."
+      "name": "docker",
+      "about": "Containerization platform for developing, shipping, and running applications.",
+      "required": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "docker_compose", "include": true,
-      "about": "Tool for defining and running multi-container Docker applications."
+      "name": "docker_compose",
+      "about": "Tool for defining and running multi-container Docker applications.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "qemu_kvm", "include": true,
-      "about": "Virtualization solution for running multiple virtual machines on Linux."
+      "name": "qemu_kvm",
+      "about": "Virtualization solution for running multiple virtual machines on Linux.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "virtualbox", "include": true,
-      "about": "Open-source virtualization software for running multiple operating systems on a single host."
+      "name": "virtualbox",
+      "about": "Open-source virtualization software for running multiple operating systems on a single host.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
       "name": "vscode_docker",
+      "about": "Docker extension for Visual Studio Code, providing Docker integration.",
       "include": true,
-      "type": "vscode_extension",
       "creates": "purplestone.savebackup",
-      "just set to creates": true,
-      "about": "Docker extension for Visual Studio Code, providing Docker integration."
+      "type": "vscode_extension"
     }
   ],
 
 
   "Database_Clients": [
     {
-      "name": "datagrip", "include": true,
-      "about": "Integrated development environment (IDE) for databases."
+      "name": "datagrip",
+      "about": "Integrated development environment (IDE) for databases.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "dbeaver", "include": true,
-      "about": "Universal database tool and SQL client."
+      "name": "dbeaver",
+      "about": "Universal database tool and SQL client.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "mongodb_compass", "include": true,
-      "about": "Official graphical user interface (GUI) for MongoDB."
+      "name": "mongodb_compass",
+      "about": "Official graphical user interface (GUI) for MongoDB.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "mycli", "include": true,
-      "about": "Command-line interface for MySQL databases with auto-completion and syntax highlighting."
+      "name": "mycli",
+      "about": "Command-line interface for MySQL databases with auto-completion and syntax highlighting.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "mysql_workbench", "include": true,
-      "about": "Visual database design tool and SQL development environment for MySQL."
+      "name": "mysql_workbench",
+      "about": "Visual database design tool and SQL development environment for MySQL.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "pgadmin_desktop", "include": true,
-      "about": "Open-source administration and management tool for PostgreSQL."
+      "name": "pgadmin_desktop",
+      "about": "Open-source administration and management tool for PostgreSQL.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "pgcli", "include": true,
-      "about": "Command-line interface for PostgreSQL databases with auto-completion and syntax highlighting."
+      "name": "pgcli",
+      "about": "Command-line interface for PostgreSQL databases with auto-completion and syntax highlighting.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "redis_commander", "include": true,
-      "about": "Visual management tool for Redis."
+      "name": "redis_commander",
+      "about": "Visual management tool for Redis.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "sqlite_browser", "include": true,
-      "about": "Lightweight, open-source tool for working with SQLite databases."
+      "name": "sqlite_browser",
+      "about": "Lightweight, open-source tool for working with SQLite databases.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "usql", "include": true,
-      "about": "Universal command-line interface for SQL databases, supporting multiple database systems."
+      "name": "usql",
+      "about": "Universal command-line interface for SQL databases, supporting multiple database systems.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
 
   "Go": [
     {
-      "name": "go", "required": true,
-      "about": "The Go programming language compiler and toolchain."
+      "name": "go",
+      "about": "The Go programming language compiler and toolchain.",
+      "required": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "goland", "include": true,
-      "about": "JetBrains GoLand IDE for Go development."
+      "name": "goland",
+      "about": "JetBrains GoLand IDE for Go development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "go_version_manager", "include": true,
-      "about": "A version manager for the Go programming language (e.g., GVM)."
+      "name": "go_version_manager",
+      "about": "A version manager for the Go programming language (e.g., GVM).",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_go", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for Go development."
+      "name": "vscode_go",
+      "about": "Visual Studio Code (VSCode) extension for Go development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
 
   "Java": [
     {
-      "name": "java", "required": true,
-      "about": "The Java programming language runtime environment."
+      "name": "java",
+      "about": "The Java programming language runtime environment.",
+      "required": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "ant", "include": true,
-      "about": "Apache Ant, a build tool for Java projects."
+      "name": "ant",
+      "about": "Apache Ant, a build tool for Java projects.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "eclipse_java", "include": true,
-      "about": "Eclipse IDE with Java Development Tools (JDT)."
+      "name": "eclipse_java",
+      "about": "Eclipse IDE with Java Development Tools (JDT).",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "gradle", "include": true,
-      "about": "Gradle, a build automation tool for Java projects."
+      "name": "gradle",
+      "about": "Gradle, a build automation tool for Java projects.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "intellij_idea_community", "include": true,
-      "about": "IntelliJ IDEA Community Edition, an IDE for Java development."
+      "name": "intellij_idea_community",
+      "about": "IntelliJ IDEA Community Edition, an IDE for Java development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "ivy", "include": true,
-      "about": "Apache Ivy, a dependency manager for Java projects."
+      "name": "ivy",
+      "about": "Apache Ivy, a dependency manager for Java projects.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "jabba_version_manager", "include": true,
-      "about": "Jabba, a version manager for Java runtimes."
+      "name": "jabba_version_manager",
+      "about": "Jabba, a version manager for Java runtimes.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "maven", "include": true,
-      "about": "Apache Maven, a build automation and project management tool for Java projects."
+      "name": "maven",
+      "about": "Apache Maven, a build automation and project management tool for Java projects.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "spring_tools", "include": true,
-      "about": "Spring Tools Suite, an Eclipse-based IDE for Spring Framework development."
+      "name": "spring_tools",
+      "about": "Spring Tools Suite, an Eclipse-based IDE for Spring Framework development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_java", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for Java development."
+      "name": "vscode_java",
+      "about": "Visual Studio Code (VSCode) extension for Java development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_spring_tool_suite", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for Spring Tool Suite."
+      "name": "vscode_spring_tool_suite",
+      "about": "Visual Studio Code (VSCode) extension for Spring Tool Suite.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
 
   "JavaScript_and_Node": [
     {
-      "name": "nvm", "include": true,
-      "about": "Node Version Manager (NVM), a version manager for Node.js."
+      "name": "nvm",
+      "about": "Node Version Manager (NVM), a version manager for Node.js.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "nodemon", "include": true,
-      "about": "Nodemon, a utility that monitors for changes in Node.js applications and automatically restarts them."
+      "name": "nodemon",
+      "about": "Nodemon, a utility that monitors for changes in Node.js applications and automatically restarts them.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "node_typescript", "include": true,
-      "about": "Node.js with TypeScript support."
+      "name": "node_typescript",
+      "about": "Node.js with TypeScript support.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_eslint", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for ESLint, a JavaScript linter."
+      "name": "vscode_eslint",
+      "about": "Visual Studio Code (VSCode) extension for ESLint, a JavaScript linter.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_javascript", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for JavaScript development."
+      "name": "vscode_javascript",
+      "about": "Visual Studio Code (VSCode) extension for JavaScript development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_node", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for Node.js development."
+      "name": "vscode_node",
+      "about": "Visual Studio Code (VSCode) extension for Node.js development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_path_Intellisense", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for path IntelliSense."
+      "name": "vscode_path_Intellisense",
+      "about": "Visual Studio Code (VSCode) extension for path IntelliSense.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_prettier", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for Prettier, a code formatter."
+      "name": "vscode_prettier",
+      "about": "Visual Studio Code (VSCode) extension for Prettier, a code formatter.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_typescript", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for TypeScript development."
+      "name": "vscode_typescript",
+      "about": "Visual Studio Code (VSCode) extension for TypeScript development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "yarn", "include": true,
-      "about": "Yarn, a package manager for Node.js projects."
+      "name": "yarn",
+      "about": "Yarn, a package manager for Node.js projects.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
   "Web": [
     {
-      "name": "angular_cli", "include": true,
-      "about": "Angular CLI is a command-line interface for Angular, a popular JavaScript framework. It provides tools for creating, building, testing, and deploying Angular applications."
+      "name": "angular_cli",
+      "about": "Angular CLI is a command-line interface for Angular, a popular JavaScript framework. It provides tools for creating, building, testing, and deploying Angular applications.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "ngrok", "include": true,
-      "about": "ngrok is a secure tunneling tool that allows you to expose local web servers, APIs, and other services to the internet. It's often used for testing and development."
+      "name": "ngrok",
+      "about": "ngrok is a secure tunneling tool that allows you to expose local web servers, APIs, and other services to the internet. It's often used for testing and development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_eslint", "include": true,
-      "about": "VS Code ESLint is an extension for Visual Studio Code that integrates ESLint, a popular JavaScript linter, into the code editor. It helps developers find and fix code quality issues."
+      "name": "vscode_eslint",
+      "about": "VS Code ESLint is an extension for Visual Studio Code that integrates ESLint, a popular JavaScript linter, into the code editor. It helps developers find and fix code quality issues.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_vue", "include": true,
-      "about": "VS Code Vue is an extension for Visual Studio Code that enhances support for Vue.js, a progressive JavaScript framework. It provides syntax highlighting, IntelliSense, and debugging features for Vue.js projects."
+      "name": "vscode_vue",
+      "about": "VS Code Vue is an extension for Visual Studio Code that enhances support for Vue.js, a progressive JavaScript framework. It provides syntax highlighting, IntelliSense, and debugging features for Vue.js projects.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "insomnia", "include": true,
-      "about": "Insomnia is a popular open-source REST client that makes it easy to test and debug APIs. It provides a user-friendly interface for making API requests and organizing workspaces."
+      "name": "insomnia",
+      "about": "Insomnia is a popular open-source REST client that makes it easy to test and debug APIs. It provides a user-friendly interface for making API requests and organizing workspaces.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "postman", "include": true,
-      "about": "Postman is a widely used API development tool that allows developers to design, test, and document APIs. It offers features for creating and sharing API collections."
+      "name": "postman",
+      "about": "Postman is a widely used API development tool that allows developers to design, test, and document APIs. It offers features for creating and sharing API collections.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_prettier", "include": true,
-      "about": "VS Code Prettier is an extension for Visual Studio Code that integrates Prettier, a code formatter, into the code editor. It helps maintain consistent code formatting in projects."
+      "name": "vscode_prettier",
+      "about": "VS Code Prettier is an extension for Visual Studio Code that integrates Prettier, a code formatter, into the code editor. It helps maintain consistent code formatting in projects.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vue_cli", "include": true,
-      "about": "Vue CLI is a command-line tool for scaffolding and managing Vue.js projects. It offers a range of features for project setup, development, and building."
+      "name": "vue_cli",
+      "about": "Vue CLI is a command-line tool for scaffolding and managing Vue.js projects. It offers a range of features for project setup, development, and building.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "localtunnel", "include": true,
-      "about": "localtunnel is a tool that allows you to share your locally hosted web applications with others over the internet. It creates temporary public URLs for your local development server."
+      "name": "localtunnel",
+      "about": "localtunnel is a tool that allows you to share your locally hosted web applications with others over the internet. It creates temporary public URLs for your local development server.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "react_create_app_cli", "include": true,
-      "about": "Create React App CLI is a command-line tool for quickly setting up and bootstrapping React.js applications. It simplifies the process of starting a new React project."
+      "name": "react_create_app_cli",
+      "about": "Create React App CLI is a command-line tool for quickly setting up and bootstrapping React.js applications. It simplifies the process of starting a new React project.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_react", "include": true,
-      "about": "VS Code React is an extension for Visual Studio Code that provides enhanced support for React.js development. It includes features like JSX syntax highlighting and React component IntelliSense."
+      "name": "vscode_react",
+      "about": "VS Code React is an extension for Visual Studio Code that provides enhanced support for React.js development. It includes features like JSX syntax highlighting and React component IntelliSense.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "webstorm", "include": true,
-      "about": "WebStorm is a popular integrated development environment (IDE) for web development. It offers advanced tools and features for JavaScript, HTML, and CSS development."
+      "name": "webstorm",
+      "about": "WebStorm is a popular integrated development environment (IDE) for web development. It offers advanced tools and features for JavaScript, HTML, and CSS development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "local_web_server", "include": true,
-      "about": "A local web server is a software or tool used for serving web content from a local machine during development. It's often used for testing web applications."
+      "name": "local_web_server",
+      "about": "A local web server is a software or tool used for serving web content from a local machine during development. It's often used for testing web applications.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_angular", "include": true,
-      "about": "VS Code Angular is an extension for Visual Studio Code that enhances support for Angular development. It provides features like Angular language service and code snippets."
+      "name": "vscode_angular",
+      "about": "VS Code Angular is an extension for Visual Studio Code that enhances support for Angular development. It provides features like Angular language service and code snippets.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_svelte", "include": true,
-      "about": "VS Code Svelte is an extension for Visual Studio Code that improves support for Svelte, a modern JavaScript framework. It offers syntax highlighting and Svelte-specific features."
+      "name": "vscode_svelte",
+      "about": "VS Code Svelte is an extension for Visual Studio Code that improves support for Svelte, a modern JavaScript framework. It offers syntax highlighting and Svelte-specific features.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "mockoon", "include": true,
-      "about": "Mockoon is an open-source API mocking tool that allows you to create and run mock APIs. It's useful for simulating API responses during development and testing."
+      "name": "mockoon",
+      "about": "Mockoon is an open-source API mocking tool that allows you to create and run mock APIs. It's useful for simulating API responses during development and testing.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_css_peak", "include": true,
-      "about": "VS Code CSS Peak is an extension for Visual Studio Code that enables you to quickly navigate to and peek at CSS definitions within your HTML or JavaScript code."
+      "name": "vscode_css_peak",
+      "about": "VS Code CSS Peak is an extension for Visual Studio Code that enables you to quickly navigate to and peek at CSS definitions within your HTML or JavaScript code.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_typescript", "include": true,
-      "about": "VS Code TypeScript is an extension for Visual Studio Code that enhances TypeScript development. It provides features like TypeScript IntelliSense and code navigation."
+      "name": "vscode_typescript",
+      "about": "VS Code TypeScript is an extension for Visual Studio Code that enhances TypeScript development. It provides features like TypeScript IntelliSense and code navigation.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
   
   "Version_Control": [
     {
-      "name": "cvs", "include": true,
-      "about": "CVS (Concurrent Versions System) is a legacy version control system that helps teams manage and track changes in their source code. It's less commonly used today, with Git being more popular."
+      "name": "cvs",
+      "about": "CVS (Concurrent Versions System) is a legacy version control system that helps teams manage and track changes in their source code. It's less commonly used today, with Git being more popular.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "git_extras", "include": true,
-      "about": "git-extras is a set of additional Git commands that extend the functionality of the Git version control system. It provides helpful utilities for common Git tasks."
+      "name": "git_extras",
+      "about": "git-extras is a set of additional Git commands that extend the functionality of the Git version control system. It provides helpful utilities for common Git tasks.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "meld", "include": true,
-      "about": "Meld is a visual diff and merge tool that helps developers compare and merge files and directories. It provides a graphical interface for resolving conflicts."
+      "name": "meld",
+      "about": "Meld is a visual diff and merge tool that helps developers compare and merge files and directories. It provides a graphical interface for resolving conflicts.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "subversion", "include": true,
-      "about": "Subversion (SVN) is a centralized version control system that allows teams to track changes in their codebase. While less popular than Git, SVN is still used in some projects."
+      "name": "subversion",
+      "about": "Subversion (SVN) is a centralized version control system that allows teams to track changes in their codebase. While less popular than Git, SVN is still used in some projects.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "git_cola", "include": true,
-      "about": "Git Cola is a Git GUI client that provides a user-friendly interface for interacting with Git repositories. It simplifies common Git operations."
+      "name": "git_cola",
+      "about": "Git Cola is a Git GUI client that provides a user-friendly interface for interacting with Git repositories. It simplifies common Git operations.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "kdiff3", "include": true,
-      "about": "KDiff3 is a visual file and directory diff and merge tool. It helps developers compare and merge text files and directories efficiently."
+      "name": "kdiff3",
+      "about": "KDiff3 is a visual file and directory diff and merge tool. It helps developers compare and merge text files and directories efficiently.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "mercurial", "include": true,
-      "about": "Mercurial (Hg) is a distributed version control system that enables teams to manage and track changes in their codebase. It offers simplicity and performance."
+      "name": "mercurial",
+      "about": "Mercurial (Hg) is a distributed version control system that enables teams to manage and track changes in their codebase. It offers simplicity and performance.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
 
   "PHP": [
     {
-      "name": "php", "required": true,
-      "about": "PHP, a popular server-side scripting language."
+      "name": "php",
+      "about": "PHP, a popular server-side scripting language.",
+      "required": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "composer", "include": true,
-      "about": "Composer, a dependency manager for PHP."
+      "name": "composer",
+      "about": "Composer, a dependency manager for PHP.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "eclipse_php", "include": true,
-      "about": "Eclipse IDE for PHP development."
+      "name": "eclipse_php",
+      "about": "Eclipse IDE for PHP development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "phpenv", "include": true,
-      "about": "phpenv, a PHP environment manager."
+      "name": "phpenv",
+      "about": "phpenv, a PHP environment manager.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "phpstorm", "include": true,
-      "about": "PhpStorm, an integrated development environment (IDE) for PHP."
+      "name": "phpstorm",
+      "about": "PhpStorm, an integrated development environment (IDE) for PHP.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_php", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for PHP development."
+      "name": "vscode_php",
+      "about": "Visual Studio Code (VSCode) extension for PHP development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
 
   "Python": [
     {
-      "name": "black", "include": true,
-      "about": "Black, a Python code formatter."
+      "name": "black",
+      "about": "Black, a Python code formatter.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "flake8", "include": true,
-      "about": "Flake8, a Python linting tool."
+      "name": "flake8",
+      "about": "Flake8, a Python linting tool.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "ipython", "include": true,
-      "about": "IPython, an interactive command-line shell for Python."
+      "name": "ipython",
+      "about": "IPython, an interactive command-line shell for Python.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "pipenv", "include": true,
-      "about": "pipenv, a Python dependency management tool."
+      "name": "pipenv",
+      "about": "pipenv, a Python dependency management tool.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "pipx", "include": true,
-      "about": "pipx, a tool to install and run Python applications in isolated environments."
+      "name": "pipx",
+      "about": "pipx, a tool to install and run Python applications in isolated environments.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "poetry", "include": true,
-      "about": "Poetry, a dependency management and packaging tool for Python."
+      "name": "poetry",
+      "about": "Poetry, a dependency management and packaging tool for Python.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "pycharm", "include": true,
-      "about": "PyCharm, an integrated development environment (IDE) for Python."
+      "name": "pycharm",
+      "about": "PyCharm, an integrated development environment (IDE) for Python.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "pyenv", "include": true,
-      "about": "pyenv, a Python version management tool."
+      "name": "pyenv",
+      "about": "pyenv, a Python version management tool.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_python", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for Python development."
+      "name": "vscode_python",
+      "about": "Visual Studio Code (VSCode) extension for Python development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
 
   "Ruby": [
     {
-      "name": "rvm_ruby", "required": true,
-      "about": "RVM (Ruby Version Manager) for managing Ruby environments."
+      "name": "rvm_ruby",
+      "about": "RVM (Ruby Version Manager) for managing Ruby environments.",
+      "required": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "rubymine", "include": true,
-      "about": "RubyMine, an integrated development environment (IDE) for Ruby."
+      "name": "rubymine",
+      "about": "RubyMine, an integrated development environment (IDE) for Ruby.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_ruby", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for Ruby development."
+      "name": "vscode_ruby",
+      "about": "Visual Studio Code (VSCode) extension for Ruby development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ],
 
 
   "Rust": [
     {
-      "name": "rust", "required": true,
-      "about": "The Rust programming language and compiler."
+      "name": "rust",
+      "about": "The Rust programming language and compiler.",
+      "required": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     },
     {
-      "name": "vscode_rust", "include": true,
-      "about": "Visual Studio Code (VSCode) extension for Rust development."
+      "name": "vscode_rust",
+      "about": "Visual Studio Code (VSCode) extension for Rust development.",
+      "include": true,
+      "creates": "/usr/bin/something",
+      "type": "package"
     }
   ]
 }

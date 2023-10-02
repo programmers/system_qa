@@ -1,0 +1,19 @@
+{
+  "_Test_Area": [
+    {
+      "name": "VSCode Docker",
+      "about": "abc",
+      "category": "default"
+    },
+    {
+      "name": "Ant",
+      "about": "321",
+      "category": "default"
+    },
+    {
+      "name": "Azure CLI",
+      "about": "123",
+      "category": "default"
+    }
+  ]
+}
