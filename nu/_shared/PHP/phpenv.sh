@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source "$proj/check" && check "$HOME/.phpenv" && return 0
+
 git clone https://github.com/phpenv/phpenv.git ~/.phpenv
 
 echo 'export PATH="$HOME/.phpenv/bin:$PATH"' >> ~/.bashrc

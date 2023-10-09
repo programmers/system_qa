@@ -1,1 +1,0 @@
-code --install-extension purplestone.savebackup

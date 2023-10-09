@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$proj/check" && check "~/.gvm" && return 0
+source "$proj/check" && check "$HOME/.gvm" && return 0
 
 git clone https://github.com/moovweb/gvm.git ~/.gvm
 
