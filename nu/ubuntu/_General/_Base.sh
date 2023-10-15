@@ -13,6 +13,10 @@ sudo apt-get install -y curl \
                         gpg \
                         git
 
+# umake
+sudo add-apt-repository ppa:lyzardking/ubuntu-make
+sudo apt-get update -y
+sudo apt-get install -y ubuntu-make
 
 # Need Python for pip installs 
 sudo add-apt-repository ppa:deadsnakes/ppa
@@ -29,13 +33,5 @@ apt-get install -y nodejs
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
 sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
 sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-sudo apt-get update -y
-sudo apt-get install code -y
-
-# Make sure we have snap
-if [ -f "/etc/apt/preferences.d/nosnap.pref" ]; then
-    sudo systemctl start snapd
-    sudo systemctl enable snapd
-    sudo apt-get install -y snapd
-    sudo rm /etc/apt/preferences.d/nosnap.pref
-fi
+sudo apt-get -y update
+sudo apt-get install -y code

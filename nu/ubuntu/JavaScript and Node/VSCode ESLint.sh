@@ -1,3 +1,3 @@
 #!/bin/bash
 
-CALL SHARED
+. "$proj/_shared/JavaScript and Node/VSCode ESLint.sh"

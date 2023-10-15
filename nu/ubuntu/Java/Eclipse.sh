@@ -4,11 +4,9 @@ source "$proj/check" && check "/usr/bin/eclipse" && return 0
 
 trap "rm -rf eclipse" EXIT
 
-wget https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2022-09/R/eclipse-java-2022-09-R-linux-gtk-x86_64.tar.gz -O eclipse.tar.gz
+curl -sL -o eclipse https://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/2022-09/R/eclipse-java-2022-09-R-linux-gtk-x86_64.tar.gz | tar -zx
 
-tar -zxvf eclipse.tar.gz
-
-sudo mv eclipse/eclipse /usr/bin/eclipse
+sudo mv eclipse /usr/bin/
 
 sudo bash -c 'cat << EOF > /usr/share/applications/eclipse.desktop
 [Desktop Entry]

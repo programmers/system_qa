@@ -1,8 +1,6 @@
 #!/bin/bash
 
-source /home/mvim/repo/nu/src/checks/lookup_general_package.sh
-
-if lookup_general_package "/usr/bin/clang"; then exit; fi
+source "$proj/check" && check "/usr/bin/clang" && return 0
 
 trap "rm llvm.sh" EXIT
 

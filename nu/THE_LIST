@@ -15,3 +15,13 @@
   - sudo curl -fsSL https://example.com/key.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/key.gpg
 
 
+
+redo eclipses
+
+redo spring stuff
+
+use markdown table
+
+use try catch
+
+timeouts

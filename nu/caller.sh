@@ -1,5 +1,7 @@
 #!/bin/bash
+
 #set -x
+
 export home="/home/$(whoami)/"
 export proj=$HOME/repo/nu
 

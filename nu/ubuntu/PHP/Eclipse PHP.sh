@@ -1,20 +1,30 @@
 #!/bin/bash
 
-trap "eclipse-php-2022-03-R-linux-gtk-x86_64.tar.gz" EXIT
+#### USE umake (ubuntu make) to install
+#### USE umake (ubuntu make) to install
+#### USE umake (ubuntu make) to install
+#### PUT IT IN GENERAL
+#### PUT IT IN GENERAL
+#### PUT IT IN GENERAL
+#### PUT IT IN GENERAL
+#### PUT IT IN GENERAL
+#### USE umake (ubuntu make) to install
 
-wget https://eclipse.mirror.triple-it.nl/technology/epp/downloads/release/2022-03/R/eclipse-php-2022-03-R-linux-gtk-x86_64.tar.gz
+#source "$proj/check" && check "/usr/bin/eclipse-php" && return 0
 
-sudo tar -xzf eclipse-php-2022-03-R-linux-gtk-x86_64.tar.gz -C /opt/
+#trap "rm -rf eclipse-php" EXIT
 
-sudo ln -s /opt/eclipse/eclipse /usr/local/bin/eclipse-php
+#curl -sL -o eclipse-php https://eclipse.mirror.triple-it.nl/technology/epp/downloads/release/2022-03/R/eclipse-php-2022-03-R-linux-gtk-x86_64.tar.gz | tar -zx
 
-echo "[Desktop Entry]
-Name=Eclipse PHP
-Type=Application
-Exec=/usr/local/bin/eclipse-php
-Terminal=false
-Icon=/opt/eclipse/icon.xpm
-Comment=Integrated Development Environment for PHP
-Categories=Development;IDE;" | sudo tee /usr/share/applications/eclipse-php.desktop
+#mv eclipse-php /usr/bin
 
-sudo chmod +x /usr/share/applications/eclipse-php.desktop
+#sudo bash -c 'cat << EOF > /usr/share/applications/eclipse-php.desktop
+#[Desktop Entry]
+#Encoding=UTF-8
+#Name=Eclipse PHP
+#Comment=Eclipse IDE for PHP developers
+#Exec=/usr/bin/eclipse-php
+##Terminal=false
+#Type=Application
+#Categories=Utility;Development;
+#EOF'
