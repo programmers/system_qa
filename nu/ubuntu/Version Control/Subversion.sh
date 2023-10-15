@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt-get install -y svn 
+sudo apt-get install -y subversion 

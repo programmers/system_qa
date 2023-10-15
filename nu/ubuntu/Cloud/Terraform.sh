@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "HEY DO A TRAP HERE"
+
 source "$proj/check" && check "/usr/bin/terraform" && return 0
 
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg -y --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg

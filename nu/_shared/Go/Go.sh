@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "HEY DO A TRAP HERE"
+
 source "$proj/check" && check "/usr/local/go/bin" && return 0
 
 wget https://golang.org/dl/go1.16.4.linux-amd64.tar.gz

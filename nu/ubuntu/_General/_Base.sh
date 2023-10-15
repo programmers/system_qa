@@ -9,6 +9,7 @@ sudo apt-get install -y curl \
                         software-properties-common \
                         gnupg \
                         autoconf \
+                        unzip \
                         build-essential \
                         gpg \
                         git
