@@ -1,3 +1,3 @@
 #!/bin/bash
 
-CALL SHARED
+. "$proj/_shared/Python/pyenv.sh"

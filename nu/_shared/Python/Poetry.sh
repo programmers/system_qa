@@ -1,3 +1,6 @@
 #!/bin/bash
 
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python3 -
+source "$proj/check" && check "$HOME/.local/bin/poetry" && return 0
+
+curl -sSL https://install.python-poetry.org | python3 -
+

@@ -2,17 +2,14 @@
 
 source "$proj/check" && check "$HOME/.rvm" && return 0
 
-\curl -sSL https://get.rvm.io | bash
+curl -sSL https://get.rvm.io | bash
 
 source $HOME/.rvm/scripts/rvm
 
-# TODO: don't hardcode
-rvm install ruby "3.1.3"
+rvm install ruby --latest
 
-rvm use ruby "3.1.3"
+rvm use ruby --latest
 
 gem install bundler
 
-# TODO: awful idea
 echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
-#echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.zshrc
