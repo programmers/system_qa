@@ -18,7 +18,11 @@ sudo apt-get install -y curl \
                         unzip \
                         build-essential \
                         gpg \
-                        git
+                        git \
+                        zlib1g-dev \
+                        libreadline-dev \
+                        libssl-dev \
+                        libcurl4-openssl-dev
 
 # umake
 sudo add-apt-repository ppa:lyzardking/ubuntu-make
