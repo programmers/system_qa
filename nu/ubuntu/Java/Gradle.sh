@@ -1,3 +1,3 @@
 #!/bin/bash
 
-. "$proj/_shared/Java/Gradle.sh"
+sudo apt-get install -y gradle

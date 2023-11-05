@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pip install flake8
+sudo -H pip install flake8

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pip install pipx
+sudo -H pip install pipx

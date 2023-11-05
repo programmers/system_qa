@@ -1,3 +1,3 @@
 #!/bin/bash
 
-code --install-extension vscode.typescript-extension-pack
+code --install-extension ms-vscode.vscode-typescript-next
