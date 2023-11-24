@@ -1,5 +1,0 @@
-__pycache__/
-*.py[cod]
-src/install/run_ansible.sh
-src/ansible/vars.yml
-run_playbooks.yml

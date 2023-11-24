@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export home="/home/$(whoami)/"
-export proj=$HOME/repo/nu
+export proj=$HOME/repo
 
 
 ###############
@@ -16,7 +16,7 @@ export proj=$HOME/repo/nu
 # [X] JavaScript and Node
 # [X] PHP
 # [X] Python
-# [ ] Ruby (messed up!!!)
+# [X] Ruby
 # [X] Rust
 # [X] Version Control
 # [X] Web
@@ -135,7 +135,7 @@ scripts=(
     #"$proj/ubuntu/Python/VSCode Python.sh"
 
     # Ruby
-    #"$proj/ubuntu/Ruby/rbenv.sh"
+    #"$proj/ubuntu/Ruby/Ruby.sh"
     #"$proj/ubuntu/Ruby/RubyMine.sh"
     #"$proj/ubuntu/Ruby/VSCode Ruby.sh"
 
