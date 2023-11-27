@@ -1,6 +1,8 @@
 #!/bin/bash
+echo 123
 
-source "$proj/check" && check "/usr/local/bin/aws" && return 0
+ps_check "/usr/local/bin/aws" && return 0
+return
 
 trap "rm awscliv2.zip" EXIT
 

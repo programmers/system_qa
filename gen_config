@@ -1,0 +1,26 @@
+
+#!/bin/bash
+
+OS="ubuntu"
+
+declare -A docs
+docs["AWS CLI"]="something here idk yeah"
+docs["Helm"]="this is cool"
+
+if [ "$OS" = "ubuntu" ]; then
+    selected_packages=(
+        "AWS CLI"
+        "Helm"
+    )
+fi
+
+yaml_output="packages:\n"
+
+for selected_package in "${selected_packages[@]}"; do
+    yaml_output+="  - name: $selected_package\n"
+    yaml_output+="    about: ${docs["$selected_package"]}\n"
+    yaml_output+="    keep: true\n\n"
+done
+
+# Print the final YAML
+echo -e "$yaml_output"

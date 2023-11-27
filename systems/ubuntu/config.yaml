@@ -1,0 +1,7 @@
+Cloud:
+  - name: AWS CLI 
+    desc: asdfasdfj adslk;j asfl;kj asdflkj; asdf
+    keep: false
+
+  - name: Rover
+    type: Dog

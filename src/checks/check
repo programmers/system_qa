@@ -1,4 +1,0 @@
-#!/bin/bash
-
-source /home/mvim/repo/nu/src/checks/lookup_vscode_extension.sh
-source /home/mvim/repo/nu/src/checks/lookup_general_package.sh

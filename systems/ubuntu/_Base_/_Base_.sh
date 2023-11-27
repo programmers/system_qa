@@ -2,12 +2,6 @@
 
 sudo apt-get update -y
 
-
-#JUST CALL STUFF IN SHARED OR WHATEVER
-#JUST CALL STUFF IN SHARED OR WHATEVER
-#JUST CALL STUFF IN SHARED OR WHATEVER
-    # state="required"
-
 # General dependencies
 sudo apt-get install -y curl \
                         ca-certificates \
