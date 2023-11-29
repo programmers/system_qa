@@ -9,8 +9,10 @@ docs["Helm"]="this is cool"
 
 if [ "$OS" = "ubuntu" ]; then
     selected_packages=(
+        # This will first of each: Cloud - IDK
         "AWS CLI"
         "Helm"
+
     )
 fi
 
