@@ -2,76 +2,60 @@
 
 ### ecosystems
 
-declare -A ecos
-ecos["--c_c++"]="C and C++"
-ecos["--cloud"]="Cloud"
-ecos["--containers_vm"]="Containers and VMs"
-ecos["--db_clients"]="Database Clients"
-ecos["--go"]="Go"
-ecos["--java"]="Java"
-ecos["--javascript_node"]="JavaScript and Node"
-ecos["--php"]="PHP"
-ecos["--python"]="Python"
-ecos["--ruby"]="Ruby"
-ecos["--rust"]="Rust"
-ecos["--version_control"]="Version Control"
-ecos["--web_tools"]="Web Tools"
+declare -A ecosystems
+ecosystems["--c_c++"]="C and C++"
+ecosystems["--cloud"]="Cloud"
+ecosystems["--containers_vm"]="Containers and VMs"
+ecosystems["--db_clients"]="Database Clients"
+ecosystems["--go"]="Go"
+ecosystems["--java"]="Java"
+ecosystems["--javascript_node"]="JavaScript and Node"
+ecosystems["--php"]="PHP"
+ecosystems["--python"]="Python"
+ecosystems["--ruby"]="Ruby"
+ecosystems["--rust"]="Rust"
+ecosystems["--version_control"]="Version Control"
+ecosystems["--web_tools"]="Web Tools"
 
-
-
-### Something here
 
 valid_args=true
-for arg in "$@"; do [ -z "${ecos[$arg]}" ] && valid_args=false; done
 
+for arg in "$@"; do
+    [ -z "${ecosystems[$arg]}" ] && valid_args=false
+done
 
 ## CLI screen
 
-if [ "$#" -eq 0 ] || [ "$valid_args" = false ]; then
 cat << EOF
-#=======================#
-#| Programmer's System |#
-#=======================#
+#=====================#
+# Programmer's System #
+#=====================#
 
-$(if [ "$valid_args" = false ]; then echo "ERROR!!! Invalid options"; fi)
-
-Welcome. Pass in your ecosystems with options below
+$(if [ "$valid_args" = false ]; then echo "ERROR!!!"; else echo "Welcome."; fi) Pass in your ecosystems with options below.
 
 Usage: ./progsys [ecosystems]
 
 Options:
-$(for eco_key in "${!ecos[@]}"; do
+$(for eco_key in "${!ecosystems[@]}"; do
     echo "  $eco_key"
 done)
 
 EOF
+
+if [ "$valid_args" = false ]; then
+    exit 1
 fi
 
+## Determine Mac or Linux distribution
 
-## asdfasdf 
-
-[ "$valid_args" = false ] && exit 1
-
-
-
-## asdfasdf asdf
-
-OS=""
-# Linux check
+ps_system=""
 if [ -e "/etc/os-release" ]; then
- 	OS=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
-# Mac
-elif [ "$(uname)" == "Darwin" ]; then
-	OS="macos"
-else
-	echo "ERROR: Unsupported operating system"
-	exit 1
+ 	ps_system=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
+elif [ "$(uname)" == "Darwin" ]; then 
+	ps_system="macos"
 fi
 
 
-ps_system=$OS
-
-## asdfasdf
 ps_root="$HOME/repo/"
 
 ps_check() { [ -e "$1" ]; }
@@ -80,195 +64,46 @@ export -f ps_check
 ps_exec()  { . "$ps_root$1"; }
 export -f ps_exec 
 
-export home="/home/$(whoami)/"
-export proj=$HOME/repo
-
 selected_flags=("$@")
 
-#READ IN FILE HERE
-#READ IN FILE HERE
-#READ IN FILE HERE
+mapfile -t lines < "$ps_root/systems/$ps_system/requirements.txt"
 
-# 1 hour
-timeout_duration=$((60 * 60))
+for line in "${lines[@]}"; do
+    if [[ $line =~ ^## ]]; then
+        current_section=$(echo "$line" | sed -n 's/## \(.*\) ##/\1/p')
+    elif [[ ! $line =~ ^[[:space:]]*$ ]]; then
+        section_name=$(echo "$current_section" | xargs)  # Trim leading/trailing whitespaces
 
-for selected_flag in selected_flags; do
-    flag_key="${selected_flags[$selected_flag]}"
-    ecos_key="${ecos[$flag_key]}"
+        for selected_flag in "${!selected_flags[@]}"; do
+            flag_key="${selected_flags[$selected_flag]}"
+            ecos_key="${ecosystems[$flag_key]}"
 
-    script_dir=$ps_root"systems/"$ps_system"/"$ecos_key
+            if [ "$current_section" == "$ecos_key" ]; then
+                eco_key="[$ecos_key]"
 
-    for script in "$script_dir"/*; do
-        echo "Executing script: $script"
-        # timeout "$timeout_duration" bash "$script" || echo "ERROR: cannot execute script: $script"
-    done
+                timeout_duration=$((60 * 60))
+
+                if [[ $line =~ ^# ]]; then
+                    echo -e "$eco_key Skipping ${line//#}..."
+                else
+                    line="${line//#}"
+
+                    echo -e "$eco_key Installing $line..."
+                    script="$ps_root""systems/$ps_system/$ecos_key/$line.sh"
+
+                    #timeout "$timeout_duration" bash "$script"
+                    exit_code=$?
+
+                    if [[ $exit_code -eq 124 ]]; then
+                        # Timeout occurred
+                        echo -e "$eco_key [$exit_code] Failed to install ${line}: Timeout..."
+                    elif [[ $exit_code -ne 0 ]]; then
+                        # Other errors
+                        echo -e "$eco_key [$exit_code] Failed to install ${line}..."
+                        #echo -e "$eco_key_red [$exit_code] Failed to install ${line//#}..."
+                    fi
+                fi
+            fi
+        done
+    fi
 done
-
-
-exit 1
-
-
-scripts=(
-    # Cloud
-    #"$proj/systems/ubuntu/Cloud/AWS CLI.sh"
-    #"$proj/systems/ubuntu/Cloud/Azure CLI.sh"
-    #"$proj/systems/ubuntu/Cloud/Digital Ocean CLI.sh"
-    #"$proj/systems/ubuntu/Cloud/Google Cloud CLI.sh"
-    #"$proj/systems/ubuntu/Cloud/Helm.sh"
-    #"$proj/systems/ubuntu/Cloud/Kubectl.sh"
-    #"$proj/systems/ubuntu/Cloud/Kubenetes_kind.sh"
-    #"$proj/systems/ubuntu/Cloud/Terraform.sh"
-
-    # _General
-    #"$proj/ubuntu/_General/_Base.sh"
-    #"$proj/ubuntu/_General/7Zip.sh"
-    #"$proj/ubuntu/_General/Docs2Unix.sh"
-    #"$proj/ubuntu/_General/Doom Emacs.sh"
-    #"$proj/ubuntu/_General/fd.sh"
-    #"$proj/ubuntu/_General/fzf.sh"
-    #"$proj/ubuntu/_General/htop.sh"
-    #"$proj/ubuntu/_General/jq.sh"
-    #"$proj/ubuntu/_General/ripgrep.sh"
-    #"$proj/ubuntu/_General/Screen.sh"
-    #"$proj/ubuntu/_General/SpaceVim.sh"
-    #"$proj/ubuntu/_General/Terminator.sh"
-    #"$proj/ubuntu/_General/thefuck.sh"
-    #"$proj/ubuntu/_General/tmux.sh"
-    #"$proj/ubuntu/_General/UnRAR.sh"
-    #"$proj/ubuntu/_General/VSCode Code Runner.sh"
-    #"$proj/ubuntu/_General/VSCode Intellicode.sh"
-    #"$proj/ubuntu/_General/VSCode Spellchecker.sh"
-
-    # C and C++
-    #"$proj/ubuntu/C and C++/Autoconf.sh"
-    #"$proj/ubuntu/C and C++/Automake.sh"
-    #"$proj/ubuntu/C and C++/Binutils.sh"
-    #"$proj/ubuntu/C and C++/Boost.sh"
-    #"$proj/ubuntu/C and C++/build-essential.sh"
-    #"$proj/ubuntu/C and C++/Clang LLVM.sh"
-    #"$proj/ubuntu/C and C++/CLion.sh"
-    #"$proj/ubuntu/C and C++/CMake.sh"
-    #"$proj/ubuntu/C and C++/Conan.sh"
-    #"$proj/ubuntu/C and C++/GDB.sh"
-    #"$proj/ubuntu/C and C++/Libtool.sh"
-    #"$proj/ubuntu/C and C++/Meson.sh"
-    #"$proj/ubuntu/C and C++/Ninja Build.sh"
-    #"$proj/ubuntu/C and C++/QT Creator.sh"
-    #"$proj/ubuntu/C and C++/Valgrind.sh"
-    #"$proj/ubuntu/C and C++/VSCode C++.sh"
-
-
-    # Containers and VMs
-    #"$proj/ubuntu/Containers and VMs/Docker Compose.sh"
-    #"$proj/ubuntu/Containers and VMs/Docker.sh"
-    #"$proj/ubuntu/Containers and VMs/QEMU KVM.sh"
-    #"$proj/ubuntu/Containers and VMs/Virtualbox.sh"
-    #"$proj/ubuntu/Containers and VMs/VSCode Docker.sh"
-    
-    # Database Clients
-    #"$proj/ubuntu/Database Clients/DataGrip.sh"
-    #"$proj/ubuntu/Database Clients/DBeaver.sh"
-    #"$proj/ubuntu/Database Clients/mycli.sh"
-    #"$proj/ubuntu/Database Clients/MySQL Workbench.sh"
-    #"$proj/ubuntu/Database Clients/pgAdmin Desktop.sh"
-    #"$proj/ubuntu/Database Clients/pgcli.sh"
-    #"$proj/ubuntu/Database Clients/Redis Commander.sh"
-    #"$proj/ubuntu/Database Clients/SQLite Browser.sh"
-    #"$proj/ubuntu/Database Clients/usql.sh"
-
-    # Go
-    #"$proj/ubuntu/Go/Goland.sh"
-    #"$proj/ubuntu/Go/Go.sh"
-    #"$proj/ubuntu/Go/Go Version Manager.sh"
-    #"$proj/ubuntu/Go/VSCode Go.sh"
-
-    # Java
-    #"$proj/ubuntu/Java/Ant.sh"
-    #"$proj/ubuntu/Java/Eclipse.sh"
-    #"$proj/ubuntu/Java/Gradle.sh"
-    #"$proj/ubuntu/Java/IntelliJ IDEA Community.sh"
-    #"$proj/ubuntu/Java/Ivy.sh"
-    #"$proj/ubuntu/Java/Maven.sh"
-    #"$proj/ubuntu/Java/SDKMAN Java Version Manager.sh"
-    #"$proj/ubuntu/Java/VSCode Java.sh"
-
-    # JavaScript and Node
-    #"$proj/ubuntu/JavaScript and Node/Nodemon.sh"
-    #"$proj/ubuntu/JavaScript and Node/Node TypeScript.sh"
-    #"$proj/ubuntu/JavaScript and Node/Node Version Manager.sh"
-    #"$proj/ubuntu/JavaScript and Node/VSCode ESLint.sh"
-    #"$proj/ubuntu/JavaScript and Node/VSCode JavaScript.sh"
-    #"$proj/ubuntu/JavaScript and Node/VSCode Node.sh"
-    #"$proj/ubuntu/JavaScript and Node/VSCode Path Intellisense.sh"
-    #"$proj/ubuntu/JavaScript and Node/VSCode Prettier.sh"
-    #"$proj/ubuntu/JavaScript and Node/VSCode TypeScript.sh"
-    #"$proj/ubuntu/JavaScript and Node/Yarn.sh"
-
-    # PHP
-    #"$proj/ubuntu/PHP/Composer.sh"
-    #"$proj/ubuntu/PHP/phpenv.sh"
-    #"$proj/ubuntu/PHP/PHP.sh"
-    #"$proj/ubuntu/PHP/PhpStorm.sh"
-    #"$proj/ubuntu/PHP/VSCode PHP.sh"
-
-    # Python
-    #"$proj/ubuntu/Python/Black.sh"
-    #"$proj/ubuntu/Python/Flake8.sh"
-    #"$proj/ubuntu/Python/IPython.sh"
-    #"$proj/ubuntu/Python/Pipenv.sh"
-    #"$proj/ubuntu/Python/pipx.sh"
-    #"$proj/ubuntu/Python/Poetry.sh"
-    #"$proj/ubuntu/Python/PyCharm.sh"
-    #"$proj/ubuntu/Python/pyenv.sh"
-    #"$proj/ubuntu/Python/VSCode Python.sh"
-
-    # Ruby
-    #"$proj/ubuntu/Ruby/Ruby.sh"
-    #"$proj/ubuntu/Ruby/RubyMine.sh"
-    #"$proj/ubuntu/Ruby/VSCode Ruby.sh"
-
-    # Rust
-    #"$proj/ubuntu/Rust/Rust.sh"
-    #"$proj/ubuntu/Rust/VSCode Rust.sh"
-
-    # Version Control
-    #"$proj/ubuntu/Version Control/CVS.sh"
-    #"$proj/ubuntu/Version Control/Git Cola.sh"
-    #"$proj/ubuntu/Version Control/Git Extras.sh"
-    #"$proj/ubuntu/Version Control/KDiff3.sh"
-    #"$proj/ubuntu/Version Control/Meld.sh"
-    #"$proj/ubuntu/Version Control/Mercurial.sh"
-    #"$proj/ubuntu/Version Control/Subversion.sh"
-
-    # Web
-    #"$proj/ubuntu/Web/Angular CLI.sh"
-    #"$proj/ubuntu/Web/Create React App.sh"
-    #"$proj/ubuntu/Web/insomnia.sh"
-    #"$proj/ubuntu/Web/localtunnel.sh"
-    #"$proj/ubuntu/Web/Local Web Server.sh"
-    #"$proj/ubuntu/Web/Mockoon.sh"
-    #"$proj/ubuntu/Web/ngrok.sh"
-    #"$proj/ubuntu/Web/Postman.sh"
-    #"$proj/ubuntu/Web/VSCode Angular.sh"
-    #"$proj/ubuntu/Web/VSCode CSS Peak.sh"
-    #"$proj/ubuntu/Web/VSCode ESLint.sh"
-    #"$proj/ubuntu/Web/VSCode Prettier.sh"
-    #"$proj/ubuntu/Web/VSCode React.sh"
-    #"$proj/ubuntu/Web/VSCode Svelte.sh"
-    #"$proj/ubuntu/Web/VSCode TypeScript.sh"
-    #"$proj/ubuntu/Web/VSCode Vue.sh"
-    #"$proj/ubuntu/Web/Vue CLI.sh"
-    #"$proj/ubuntu/Web/Webstorm.sh"
-)
-
-
-#for script in "${scripts[@]}"; do
-#    base_name=$(basename "$script" | sed 's/\..*//')
-
-#    echo "Installing $base_name..."
-#    if ! output=$(bash "$script" 2>&1 1>/dev/null); then
-#        echo "Installation of $script failed. Error output:"
-#        echo "$output"
-#    fi
-
-#done

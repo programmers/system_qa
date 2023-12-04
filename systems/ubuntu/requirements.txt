@@ -1,0 +1,138 @@
+## Cloud ##
+#AWS CLI
+Azure CLI
+Digital Ocean CLI
+Google Cloud CLI
+Helm
+Kubectl
+Kubernetes Kind
+Terraform
+
+
+## C and C++ ##
+Autoconf
+#Automake
+#Binutils
+#Boost
+#build-essential
+#Clang
+#CLion
+#CMake
+Conan
+GDB
+Libtool
+LLVM
+Meson
+Ninja Build
+QT Creator
+Valgrind
+VSCode C++
+
+
+## Containers and VMs ##
+Docker Compose
+Docker
+QEMU KVM
+Virtualbox
+VSCode Docker
+
+
+## Database Clients ##
+DataGrip
+DBeaver
+mycli
+MySQL Workbench
+pgAdmin Desktop
+pgcli
+Redis Commander
+SQLite Browser
+usql
+
+
+## Go ##
+Goland
+Go
+Go Version Manager
+VSCode Go
+
+## Java ##
+Ant
+Eclipse
+Gradle
+IntelliJ IDEA Community
+Ivy
+Maven
+SDKMAN Java Version Manager
+VSCode Java
+
+## JavaScript and Node ##
+Nodemon
+Node TypeScript
+Node Version Manager
+VSCode ESLint
+VSCode JavaScript
+VSCode Node
+VSCode Path Intellisense
+VSCode Prettier
+VSCode TypeScript
+Yarn
+
+## PHP ##
+Composer
+phpenv
+PHP
+PhpStorm
+VSCode PHP
+
+## Python ##
+Black
+Flake8
+IPython
+Pipenv
+pipx
+Poetry
+PyCharm
+pyenv
+VSCode Python
+
+
+## Ruby ##
+RubyMine
+Ruby
+VSCode Ruby
+
+
+## Rust ##
+Rust
+VSCode Rust
+
+
+## Version Control ##
+CVS
+Git Cola
+Git Extras
+KDiff3
+Meld
+Mercurial
+Subversion
+
+
+## Web Tools ##
+Angular CLI
+Create React App
+insomnia
+localtunnel
+Local Web Server
+Mockoon
+ngrok
+Postman
+VSCode Angular
+VSCode CSS Peak
+VSCode ESLint
+VSCode Prettier
+VSCode React
+VSCode Svelte
+VSCode TypeScript
+VSCode Vue
+Vue CLI
+Webstorm
