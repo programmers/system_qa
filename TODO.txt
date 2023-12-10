@@ -1,0 +1,6 @@
+. Numbering system
+. Test out the script runner (try/catch)?
+. Check my setup guide
+. New server
+. Fedora
+. README/Docs/gif

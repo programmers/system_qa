@@ -23,14 +23,14 @@ valid_args() {
     done
 
     if [ "$valid_args" = false ]; then
-        print_invalid_args
+        show_cli_screen
         exit 1
     fi
 }
 
 ## Provide CLI guidance
-print_invalid_args() {
-    cat << EOF
+show_cli_screen() {
+cat << EOF
 Welcome. Pass in your ecosystems with options below.
 
 Usage: ./progsys [ecosystems]
@@ -55,6 +55,9 @@ detect_system() {
 
 exec_script() {
     script="$1"
+    
+    bash "/home/mvim/repo/systems/ubuntu/Rust/Rust.sh"
+   # bash "/home/mvim/repo/systems/ubuntu/JavaScript and Node/VSCode Path Intellisense.sh"
 
     if [ -e "$script" ]; then
         echo "exec_script::would run \"$script\"."
@@ -80,11 +83,11 @@ install_core_software() {
     local base_script="$ps_root/systems/$ps_system/_Base_/_Init_.sh"
     local base_lock_file="/var/run/progsys.lock"
 
-    if [ ! -e "$base_lock_file" ]; then
-        echo "Installing core software and dependencies"
-        exec_script "$base_script"
-        #touch "$base_lock_file"
-    fi
+    #if [ ! -e "$base_lock_file" ]; then
+    #    echo "Installing core software and dependencies"
+    #    exec_script "$base_script"
+    #    #touch "$base_lock_file"
+    #fi
 }
 
 ### Main installation logic
@@ -123,19 +126,20 @@ install_ecosystem() {
         exec_script "$script"
     fi
 }
-    # ARGS=("$@") # freeze original args
-    # if [ "$EUID" -ne 0 ]; then
-    #     sudo "$0" "${ARGS[@]}"
-    #     exit $?
-    # fi
 
 main() {
-    ### Standard nix approach for prompting user for sudo privileges
-    ARGS=("$@") && [ "$EUID" -ne 0 ] && sudo "$0" "${ARGS[@]}" && exit $?
+    # Nix approach for prompting user for sudo / preserve args
+    #ARGS=("$@") && [ "$EUID" -ne 0 ] && sudo "$0" "${ARGS[@]}" && exit $?
+    sudo -v
 
     valid_args "$@"
     detect_system
-    export ps_root="/home/$SUDO_USER/repo"
+    #export ps_root="/home/$SUDO_USER/repo"
+    export ps_root="/home/$(whoami)/repo"
+    # calls shared packages
+    exec() { . "$ps_root/$1"; }
+    export -f exec
+
     install_core_software
     install_ecosystems "$@"
 }

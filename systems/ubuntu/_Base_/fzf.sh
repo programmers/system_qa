@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$proj/check" && check "$HOME/usr/.fzf/bin" && return 0
+check "~/usr/.fzf/bin" && return 0
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 

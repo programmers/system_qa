@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$proj/check" && check "/usr/local/bin/thefuck" && return 0
+check "/usr/local/bin/thefuck" && return 0
 
 sudo -H pip install thefuck
 

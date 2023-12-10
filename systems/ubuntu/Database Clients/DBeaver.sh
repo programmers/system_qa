@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source "$proj/check" && check "/usr/bin/dbeaver" && return 0
+check "/usr/bin/dbeaver" && return 0
 
 trap "rm -rf dbeaver-ce.deb" EXIT
 

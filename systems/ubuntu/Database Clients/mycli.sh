@@ -2,4 +2,4 @@
 
 echo "mycli isnt working"
 
-. "/home/mvim/repo/nu/_shared/Database Clients/mycli.sh"
+exec "systems/shared/Database Clients/mycli.sh"

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-. "/home/mvim/repo/nu/_shared/Database Clients/Redis Commander.sh"
+exec "systems/shared/Database Clients/Redis Commander.sh"

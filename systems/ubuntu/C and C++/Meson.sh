@@ -1,3 +1,3 @@
 #!/bin/bash
 
-. "$proj/_shared/C and C++/Meson.sh"
+exec "systems/shared/C and C++/Meson.sh"

@@ -1,8 +1,8 @@
 #!/bin/bash
 
-sudo apt-get install -y emacs
+check "~/.config/emacs/bin/doom" && return 0
 
-source "$proj/check" && check "$HOME/.config/emacs/bin/doom" && return 0
+sudo apt-get install -y emacs
 
 git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
 

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-. "$proj/_shared/Containers and VMs/VSCode Docker.sh"
+exec "systems/shared/Containers and VMs/VSCode Docker.sh"

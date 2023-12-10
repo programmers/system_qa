@@ -1,5 +1,7 @@
 #!/bin/bash
 
+echo "docker is a mess"
+
 source /home/mvim/repo/nu/src/checks/lookup_general_package.sh
 
 if lookup_general_package "/usr/bin/docker"; then exit; fi

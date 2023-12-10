@@ -62,11 +62,11 @@ fi
 ### Since we are running as root, ensure home user is set
 export ps_root="/home/$SUDO_USER/repo/"
 
-ps_check() { [ -e "$1" ]; }
-export -f ps_check
+check() { [ -e "$1" ]; }
+export -f check
 
-ps_exec()  { . "$ps_root$1"; }
-export -f ps_exec 
+call()  { . "$ps_root$1"; }
+export -f call 
 
 base_script="$ps_root""systems/$ps_system/_Base_/_Init_.sh"
 base_installed_file="/var/run/programmers_system_installed"
