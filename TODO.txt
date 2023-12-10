@@ -1,4 +1,4 @@
-. Numbering system
+. underscores
 . Test out the script runner (try/catch)?
 . Check my setup guide
 . New server

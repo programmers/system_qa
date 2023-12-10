@@ -55,26 +55,23 @@ detect_system() {
 
 exec_script() {
     script="$1"
-    
-    bash "/home/mvim/repo/systems/ubuntu/Rust/Rust.sh"
-   # bash "/home/mvim/repo/systems/ubuntu/JavaScript and Node/VSCode Path Intellisense.sh"
+    log_file="/tmp/progsys.log"
 
-    if [ -e "$script" ]; then
-        echo "exec_script::would run \"$script\"."
-        
-        # Uncomment the following lines if you want to include timeout and exit code checks
-        # timeout_duration=$((60 * 60))
-        # timeout "$timeout_duration" bash "$script"
-        # exit_code=$?
+    if command -v timeout >/dev/null 2>&1; then
+        timeout_duration=$((60 * 60))
+        timeout "$timeout_duration" bash "$script"
+        exit_code=$?
 
-        # Uncomment the following lines if you want to check the exit code
-        # if [[ $exit_code -eq 124 ]]; then
-        #     echo -e "[$exit_code] Failed to run \"$script\": Timeout..."
-        # elif [[ $exit_code -ne 0 ]]; then
-        #     echo -e "[$exit_code] Failed to run \"$script\"..."
-        # fi
+        if [[ $exit_code -eq 124 ]]; then
+            echo -e "[$(date)] [$exit_code] Failed to run \"$script\": Timeout..." >> "$log_file"
+        elif [[ $exit_code -ne 0 ]]; then
+            echo -e "[$(date)] [$exit_code] Failed to run \"$script\"..." >> "$log_file"
+            # Continue...
+        else
+            echo -e "[$(date)] [$exit_code] Successfully ran \"$script\"" >> "$log_file"
+        fi
     else
-        echo "exec_script::script \"$script\" is missing."
+        echo "Error: 'timeout' command not found. Please install it." >> "$log_file"
     fi
 }
 
@@ -115,29 +112,29 @@ install_ecosystems() {
 
 ### Install specific ecosystem
 install_ecosystem() {
-    local eco_key="[$1]"
+    local eco_key="$1"
     local line="$2"
+
 
     if ! [[ $line =~ ^# ]]; then
         line="${line//#}"
-        echo -e "$eco_key Installing $line..."
-        script="$ps_root/systems/$ps_system/$1/$line.sh"
+        script=$(find "$ps_root/systems/$ps_system/$eco_key" -maxdepth 1 -type f -name "*$line*" -exec echo {} \;)
+        echo -e "[$eco_key] Installing $line..."
 
         exec_script "$script"
     fi
 }
 
 main() {
-    # Nix approach for prompting user for sudo / preserve args
-    #ARGS=("$@") && [ "$EUID" -ne 0 ] && sudo "$0" "${ARGS[@]}" && exit $?
-    sudo -v
+    sudo -v # Nix approach to prompting for sudo
 
     valid_args "$@"
     detect_system
-    #export ps_root="/home/$SUDO_USER/repo"
     export ps_root="/home/$(whoami)/repo"
+
     # calls shared packages
     exec() { . "$ps_root/$1"; }
+
     export -f exec
 
     install_core_software

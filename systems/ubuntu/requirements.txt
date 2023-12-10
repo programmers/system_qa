@@ -93,15 +93,15 @@ VSCode PHP
 
 
 ## Python ##
-Black
-Flake8
-IPython
+#Black
+#Flake8
+#IPython
 Pipenv
-pipx
-Poetry
-PyCharm
+#pipx
+#Poetry
+#PyCharm
 pyenv
-VSCode Python
+#VSCode Python
 
 
 ## Ruby ##
