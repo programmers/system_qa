@@ -1,7 +1,6 @@
 #!/bin/bash
 
-### ecosystems
-
+## Ecosystems (aka "ecos") array
 declare -A ecosystems
 ecosystems["--c_c++"]="C and C++"
 ecosystems["--cloud"]="Cloud"
@@ -17,21 +16,22 @@ ecosystems["--rust"]="Rust"
 ecosystems["--version_control"]="Version Control"
 ecosystems["--web_tools"]="Web Tools"
 
+valid_args() {
+    local valid_args=true
+    for arg in "$@"; do
+        [ -z "${ecosystems[$arg]}" ] && valid_args=false
+    done
 
-valid_args=true
+    if [ "$valid_args" = false ]; then
+        print_invalid_args
+        exit 1
+    fi
+}
 
-for arg in "$@"; do
-    [ -z "${ecosystems[$arg]}" ] && valid_args=false
-done
-
-## CLI screen
-
-cat << EOF
-#=====================#
-# Programmer's System #
-#=====================#
-
-$(if [ "$valid_args" = false ]; then echo "ERROR!!!"; else echo "Welcome."; fi) Pass in your ecosystems with options below.
+## Provide CLI guidance
+print_invalid_args() {
+    cat << EOF
+Welcome. Pass in your ecosystems with options below.
 
 Usage: ./progsys [ecosystems]
 
@@ -41,69 +41,103 @@ $(for eco_key in "${!ecosystems[@]}"; do
 done)
 
 EOF
+}
 
-if [ "$valid_args" = false ]; then
-    exit 1
-fi
-
-## Determine Mac or Linux distribution
-
-ps_system=""
-if [ -e "/etc/os-release" ]; then
- 	ps_system=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
-elif [ "$(uname)" == "Darwin" ]; then 
-	ps_system="macos"
-fi
-
-
-ps_root="$HOME/repo/"
-
-ps_check() { [ -e "$1" ]; }
-export -f ps_check
-
-ps_exec()  { . "$ps_root$1"; }
-export -f ps_exec 
-
-selected_flags=("$@")
-
-mapfile -t lines < "$ps_root/systems/$ps_system/requirements.txt"
-
-for line in "${lines[@]}"; do
-    if [[ $line =~ ^## ]]; then
-        current_section=$(echo "$line" | sed -n 's/## \(.*\) ##/\1/p')
-    elif [[ ! $line =~ ^[[:space:]]*$ ]]; then
-        section_name=$(echo "$current_section" | xargs)  # Trim leading/trailing whitespaces
-
-        for selected_flag in "${!selected_flags[@]}"; do
-            flag_key="${selected_flags[$selected_flag]}"
-            ecos_key="${ecosystems[$flag_key]}"
-
-            if [ "$current_section" == "$ecos_key" ]; then
-                eco_key="[$ecos_key]"
-
-                timeout_duration=$((60 * 60))
-
-                if [[ $line =~ ^# ]]; then
-                    echo -e "$eco_key Skipping ${line//#}..."
-                else
-                    line="${line//#}"
-
-                    echo -e "$eco_key Installing $line..."
-                    script="$ps_root""systems/$ps_system/$ecos_key/$line.sh"
-
-                    #timeout "$timeout_duration" bash "$script"
-                    exit_code=$?
-
-                    if [[ $exit_code -eq 124 ]]; then
-                        # Timeout occurred
-                        echo -e "$eco_key [$exit_code] Failed to install ${line}: Timeout..."
-                    elif [[ $exit_code -ne 0 ]]; then
-                        # Other errors
-                        echo -e "$eco_key [$exit_code] Failed to install ${line}..."
-                        #echo -e "$eco_key_red [$exit_code] Failed to install ${line//#}..."
-                    fi
-                fi
-            fi
-        done
+## Determines OS: Ubuntu, Fedora, Mac, etc
+detect_system() {
+    if [ -e "/etc/os-release" ]; then
+        ps_system=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
+    elif [ "$(uname)" == "Darwin" ]; then 
+        ps_system="macos"
     fi
-done
+}
+
+
+exec_script() {
+    script="$1"
+
+    if [ -e "$script" ]; then
+        echo "exec_script::would run \"$script\"."
+        
+        # Uncomment the following lines if you want to include timeout and exit code checks
+        # timeout_duration=$((60 * 60))
+        # timeout "$timeout_duration" bash "$script"
+        # exit_code=$?
+
+        # Uncomment the following lines if you want to check the exit code
+        # if [[ $exit_code -eq 124 ]]; then
+        #     echo -e "[$exit_code] Failed to run \"$script\": Timeout..."
+        # elif [[ $exit_code -ne 0 ]]; then
+        #     echo -e "[$exit_code] Failed to run \"$script\"..."
+        # fi
+    else
+        echo "exec_script::script \"$script\" is missing."
+    fi
+}
+
+### Core software/dependencies ("base" script) - ran only once
+install_core_software() {
+    local base_script="$ps_root/systems/$ps_system/_Base_/_Init_.sh"
+    local base_lock_file="/var/run/progsys.lock"
+
+    if [ ! -e "$base_lock_file" ]; then
+        echo "Installing core software and dependencies"
+        exec_script "$base_script"
+        #touch "$base_lock_file"
+    fi
+}
+
+### Main installation logic
+install_ecosystems() {
+    local selected_flags=("$@")
+
+    mapfile -t lines < "$ps_root/systems/$ps_system/requirements.txt"
+
+    for line in "${lines[@]}"; do
+        if [[ $line =~ ^## ]]; then
+            current_section=$(echo "$line" | sed -n 's/## \(.*\) ##/\1/p')
+        elif [[ ! $line =~ ^[[:space:]]*$ ]]; then
+            section_name=$(echo "$current_section" | xargs)  # Trim leading/trailing whitespaces
+            for selected_flag in "${!selected_flags[@]}"; do
+                flag_key="${selected_flags[$selected_flag]}"
+                ecos_key="${ecosystems[$flag_key]}"
+
+                if [ "$current_section" == "$ecos_key" ]; then
+                    install_ecosystem "$ecos_key" "$line"
+                fi
+            done
+        fi
+    done
+}
+
+### Install specific ecosystem
+install_ecosystem() {
+    local eco_key="[$1]"
+    local line="$2"
+
+    if ! [[ $line =~ ^# ]]; then
+        line="${line//#}"
+        echo -e "$eco_key Installing $line..."
+        script="$ps_root/systems/$ps_system/$1/$line.sh"
+
+        exec_script "$script"
+    fi
+}
+    # ARGS=("$@") # freeze original args
+    # if [ "$EUID" -ne 0 ]; then
+    #     sudo "$0" "${ARGS[@]}"
+    #     exit $?
+    # fi
+
+main() {
+    ### Standard nix approach for prompting user for sudo privileges
+    ARGS=("$@") && [ "$EUID" -ne 0 ] && sudo "$0" "${ARGS[@]}" && exit $?
+
+    valid_args "$@"
+    detect_system
+    export ps_root="/home/$SUDO_USER/repo"
+    install_core_software
+    install_ecosystems "$@"
+}
+
+main "$@"

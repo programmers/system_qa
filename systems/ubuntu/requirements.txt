@@ -1,12 +1,12 @@
 ## Cloud ##
 #AWS CLI
 Azure CLI
-Digital Ocean CLI
-Google Cloud CLI
-Helm
-Kubectl
-Kubernetes Kind
-Terraform
+#Digital Ocean CLI
+#Google Cloud CLI
+#Helm
+#Kubectl
+#Kubernetes Kind
+#Terraform
 
 
 ## C and C++ ##
@@ -55,6 +55,8 @@ Go
 Go Version Manager
 VSCode Go
 
+
+
 ## Java ##
 Ant
 Eclipse
@@ -64,6 +66,8 @@ Ivy
 Maven
 SDKMAN Java Version Manager
 VSCode Java
+
+
 
 ## JavaScript and Node ##
 Nodemon
@@ -77,12 +81,16 @@ VSCode Prettier
 VSCode TypeScript
 Yarn
 
+
+
 ## PHP ##
 Composer
 phpenv
 PHP
 PhpStorm
 VSCode PHP
+
+
 
 ## Python ##
 Black
