@@ -1,0 +1,146 @@
+#!/bin/bash
+
+## Ecosystems array (aka "ecos")
+declare -A ecosystems
+ecosystems["--python"]="Python"
+ecosystems["--cloud"]="Cloud"
+ecosystems["--containers_vm"]="Containers and VMs"
+ecosystems["--db_clients"]="Database Clients"
+ecosystems["--javascript_node"]="JavaScript and Node"
+ecosystems["--web_tools"]="Web Tools"
+ecosystems["--java"]="Java"
+ecosystems["--c_c++"]="C and C++"
+ecosystems["--go"]="Go"
+ecosystems["--version_control"]="Version Control"
+ecosystems["--php"]="PHP"
+ecosystems["--ruby"]="Ruby"
+ecosystems["--rust"]="Rust"
+
+check_args() {
+    local valid_args=true
+    for arg in "$@"; do
+        [ -z "${ecosystems[$arg]}" ] && valid_args=false
+    done
+
+    if [ "$valid_args" = false ]; then
+        show_cli_screen
+        exit 1
+    fi
+}
+
+## Provide CLI guidance
+show_cli_screen() {
+cat << EOF
+Welcome. Pass in your ecosystems with options below.
+
+Usage: ./system [ecosystems]
+
+Options:
+$(for eco_key in "${!ecosystems[@]}"; do
+    echo "  $eco_key"
+done)
+
+EOF
+}
+
+## Determines OS: Ubuntu, Fedora, Mac, etc
+detect_system() {
+    if [ -e "/etc/os-release" ]; then
+        ps_system=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
+    elif [ "$(uname)" == "Darwin" ]; then 
+        ps_system="macos"
+    fi
+}
+
+exec_script() {
+    script="$1"
+    log="/tmp/progsys.log"
+
+    timeout_duration=$((60 * 60))
+    #timeout "$timeout_duration" bash "$script" > /dev/null 2>&1
+
+    # probably this one vvv
+    #timeout "$timeout_duration" bash -c "$script" > /dev/null 2>&1
+    exit_code=$?
+
+    echo $script
+
+    # if [[ $exit_code -ne 0 ]]; then
+    #     echo -e "[$(date)] [$exit_code] Failed to run \"$script\"..." >> "$log"
+    #     echo "ERROR. Check "$log
+    #     echo "Attempting to continue..."
+    # fi
+}
+
+install_core_software() {
+    local base_directory="$ps_root/systems/$ps_system/_Base_"
+    local base_lock_file="/var/run/progsys.lock"
+    local base_init_script=$base_directory"/_Init_.sh"
+
+    if [ ! -e "$base_lock_file" ]; then
+        exec_script $base_init_script
+
+        for script in "$base_directory"/*; do
+            if [ $script != "$base_init_script" ]; then
+                exec_script $base_script
+            fi
+        done
+
+        touch "$base_lock_file"
+    fi
+}
+
+### Main installation logic
+install_ecosystems() {
+    local selected_flags=("$@")
+
+    mapfile -t lines < "$ps_root/systems/$ps_system/requirements.txt"
+
+    for line in "${lines[@]}"; do
+        if [[ $line =~ ^## ]]; then
+            current_ecosystem=$(echo "$line" | sed -n 's/## \(.*\) ##/\1/p')
+        elif [[ ! "$line" =~ ^[[:space:]]*$ && ! "$line" =~ ^# ]]; then
+            for selected_flag in "${!selected_flags[@]}"; do
+                flag_key="${selected_flags[$selected_flag]}"
+                ecos_key="${ecosystems[$flag_key]}"
+
+                if [ "$current_ecosystem" == "$ecos_key" ]; then
+                   install_ecosystem "$ecos_key" "$line"
+                fi
+            done
+        fi
+    done
+}
+
+### Install specific ecosystem
+install_ecosystem() {
+    local eco_key="$1"
+    local line="$2"
+
+    if ! [[ $line =~ ^# ]]; then
+        santized_line=$(echo "$line" | sed 's/ /_/g')
+
+        script=$(find "$ps_root/systems/$ps_system/$eco_key" -maxdepth 1 -type f -name "???_${santized_line}.sh")
+
+        exec_script "$script"
+    fi
+}
+
+main() {
+    sudo -v # Nix approach to prompt for sudo
+
+    check_args "$@"
+    detect_system
+    export ps_root="/home/$(whoami)/repo"
+
+    # calls shared packages
+    exec() { . "$ps_root/$1"; }
+    export -f exec
+
+    #install_core_software
+
+    install_ecosystems "$@"
+}
+
+
+main "$@"

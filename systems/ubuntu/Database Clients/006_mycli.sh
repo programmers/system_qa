@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "mycli isnt working"
+echo "TODO::Database Clients - Cant install mycli"
 
 exec "systems/shared/Database Clients/mycli.sh"

@@ -1,5 +1,20 @@
-. Test out the script runner (try/catch)?
 . Check my setup guide
 . New server
 . Fedora
 . README/Docs/gif
+
+
+
+os: linux
+dist: focal  # Ubuntu 20.04 LTS
+
+language: generic  # Set to 'generic' if your build doesn't rely on a specific language
+
+before_install:
+  - sudo apt-get update
+  - sudo apt-get install -y your-package-1 your-package-2  # Install the packages you need for your build
+
+script:
+  - ./your-build-script.sh  # Execute your build script or commands
+
+# Additional configuration or deployment steps can be added as needed

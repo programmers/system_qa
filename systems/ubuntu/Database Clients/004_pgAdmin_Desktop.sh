@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Cant install pgAdmin Desktop"
+echo "TODO::Database Clients - can't install pgAdmin Desktop"
 
 #sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add -
 #echo "deb https://www.pgadmin.org/download/repo/ubuntu/ jammy pgadmin4 main" | sudo tee /etc/apt/sources.list.d/pgadmin4.list

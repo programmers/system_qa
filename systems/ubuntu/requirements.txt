@@ -1,146 +1,141 @@
+## Python ##
+pyenv
+Poetry
+pipx
+PyCharm
+IPython
+Black
+Flake8
+VSCode Python
+
+
 ## Cloud ##
 #AWS CLI
-Azure CLI
-#Digital Ocean CLI
+#Azure CLI
 #Google Cloud CLI
-#Helm
-#Kubectl
+#Digital Ocean CLI
 #Kubernetes Kind
+#Kubectl
+#Helm
 #Terraform
 
 
-## C and C++ ##
-Autoconf
-#Automake
-#Binutils
-#Boost
-#build-essential
-#Clang
-#CLion
-#CMake
-Conan
-GDB
-Libtool
-LLVM
-Meson
-Ninja Build
-QT Creator
-Valgrind
-VSCode C++
-
-
 ## Containers and VMs ##
-Docker Compose
-Docker
-QEMU KVM
-Virtualbox
-VSCode Docker
+#Virtualbox
+#QEMU KVM
+#Docker
+#Docker Compose
+#VSCode Docker
 
 
 ## Database Clients ##
+#MySQL Workbench
+#DBeaver
 DataGrip
-DBeaver
-mycli
-MySQL Workbench
-pgAdmin Desktop
-pgcli
-Redis Commander
-SQLite Browser
-usql
-
-
-## Go ##
-Goland
-Go
-Go Version Manager
-VSCode Go
-
-
-
-## Java ##
-Ant
-Eclipse
-Gradle
-IntelliJ IDEA Community
-Ivy
-Maven
-SDKMAN Java Version Manager
-VSCode Java
-
+#pgAdmin Desktop
+#pgcli
+#mycli
+#SQLite Browser
+#Redis Commander
+#usql
 
 
 ## JavaScript and Node ##
-Nodemon
-Node TypeScript
-Node Version Manager
-VSCode ESLint
-VSCode JavaScript
-VSCode Node
-VSCode Path Intellisense
-VSCode Prettier
-VSCode TypeScript
-Yarn
+#Node Version Manager
+#Node TypeScript
+#Nodemon
+#Yarn
+#VSCode Node
+#VSCode JavaScript
+#VSCode TypeScript
+#VSCode ESLint
+#VSCode Prettier
+#VSCode Path Intellisense
 
+
+## Web Tools ##
+#Angular CLI
+#Create React App
+#Vue CLI
+#Webstorm
+#Postman
+#ngrok
+#localtunnel
+#Local Web Server
+#Mockoon
+#insomnia
+#VSCode Angular
+#VSCode Vue
+#VSCode React
+#VSCode Svelte
+#VSCode TypeScript
+#VSCode Prettier
+#VSCode ESLint
+#VSCode CSS Peak
+
+
+## Java ##
+#SDKMAN Java Version Manager
+#Eclipse
+#IntelliJ IDEA Community
+#Maven
+#Gradle
+#Ivy
+#Ant
+#VSCode Java
+
+
+## C and C++ ##
+#build-essential
+#Binutils
+#Autoconf
+#Automake
+#Libtool
+#Clang
+#CMake
+#LLVM
+#Boost
+#Ninja Build
+#Valgrind
+#GDB
+#CLion
+#Conan
+#Meson
+#QT Creator
+#VSCode C++
+
+
+## Go ##
+#Go
+#Goland
+#Go Version Manager
+#VSCode Go
+
+
+## Version Control ##
+Git Extras
+#Git Cola
+#Mercurial
+#Subversion
+#CVS
+#KDiff3
+#Meld
 
 
 ## PHP ##
-Composer
-phpenv
-PHP
-PhpStorm
-VSCode PHP
-
-
-
-## Python ##
-#Black
-#Flake8
-IPython
-#Pipenv
-#pipx
-#Poetry
-#PyCharm
-#pyenv
-#VSCode Python
+#PHP
+#Composer
+#phpenv
+#PhpStorm
+#VSCode PHP
 
 
 ## Ruby ##
-RubyMine
 Ruby
+RubyMine
 VSCode Ruby
 
 
 ## Rust ##
-Rust
+#Rust
 VSCode Rust
-
-
-## Version Control ##
-CVS
-Git Cola
-Git Extras
-KDiff3
-Meld
-Mercurial
-Subversion
-
-
-## Web Tools ##
-Angular CLI
-Create React App
-insomnia
-localtunnel
-Local Web Server
-Mockoon
-ngrok
-Postman
-VSCode Angular
-VSCode CSS Peak
-VSCode ESLint
-VSCode Prettier
-VSCode React
-VSCode Svelte
-VSCode TypeScript
-VSCode Vue
-Vue CLI
-Webstorm

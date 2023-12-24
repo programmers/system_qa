@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Insomnia is not ready"
+echo "TODO::Web Tools - Insomnia is not installing"
 
 trap "rm insomnia.deb" EXIT
 

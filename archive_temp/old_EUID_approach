@@ -1,5 +1,0 @@
-    # ARGS=("$@") # freeze original args
-    # if [ "$EUID" -ne 0 ]; then
-    #     sudo "$0" "${ARGS[@]}"
-    #     exit $?
-    # fi

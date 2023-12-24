@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "docker is a mess"
+echo "TODO::Containers and VMs - clean up Docker script"
 
 source /home/mvim/repo/nu/src/checks/lookup_general_package.sh
 
