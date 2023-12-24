@@ -1,5 +1,11 @@
+sudo adduser mvim
+sudo usermod -aG sudo mvim
+
+su - myuserhere
+
 sudo apt update -y
 sudo apt-get upgrade -y --fix-missing
+
 sudo apt-get install git vim
 
 git config --global user.name "Matthew Vita"
