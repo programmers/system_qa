@@ -1,6 +1,6 @@
 #!/bin/bash
 
-check "/usr/bin/usql" && return 0
+sys_check /usr/bin/usql && exit 0
 
 trap "rm usql_archive" EXIT
 

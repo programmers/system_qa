@@ -1,6 +1,6 @@
 #!/bin/bash
 
-check "~/.local/bin/poetry" && return 0
+sys_check ~/.local/bin/poetry && exit 0
 
 curl -sSL https://install.python-poetry.org | python3 -
 

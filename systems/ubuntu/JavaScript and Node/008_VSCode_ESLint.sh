@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/JavaScript and Node/VSCode ESLint.sh"
+exec "systems/shared/JavaScript and Node/VSCode_ESLint.sh"

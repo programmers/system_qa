@@ -1,0 +1,279 @@
+#!/bin/bash
+
+## Ecosystems array (aka "ecos")
+declare -A ecosystems
+ecosystems["--python"]="Python"
+ecosystems["--cloud"]="Cloud"
+ecosystems["--containers_vm"]="Containers and VMs"
+ecosystems["--db_clients"]="Database Clients"
+ecosystems["--javascript_node"]="JavaScript and Node"
+ecosystems["--web_tools"]="Web Tools"
+ecosystems["--java"]="Java"
+ecosystems["--c_c++"]="C and C++"
+ecosystems["--go"]="Go"
+ecosystems["--version_control"]="Version Control"
+ecosystems["--php"]="PHP"
+ecosystems["--ruby"]="Ruby"
+ecosystems["--rust"]="Rust"
+
+check_args() {
+    local valid_args=true
+    for arg in "$@"; do
+        [ -z "${ecosystems[$arg]}" ] && valid_args=false
+    done
+
+    if [ "$valid_args" = false ]; then
+        show_cli_screen
+        exit 1
+    fi
+}
+
+## Provide CLI guidance
+show_cli_screen() {
+cat << EOF
+Welcome. Pass in your ecosystems with options below.
+
+Usage: ./sys --install
+       ./sys [ecosystems]
+    
+
+Options:
+$(for eco_key in "${!ecosystems[@]}"; do
+    echo "  $eco_key"
+done)
+
+EOF
+}
+
+## Determines OS: Ubuntu, Fedora, Mac, etc
+detect_system() {
+    if [ -e "/etc/os-release" ]; then
+        ps_system=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
+    elif [ "$(uname)" == "Darwin" ]; then 
+        ps_system="macos"
+    fi
+}
+
+exec_script() {
+    #script="$1"
+
+    # escaped path
+    script=$(echo "$1" | sed 's/ /\\ /g')
+
+    log="/tmp/progsys.log"
+
+    #timeout "$timeout_duration" bash "$script" > /dev/null 2>&1
+
+    # probably this one vvv
+    #timeout_duration=$((60 * 60))
+    #timeout "$timeout_duration" bash -c "$script" > /dev/null 2>&1
+
+
+    echo "is empty: $script"
+    echo "$script"
+    #bash -c "$script"
+    bash -c "$script" #> /dev/null 2>&1
+#    bash -c "$script" 2>&1 >/dev/null | grep -iE '\b(error|fail|exception|already)\b'
+    #bash -c "$script" 2>&1 | grep -iE '(error|fail|exception|already)'
+
+
+    #bash "$script"
+    exit_code=$?
+
+    if [[ $exit_code -ne 0 ]]; then
+        echo -e "[$(date)] [$exit_code] Failed to run \"$script\"..." >> "$log"
+        echo "ERROR. Check "$log
+        echo "Attempting to continue..."
+    fi
+
+    echo "exit is $exit_code"
+    echo "exit is $exit_code"
+    echo "exit is $exit_code"
+}
+
+install_core_software() {
+    local base_directory="$ps_root/systems/$ps_system/_Base_"
+    local base_lock_file="/var/run/progsys.lock"
+    local base_init_script=$base_directory"/_Init_.sh"
+
+    if [ ! -e "$base_lock_file" ]; then
+        exec_script "$base_init_script"
+
+        for script in "$base_directory"/*; do
+            if [ $script != "$base_init_script" ]; then
+                exec_script "$script"
+            fi
+        done
+
+        touch "$base_lock_file"
+    fi
+}
+
+### Main installation logic
+install_ecosystems() {
+    local selected_flags=("$@")
+
+    mapfile -t lines < "$ps_root/systems/$ps_system/requirements.txt"
+
+    for line in "${lines[@]}"; do
+        if [[ $line =~ ^## ]]; then
+            current_ecosystem=$(echo "$line" | sed -n 's/## \(.*\) ##/\1/p')
+        elif [[ ! "$line" =~ ^[[:space:]]*$ && ! "$line" =~ ^# ]]; then
+            for selected_flag in "${!selected_flags[@]}"; do
+                flag_key="${selected_flags[$selected_flag]}"
+                ecos_key="${ecosystems[$flag_key]}"
+
+                if [ "$current_ecosystem" == "$ecos_key" ]; then
+                   install_ecosystem "$ecos_key" "$line"
+                fi
+            done
+        fi
+    done
+}
+
+### Install specific ecosystem
+install_ecosystem() {
+    local eco_key="$1"
+    local line="$2"
+
+    if ! [[ $line =~ ^# ]]; then
+        santized_line=$(echo "$line" | sed 's/ /_/g')
+
+        script=$(find "$ps_root/systems/$ps_system/$eco_key" -maxdepth 1 -type f -name "???_${santized_line}.sh")
+
+        exec_script "$script"
+    fi
+}
+
+main() {
+    sudo -v # prompt for sudo (unix-like standard)
+
+    check_args "$@"
+    detect_system
+    export ps_root="/home/$(whoami)/system"
+
+    sys_check() {
+        local package=$1
+
+        echo $package
+
+        if [ -e "$package" ] && [ -d "$package" ]; then
+            return 0
+        elif [ -e "$package" ]; then
+            return 0
+        else
+            return 1
+        fi
+    }
+    export -f sys_check
+
+
+
+    check() {
+        local package=$1
+
+        echo $package
+
+        if [ -e "$package" ]; then
+            return 0
+        else
+            return 1
+        fi
+    }
+    export -f check
+
+    # calls shared packages
+    exec() { . "$ps_root/$1"; }
+    export -f exec
+
+    # /home/mvim/system/systems/ubuntu/_Base_/_Init_.sh: line 31: pa: command not found
+
+    # This script, located at https://deb.nodesource.com/setup_X, used to
+    # install Node.js is deprecated now and will eventually be made inactive.
+
+    # Please visit the NodeSource distributions Github and follow the
+    # instructions to migrate your repo.
+    # https://github.com/nodesource/distributions
+
+
+    # yes | ~/.config/emacs/bin/doom -y install
+
+    # No VM guests are running outdated hypervisor (qemu) binaries on this host.
+    # Cloning into '/home/mvim/.config/emacs'...
+    # remote: Enumerating objects: 1166, done.
+    # remote: Counting objects: 100% (1166/1166), done.
+    # remote: Compressing objects: 100% (1047/1047), done.
+    # remote: Total 1166 (delta 90), reused 528 (delta 76), pack-reused 0
+    # Receiving objects: 100% (1166/1166), 1.14 MiB | 6.91 MiB/s, done.
+    # Resolving deltas: 100% (90/90), done.
+
+    # Error: unknown option -y
+
+
+#     TO AVOID THIS WAIT MIGRATE THE SCRIPT
+# Continuing in 60 seconds (press Ctrl-C to abort) ...
+
+
+## Installing the NodeSource Node.js 20.x repo...
+
+
+## Populating apt-get cache...
+
+# + apt-get update
+# Reading package lists... Done
+# E: Could not open lock file /var/lib/apt/lists/lock - open (13: Permission denied)
+# E: Unable to lock directory /var/lib/apt/lists/
+# W: Problem unlinking the file /var/cache/apt/pkgcache.bin - RemoveCaches (13: Permission denied)
+# W: Problem unlinking the file /var/cache/apt/srcpkgcache.bin - RemoveCaches (13: Permission denied)
+# Error executing command, exiting
+# E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+# E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+#   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+#                                  Dload  Upload   Total   Spent    Left  Speed
+# 100   983  100   983    0     0   7875      0 --:--:-- --:--:-- --:--:--  7927
+# Hit:1 https://packages.microsoft.com/repos/vscode stable InRelease
+
+
+    # it looks like stuff is looping!
+    # it looks like stuff is looping!
+    # it looks like stuff is looping!
+    # it looks like stuff is looping!
+    # it looks like stuff is looping!
+    # it looks like stuff is looping!
+
+# Selecting previously unselected package sqlitebrowser.
+# YOU NEED TO SUPPLY NO UI OR SOMETHING
+# Processing triggers for mailcap (3.70+nmu1ubuntu1) ...
+# debconf: unable to initialize frontend: Dialog
+# debconf: (Dialog frontend requires a screen at least 13 lines tall and 31 columns wide.)
+# debconf: falling back to frontend: Readline
+# Scanning processes...                                                                                              
+# Scanning linux images...                                                                                           
+
+# did insomnia actually install?
+
+# is busted: /home/mvim/system/systems/shared/Java/SDKMAN_Java_Version_Manager.sh 
+    # probably how the ~./ are in strings
+
+    #/home/mvim/system/systems/ubuntu/Java/008_VSCode_Java.sh
+# Installing extensions...
+# Extension 'vscjava.vscode-java-pack' v0.25.15 is already installed. Use '--force' option to update to latest version or provide '@<version>' to install a specific version, for example: 'vscjava.vscode-java-pack@1.2.3'.
+# exit is 0
+# exit is 0
+# exit is 0
+# ./sys: line 268: syntax error near unexpected token `}'
+# ./sys: line 268: `}'
+
+
+# php breaks right from the start
+# Cloning into '/home/mvim/.phpenv/plugins/php-build'...
+# fatal: cannot exec '/root/.vscode-server/bin/2ccd690cbff1569e4a83d7c43d45101f817401dc/extensions/git/dist/askpass.sh': Permission denied
+# Username for 'https://github.com': 
+
+    #install_core_software
+
+    install_ecosystems "$@"
+}
+
+
+main "$@"

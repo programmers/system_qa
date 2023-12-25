@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/PHP/VSCode PHP.sh"
+exec "systems/shared/PHP/VSCode_PHP.sh"

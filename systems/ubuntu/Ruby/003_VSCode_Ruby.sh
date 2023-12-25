@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/Ruby/VSCode Ruby.sh"
+exec "systems/shared/Ruby/VSCode_Ruby.sh"

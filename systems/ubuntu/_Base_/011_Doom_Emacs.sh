@@ -1,6 +1,6 @@
 #!/bin/bash
 
-check "~/.config/emacs/bin/doom" && return 0
+check ~/.config/emacs/bin/doom && exit 0
 
 sudo apt-get install -y emacs
 

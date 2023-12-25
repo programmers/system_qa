@@ -1,6 +1,6 @@
 #!/bin/bash
 
-check "~/.pyenv/bin/pyenv" && return 0
+sys_check ~/.pyenv/bin/pyenv && exit 0
 
 curl https://pyenv.run | bash
 

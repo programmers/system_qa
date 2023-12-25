@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/Go/VSCode Go.sh"
+exec "systems/shared/Go/VSCode_Go.sh"

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/Cloud/AWS CLI.sh"
+exec "systems/shared/Cloud/AWS_CLI.sh"

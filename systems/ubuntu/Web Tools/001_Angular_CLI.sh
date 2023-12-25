@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/Web Tools/Angular CLI.sh"
+exec "systems/shared/Web Tools/Angular_CLI.sh"

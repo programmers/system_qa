@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/Web Tools/VSCode TypeScript.sh"
+exec "systems/shared/Web Tools/VSCode_TypeScript.sh"

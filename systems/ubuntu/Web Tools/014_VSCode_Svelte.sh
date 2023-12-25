@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/Web Tools/VSCode Svelte.sh"
+exec "systems/shared/Web Tools/VSCode_Svelte.sh"

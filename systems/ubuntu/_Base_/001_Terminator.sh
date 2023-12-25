@@ -1,5 +1,5 @@
 #!/bin/bash
 
-check "/usr/bin/terminator" && return 0
+sys_check /usr/bin/terminator && exit 0
 
 sudo apt-get install -y terminator

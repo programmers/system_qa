@@ -1,6 +1,6 @@
 #!/bin/bash
 
-check "~/usr/.fzf/bin" && return 0
+sys_check ~/usr/.fzf/bin && exit 0
 
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 

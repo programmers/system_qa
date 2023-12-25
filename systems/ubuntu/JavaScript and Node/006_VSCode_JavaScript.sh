@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/JavaScript and Node/VSCode JavaScript.sh"
+exec "systems/shared/JavaScript and Node/VSCode_JavaScript.sh"

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-check "/usr/local/bin/thefuck" && return 0
+check /usr/local/bin/thefuck && exit 0
 
 sudo -H pip install thefuck
 

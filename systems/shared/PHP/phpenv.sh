@@ -1,6 +1,6 @@
 #!/bin/bash
 
-check "~/.phpenv" && return 0
+sys_check ~/.phpenv && exit 0
 
 git clone https://github.com/phpenv/phpenv.git ~/.phpenv
 

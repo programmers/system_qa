@@ -1,6 +1,6 @@
 #!/bin/bash
 
-check "/usr/local/go/bin" && return 0
+sys_check /usr/local/go/bin && exit 0
 
 trap "rm /usr/local/go/bin" EXIT
 

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/JavaScript and Node/Node TypeScript.sh"
+exec "systems/shared/JavaScript and Node/Node_TypeScript.sh"

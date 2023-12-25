@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/Python/VSCode Python.sh"
+exec "systems/shared/Python/VSCode_Python.sh"

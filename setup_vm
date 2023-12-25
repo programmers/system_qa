@@ -6,7 +6,7 @@ su - myuserhere
 sudo apt update -y
 sudo apt-get upgrade -y --fix-missing
 
-sudo apt-get install git vim
+sudo apt-get install git vim nodejs npm
 
 git config --global user.name "Matthew Vita"
 git config --global user.email "matthewvita48@gmail.com"

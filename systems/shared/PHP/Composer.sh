@@ -1,6 +1,6 @@
 #!/bin/bash
 
-check "/usr/local/bin/composer" && return 0
+sys_check /usr/local/bin/composer && exit 0
 
 trap "rm composer-setup.php" EXIT
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-check "/usr/bin/dbeaver" && return 0
+sys_check /usr/bin/dbeaver && exit 0
 
 trap "rm -rf dbeaver-ce.deb" EXIT
 

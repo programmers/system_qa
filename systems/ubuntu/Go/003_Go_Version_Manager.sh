@@ -1,3 +1,4 @@
 #!/bin/bash
 
-exec "systems/shared/Go/Go Version Manager.sh"
+exec "systems/shared/Go/Go_Version_Manager.sh"
+

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-exec "systems/shared/Java/SDKMAN Java Version Manager.sh"
+exec "systems/shared/Java/SDKMAN_Java_Version_Manager.sh"
