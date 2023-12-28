@@ -1,7 +1,8 @@
 
+    # https://kind.sigs.k8s.io/docs/user/quick-start/#installing-with-a-package-manager
+    
+    # Cloning into '/home/mvim/.phpenv/plugins/php-build'...
 how do i revert bad apt repos???
-
-. Go through errors
 . Better logging
 . Fedora
 . README

@@ -25,11 +25,6 @@ sudo apt-get install -y curl \
                         x11-apps
 
 
-# umake
-sudo add-apt-repository -y ppa:lyzardking/ubuntu-make
-sudo apt-get update -y
-sudo apt-get install -y ubuntu-make
-
 # Need Python for pip installs 
 sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt-get update -y
@@ -43,6 +38,7 @@ curl https://bootstrap.pypa.io/get-pip.py | sudo python
 if ! command -v nvm &>/dev/null; then
     curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
     echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm' >> ~/.bashrc
+    source ~/.bashrc
     nvm install 20.10.0
     nvm alias default 20.10.0
 fi

@@ -7,7 +7,6 @@ unit["Terminator"]="/usr/bin/terminator"
 unit["Screen"]="/usr/bin/screen"
 unit["tmux"]="/usr/bin/tmux"
 unit["htop"]="/usr/bin/htop"
-# maybe get rid ofunit["fd"]="/usr/bin/fd"
 unit["ripgrep"]="/usr/bin/rg"
 unit["fzf"]="$HOME/.fzf"
 unit["jq"]="/usr/bin/jq"
@@ -59,9 +58,7 @@ unit["MySQL_Workbench"]="/snap/bin/mysql-workbench-community"
 unit["DBeaver"]="/usr/bin/dbeaver"
 unit["DataGrip"]="/snap/bin/datagrip"
 #unit["pgAdmin_Desktop"]=""
-#unit["pgcli"]=""
-#unit["mycli"]=""
-unit["SQLite_Browser"]="/usr/bin/sqlitebrowser"
+unit["SQLite_Browser"]="/snap/bin/sqlitebrowser"
 unit["Redis_Commander"]="/usr/local/bin/redis-commander"
 unit["usql"]="/usr/bin/usql"
 
@@ -90,17 +87,16 @@ unit["ngrok"]="/snap/bin/ngrok"
 unit["localtunnel"]="$HOME/.nvm/versions/node/$nvm_version/bin/lt"
 unit["Local_Web_Server"]="$HOME/.nvm/versions/node/$nvm_version/bin/ws"
 unit["Mockoon"]="/snap/bin/mockoon"
-unit["insomnia"]="/usr/bin/insomnia"
 
 
 ## Java
-#unit["Version_Manager"]=""
 unit["Eclipse"]="/snap/bin/eclipse"
 unit["IntelliJ_IDEA_Community"]="/snap/bin/intellij-idea-community"
 unit["Maven"]="/usr/bin/mvn"
 unit["Gradle"]="/usr/bin/gradle"
 unit["Ant"]="/usr/bin/ant"
 unit["VSCode_Java"]="$HOME/.vscode/extensions/%vscjava%"
+
 
 ## C and C++
 #unit["Binutils"]=""
@@ -125,7 +121,6 @@ unit["VSCode_C++"]="$HOME/.vscode/extensions/%golang%"
 ## Go
 unit["Go"]="/usr/local/go/bin/go"
 unit["Goland"]="/snap/bin/goland"
-#unit["Go_Version_Manager"]=""
 unit["VSCode_C++"]="$HOME/.vscode/extensions/%cpp%"
 
 
@@ -157,11 +152,9 @@ unit["VSCode_Ruby"]="$HOME/.vscode/extensions/%ruby%"
 unit["Rust"]="$HOME/.cargo/bin/rustc"
 unit["VSCode_Rust"]="$HOME/.vscode/extensions/%rust%"
 
-
 declare -a not_found_packages
 
 for key in "${!unit[@]}"; do
-    # Check if the key contains a special placeholder
     if [[ "${unit[$key]}" == *"%"* ]]; then
         placeholder=$(echo "${unit[$key]}" | sed -n 's/.*%\([^%]*\)%.*/\1/p')
         directory=$(dirname "${unit[$key]}")
@@ -169,7 +162,6 @@ for key in "${!unit[@]}"; do
             not_found_packages+=("$key")
         fi
     else
-        # If no placeholder, check for just the file
         if [ ! -e "${unit[$key]}" ]; then
             not_found_packages+=("$key")
         fi
