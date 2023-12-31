@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt-get install -y php8.2 
+sudo apt-get install -y php8.1 
