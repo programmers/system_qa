@@ -115,13 +115,13 @@ unit["CLion"]="/snap/bin/clion"
 unit["Conan"]="/usr/local/bin/conan"
 unit["Meson"]="/usr/local/bin/meson"
 unit["QT_Creator"]="/usr/bin/qtcreator"
-unit["VSCode_C++"]="$HOME/.vscode/extensions/%golang%"
+unit["VSCode_C++"]="$HOME/.vscode/extensions/%cpp%"
 
 
 ## Go
 unit["Go"]="/usr/local/go/bin/go"
 unit["Goland"]="/snap/bin/goland"
-unit["VSCode_C++"]="$HOME/.vscode/extensions/%cpp%"
+unit["VSCode_Go"]="$HOME/.vscode/extensions/%golang%"
 
 
 ## Version Control
