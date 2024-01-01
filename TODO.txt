@@ -1,4 +1,21 @@
-. new server
-. fedora impl
+. cleanup list
+    . base
+        . fzf can be shared
+        . amix lock is weird
+        . emacs can be shared
+        . fedora: issue with thefuck
+        . k8s is all wrong
+        . qemu needs a check
+        . docker goes into init
+        . apt and dnf checks go away
+        . pgadmin doesnt work
+        . fedora: gradle is broken
+        . dynamically get nvm version
+        . init can use sys_exec
+        . pgadmin is so broken
+        . some sys.sh cleanup
+        . replace echos with small todos
+
+
 . README/docs
 . push
