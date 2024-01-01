@@ -1,0 +1,141 @@
+## Python ##
+pyenv
+Poetry
+pipx
+PyCharm
+IPython
+Black
+Flake8
+VSCode Python
+
+
+## Cloud ##
+AWS CLI
+Azure CLI
+Google Cloud CLI
+Digital Ocean CLI
+Kubernetes Kind
+Kubectl
+Helm
+Terraform
+
+
+## Containers and VMs ##
+Virtualbox
+QEMU KVM
+Docker
+Docker Compose
+VSCode Docker
+
+
+## Database Clients ##
+MySQL Workbench
+Beaver
+DataGrip
+pgAdmin Desktop
+pgcli
+mycli
+SQLite Browser
+Redis Commander
+usql
+
+
+## JavaScript and Node ##
+#Node Version Manager
+Node TypeScript
+Nodemon
+Yarn
+VSCode Node
+VSCode JavaScript
+VSCode TypeScript
+VSCode ESLint
+VSCode Prettier
+VSCode Path Intellisense
+
+
+## Web Tools ##
+Angular CLI
+Create React App
+Vue CLI
+Webstorm
+Postman
+ngrok
+localtunnel
+Local Web Server
+Mockoon
+insomnia
+VSCode Angular
+VSCode Vue
+VSCode React
+VSCode Svelte
+VSCode TypeScript
+VSCode Prettier
+VSCode ESLint
+VSCode CSS Peak
+
+
+## Java ##
+SDKMAN Java Version Manager
+Eclipse
+IntelliJ IDEA Community
+Maven
+Gradle
+Ivy
+Ant
+VSCode Java
+
+
+## C and C++ ##
+build-essential
+Binutils
+Autoconf
+Automake
+Libtool
+Clang
+CMake
+LLVM
+Boost
+Ninja Build
+Valgrind
+GDB
+CLion
+Conan
+Meson
+QT Creator
+VSCode C++
+
+
+## Go ##
+#Go
+#Goland
+Go Version Manager
+#VSCode Go
+
+
+## Version Control ##
+Git Extras
+Git Cola
+Mercurial
+Subversion
+CVS
+KDiff3
+Meld
+
+
+## PHP ##
+PHP
+Composer
+phpenv
+PhpStorm
+VSCode PHP
+
+
+## Ruby ##
+Ruby
+RubyMine
+VSCode Ruby
+
+
+## Rust ##
+Rust
+VSCode Rust

@@ -97,7 +97,7 @@ exec_script() {
 }
 
 install_core_software() {
-    local base_directory="$sys_root/systems/$sys_os/_Base_"
+    local base_directory="$sys_root/$sys_os/_Base_"
     local base_lock_file="/var/run/progsys.lock"
     local base_init_script=$base_directory"/_Init_.sh"
 
@@ -118,7 +118,7 @@ install_core_software() {
 install_ecosystems() {
     local selected_flags=("$@")
 
-    mapfile -t lines < "$sys_root/systems/$sys_os/requirements.txt"
+    mapfile -t lines < "$sys_root/$sys_os/requirements.txt"
 
     for line in "${lines[@]}"; do
         if [[ $line =~ ^## ]]; then
@@ -144,7 +144,7 @@ install_ecosystem() {
     if ! [[ $line =~ ^# ]]; then
         santized_line=$(echo "$line" | sed 's/ /_/g')
 
-        script=$(find "$sys_root/systems/$sys_os/$eco_key" -maxdepth 1 -type f -name "???_${santized_line}.sh")
+        script=$(find "$sys_root/$sys_os/$eco_key" -maxdepth 1 -type f -name "???_${santized_line}.sh")
 
         exec_script "$script"
     fi
@@ -173,8 +173,8 @@ main() {
     }
     export -f sys_check
 
-    exec() { . "$sys_root/$1"; }
-    export -f exec
+    sys_exec() { . "$sys_root/$1"; }
+    export -f sys_exec
 
     if [[ "$1" == "--init" ]]; then
         install_core_software
