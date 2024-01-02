@@ -28,6 +28,7 @@ sudo add-apt-repository -y ppa:deadsnakes/ppa
 sudo apt-get update -y
 sudo apt-get install -y python3.10
 sudo apt-get install -y python3.10-venv
+sudo apt-get install -y python3.10-dev
 sudo apt-get install -y python-is-python3
 curl https://bootstrap.pypa.io/get-pip.py | sudo python
 

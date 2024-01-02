@@ -1,20 +1,16 @@
 . cleanup list
     . base
-        . fzf can be shared
-        . amix lock is weird
-        . emacs can be shared
-        . fedora: issue with thefuck
-        . k8s is all wrong
-        . qemu needs a check
-        . docker goes into init
-        . apt and dnf checks go away
+        . dbeaver
         . pgadmin doesnt work
-        . fedora: gradle is broken
         . dynamically get nvm version
-        . init can use sys_exec
-        . pgadmin is so broken
+        . init can use sys_check (esp python)
+        . sqliteh
+            . can call the vscode exts in shared
+        . switch init to use sys_
+        . k8s is all wrong
+        . qemu needs checked
         . some sys.sh cleanup
-        . replace echos with small todos
+        . find/replace echos with small todos
 
 
 . README/docs

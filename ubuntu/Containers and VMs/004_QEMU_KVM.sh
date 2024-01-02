@@ -1,8 +1,6 @@
 #!/bin/bash
 
-echo "needs checked"
-
-sudo apt-get update -y
+sys_check /usr/bin/qemu-kvm && exit 0
 
 sudo apt-get install -y qemu-kvm \
                         libvirt-daemon-system \

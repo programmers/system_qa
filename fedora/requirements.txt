@@ -21,10 +21,10 @@ Terraform
 
 
 ## Containers and VMs ##
-Virtualbox
-QEMU KVM
 Docker
 Docker Compose
+Virtualbox
+QEMU KVM
 VSCode Docker
 
 
@@ -75,7 +75,7 @@ VSCode CSS Peak
 
 
 ## Java ##
-SDKMAN Java Version Manager
+SDKMAN
 Eclipse
 IntelliJ IDEA Community
 Maven

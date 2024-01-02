@@ -1,8 +1,6 @@
 #!/bin/bash
 
-echo "needs checked"
-
-sudo dnf update -y
+sys_check /usr/bin/qemu-kvm && exit 0
 
 sudo dnf install -y qemu-kvm \
                    libvirt-daemon \

@@ -24,6 +24,7 @@ sudo dnf install -y curl \
 
 # Need Python for pip installs
 sudo dnf install -y python3.10
+sudo dnf install -y python3.10-devel
 sudo dnf install -y python-is-python3
 curl https://bootstrap.pypa.io/get-pip.py | sudo python3
 
