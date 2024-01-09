@@ -1,2 +1,3 @@
+#!/bin/bash
 
-echo "put docker install in init scripts please"
+sys_exec "shared/Cloud/Kubernetes_Kind.sh"

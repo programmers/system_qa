@@ -2,8 +2,6 @@
 
 sys_check /usr/local/bin/kind && exit 0
 
-trap "rm -rf kind" EXIT
+sudo curl -Lo /usr/local/bin/kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
 
-curl -Lo ./kind https://kind.sigs.k8s.io/dl/v0.11.1/kind-linux-amd64
-chmod +x ./kind
-sudo mv ./kind /usr/local/bin/
+sudo chmod +x /usr/local/bin/kind

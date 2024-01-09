@@ -65,7 +65,7 @@ declare -A unit
 # ~/.nvm/versions/node/v20.10.0/bin/redis-commander
 #unit["usql"]="/usr/bin/usql"
 
-nvm_version="v20.10.0"
+nvm_version="$(nvm version)"
 
 # fedora puts vscode assets in here:
 vscode_root=".vscode-server"

@@ -62,7 +62,7 @@ unit["SQLite_Browser"]="/snap/bin/sqlitebrowser"
 unit["Redis_Commander"]="/usr/local/bin/redis-commander"
 unit["usql"]="/usr/bin/usql"
 
-nvm_version="v21.5.0"
+nvm_version="$(nvm version)"
 
 ## JavaScript and Node
 unit["Node_Version_Manager"]="$HOME/.nvm/versions/node/$nvm_version"

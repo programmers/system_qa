@@ -21,7 +21,6 @@ Terraform
 
 
 ## Containers and VMs ##
-Docker
 Docker Compose
 Virtualbox
 QEMU KVM

@@ -24,14 +24,24 @@ sudo apt-get install -y curl \
 
 
 # Need Python for pip installs 
-sudo add-apt-repository -y ppa:deadsnakes/ppa
-sudo apt-get update -y
-sudo apt-get install -y python3.10
-sudo apt-get install -y python3.10-venv
-sudo apt-get install -y python3.10-dev
-sudo apt-get install -y python-is-python3
-curl https://bootstrap.pypa.io/get-pip.py | sudo python
+if ! command -v python3.10 &>/dev/null; then
+    sudo add-apt-repository -y ppa:deadsnakes/ppa
+    sudo apt-get update -y
+    sudo apt-get install -y python3.10
+    sudo apt-get install -y python3.10-venv
+    sudo apt-get install -y python3.10-dev
+    sudo apt-get install -y python-is-python3
+    curl https://bootstrap.pypa.io/get-pip.py | sudo python
+fi
 
+if ! command -v docker &>/dev/null; then
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo chmod +x get-docker.sh
+    ./get-docker.sh
+    rm -rf get-docker.sh
+    sudo systemctl start docker
+    sudo systemctl enable docker
+fi
 
 # Need Node (via npm) for global npm installs
 if ! command -v nvm &>/dev/null; then

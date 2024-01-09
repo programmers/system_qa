@@ -23,10 +23,21 @@ sudo dnf install -y curl \
                    epel-release
 
 # Need Python for pip installs
-sudo dnf install -y python3.10
-sudo dnf install -y python3.10-devel
-sudo dnf install -y python-is-python3
-curl https://bootstrap.pypa.io/get-pip.py | sudo python3
+if ! command -v python3.10 &>/dev/null; then
+    sudo dnf install -y python3.10
+    sudo dnf install -y python3.10-devel
+    sudo dnf install -y python-is-python3
+    curl https://bootstrap.pypa.io/get-pip.py | sudo python3
+fi
+
+if ! command -v docker &>/dev/null; then
+    curl -fsSL https://get.docker.com -o get-docker.sh
+    sudo chmod +x get-docker.sh
+    ./get-docker.sh
+    rm -rf get-docker.sh
+    sudo systemctl start docker
+    sudo systemctl enable docker
+fi
 
 # Need Node (via npm) for global npm installs
 if ! command -v nvm &>/dev/null; then
