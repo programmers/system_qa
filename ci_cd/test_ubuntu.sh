@@ -62,13 +62,12 @@ unit["SQLite_Browser"]="/snap/bin/sqlitebrowser"
 unit["Redis_Commander"]="/usr/local/bin/redis-commander"
 unit["usql"]="/usr/bin/usql"
 
-nvm_version="$(nvm version)"
 
 ## JavaScript and Node
-unit["Node_Version_Manager"]="$HOME/.nvm/versions/node/$nvm_version"
-unit["Node_TypeScript"]="$HOME/.nvm/versions/node/$nvm_version/bin/tsc"
-unit["Nodemon"]="$HOME/.nvm/versions/%node%"
-unit["Yarn"]="$HOME/.nvm/versions/node/$nvm_version/bin/yarn"
+unit["Node_Version_Manager"]="$HOME/.nvm"
+unit["Node_TypeScript"]="/usr/bin/ts-node"
+unit["Nodemon"]="/usr/bin/nodemon"
+unit["Yarn"]="/usr/bin/yarn"
 unit["VSCode_Node"]="$HOME/.vscode/extensions/%node%"
 unit["VSCode_JavaScript"]="$HOME/.vscode/extensions/%javascript%"
 unit["VSCode_TypeScript"]="$HOME/.vscode/extensions/%typescript%"
@@ -78,24 +77,25 @@ unit["VSCode_Path_Intellisense"]="$HOME/.vscode/extensions/%path-intellisense%"
 
 
 ## Web Tools
-unit["Angular_CLI"]=""
+unit["Angular_CLI"]="/usr/bin/ng"
 unit["Create_React_App"]="/usr/local/bin/create-react-app"
 unit["Vue_CLI"]="/usr/local/bin/vue"
 unit["Webstorm"]="/snap/bin/webstorm"
 unit["Postman"]="/snap/bin/postman"
 unit["ngrok"]="/snap/bin/ngrok"
-unit["localtunnel"]="$HOME/.nvm/versions/node/$nvm_version/bin/lt"
-unit["Local_Web_Server"]="$HOME/.nvm/versions/node/$nvm_version/bin/ws"
+unit["localtunnel"]="/usr/bin/lt"
+unit["Local_Web_Server"]="/usr/bin/ws"
 unit["Mockoon"]="/snap/bin/mockoon"
 
 
 ## Java
-unit["Eclipse"]="/snap/bin/eclipse"
-unit["IntelliJ_IDEA_Community"]="/snap/bin/intellij-idea-community"
-unit["Maven"]="/usr/bin/mvn"
-unit["Gradle"]="/usr/bin/gradle"
-unit["Ant"]="/usr/bin/ant"
-unit["VSCode_Java"]="$HOME/.vscode/extensions/%vscjava%"
+#unit["Gradle"]=""
+#unit["SDKMAN"]="$HOME/.sdkman"
+#unit["Eclipse"]="/snap/bin/eclipse"
+#unit["IntelliJ_IDEA_Community"]="/snap/bin/intellij-idea-community"
+#unit["Maven"]="/usr/bin/mvn"
+#unit["Ant"]="/usr/bin/ant"
+#unit["VSCode_Java"]="$HOME/.vscode/extensions/%vscjava%"
 
 
 ## C and C++

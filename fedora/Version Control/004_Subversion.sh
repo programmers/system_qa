@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt-get install -y subversion 
+sudo dnf install -y subversion 

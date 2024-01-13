@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt-get install -y mercurial 
+sudo dnf install -y mercurial 

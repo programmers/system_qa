@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt-get install -y kdiff3 
+sudo dnf install -y kdiff3 

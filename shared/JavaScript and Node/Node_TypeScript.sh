@@ -1,3 +1,3 @@
 #!/bin/bash
 
-npm install -g typescript
+npm install -g typescript ts-node

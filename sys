@@ -74,8 +74,7 @@ exec_script() {
     #timeout "$timeout_duration" bash -c "$script" > /dev/null 2>&1
 
 
-    echo "is empty: $script"
-    echo "$script"
+    echo "the script: $script"
     #bash -c "$script"
     bash -c "$script" #> /dev/null 2>&1
 #    bash -c "$script" 2>&1 >/dev/null | grep -iE '\b(error|fail|exception|already)\b'
@@ -129,6 +128,7 @@ install_ecosystems() {
                 ecos_key="${ecosystems[$flag_key]}"
 
                 if [ "$current_ecosystem" == "$ecos_key" ]; then
+                    echo $line
                    install_ecosystem "$ecos_key" "$line"
                 fi
             done

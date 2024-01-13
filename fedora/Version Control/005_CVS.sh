@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt-get install -y cvs 
+sudo dnf install -y cvs 

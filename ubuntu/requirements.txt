@@ -55,7 +55,6 @@ VSCode Path Intellisense
 ## Web Tools ##
 Angular CLI
 Create React App
-Vue CLI
 Webstorm
 Postman
 ngrok

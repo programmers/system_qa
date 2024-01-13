@@ -19,8 +19,7 @@ sudo dnf install -y curl \
                    zlib-devel \
                    readline-devel \
                    openssl-devel \
-                   libcurl-devel \
-                   epel-release
+                   libcurl-devel
 
 # Need Python for pip installs
 if ! command -v python3.10 &>/dev/null; then
@@ -39,13 +38,10 @@ if ! command -v docker &>/dev/null; then
     sudo systemctl enable docker
 fi
 
-# Need Node (via npm) for global npm installs
-if ! command -v nvm &>/dev/null; then
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
-    echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"; [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm' >> ~/.bashrc
-    source ~/.bashrc
-    nvm install 20.10.0
-    nvm alias default 20.10.0
+# Need Node for global npm installs - nvm later
+if ! command -v node &>/dev/null; then
+    curl -sL https://rpm.nodesource.com/setup_21.x | bash -
+    sudo dnf install -y nodejs
 fi
 
 # VSCode is our "base" editor and will come with many extensions

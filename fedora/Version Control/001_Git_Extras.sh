@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo apt-get install -y git-extras
+sudo dnf install -y git-extras
