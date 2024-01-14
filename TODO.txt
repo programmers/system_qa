@@ -1,5 +1,3 @@
-. run fedora ecos
-. fedora ci tests / remove the $HOMEs???
 . sys.sh cleanup (caller)
 . init cleanup
 . run fresh ubuntu ecos

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo dnf install -y google-cloud-sdk
+sudo snap install google-cloud-sdk --classic

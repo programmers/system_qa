@@ -1,137 +1,137 @@
 ## Python ##
-#pyenv
-#Poetry
-#pipx
-#PyCharm
-#IPython
-#Black
-#Flake8
-#VSCode Python
+pyenv
+Poetry
+pipx
+PyCharm
+IPython
+Black
+Flake8
+VSCode Python
 
 
 ## Cloud ##
-#AWS CLI
-#Azure CLI
-#Google Cloud CLI
-#Digital Ocean CLI
-#Kubernetes Kind
-#Kubectl
-#Helm
-#Terraform
+AWS CLI
+Azure CLI
+Google Cloud CLI
+Digital Ocean CLI
+Kubernetes Kind
+Kubectl
+Helm
+Terraform
 
 
 ## Containers and VMs ##
-#Docker Compose
-#Virtualbox
-#QEMU KVM
-#VSCode Docker
+Docker Compose
+Virtualbox
+QEMU KVM
+VSCode Docker
 
 
 ## Database Clients ##
-#MySQL Workbench
-#Beaver
-#DataGrip
-#pgAdmin Desktop
-#pgcli
-#mycli
-#SQLite Browser
-#Redis Commander
-#usql
+MySQL Workbench
+Beaver
+DataGrip
+pgAdmin Desktop
+pgcli
+mycli
+SQLite Browser
+Redis Commander
+usql
 
 
 ## JavaScript and Node ##
-#Node Version Manager
-#Node TypeScript
-#Nodemon
-#Yarn
-#VSCode Node
-#VSCode JavaScript
-#VSCode TypeScript
-#VSCode ESLint
-#VSCode Prettier
-#VSCode Path Intellisense
+Node Version Manager
+Node TypeScript
+Nodemon
+Yarn
+VSCode Node
+VSCode JavaScript
+VSCode TypeScript
+VSCode ESLint
+VSCode Prettier
+VSCode Path Intellisense
 
 
 ## Web Tools ##
-#Angular CLI
-#Create React App
-#Webstorm
-#Postman
-#ngrok
-#localtunnel
-#Local Web Server
-#Mockoon
-#insomnia
-#VSCode Angular
-#VSCode Vue
-#VSCode React
-#VSCode Svelte
-#VSCode TypeScript
-#VSCode Prettier
-#VSCode ESLint
-#VSCode CSS Peak
+Angular CLI
+Create React App
+Webstorm
+Postman
+ngrok
+localtunnel
+Local Web Server
+Mockoon
+insomnia
+VSCode Angular
+VSCode Vue
+VSCode React
+VSCode Svelte
+VSCode TypeScript
+VSCode Prettier
+VSCode ESLint
+VSCode CSS Peak
 
 
 ## Java ##
-#SDKMAN
-#Eclipse
-#IntelliJ IDEA Community
-#Maven
-#Gradle
-#Ivy
-#Ant
-#VSCode Java
+SDKMAN
+Eclipse
+IntelliJ IDEA Community
+Maven
+Gradle
+Ivy
+Ant
+VSCode Java
 
 
 ## C and C++ ##
-#Binutils
-#Autoconf
-#Automake
-#Libtool
-#Clang
-#CMake
-#LLVM
-#Boost
-#Ninja Build
-#Valgrind
-#GDB
-#CLion
-#Conan
-#Meson
-#QT Creator
-#VSCode C++
+Binutils
+Autoconf
+Automake
+Libtool
+Clang
+CMake
+LLVM
+Boost
+Ninja Build
+Valgrind
+GDB
+CLion
+Conan
+Meson
+QT Creator
+VSCode C++
 
 
 ## Go ##
-#Go
-#Goland
-#VSCode Go
+Go
+Goland
+VSCode Go
 
 
 ## Version Control ##
-#Git Extras
-#Git Cola
-#Mercurial
-#Subversion
-#CVS
-#KDiff3
-#Meld
+Git Extras
+Git Cola
+Mercurial
+Subversion
+CVS
+KDiff3
+Meld
 
 
 ## PHP ##
-#PHP
-#Composer
-#phpenv
-#PhpStorm
-#VSCode PHP
+PHP
+Composer
+phpenv
+PhpStorm
+VSCode PHP
 
 
 ## Ruby ##
-#Ruby
-#RubyMine
-#VSCode Ruby
+Ruby
+RubyMine
+VSCode Ruby
 
 
 ## Rust ##
-# Rust
-# VSCode Rust
+Rust
+VSCode Rust

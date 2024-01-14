@@ -28,19 +28,19 @@ VSCode Docker
 
 
 ## Database Clients ##
-#MySQL Workbench
-#Beaver
-#DataGrip
-#pgAdmin Desktop
-#pgcli
-#mycli
-#SQLite Browser
-#Redis Commander
-#usql
+MySQL Workbench
+Beaver
+DataGrip
+pgAdmin Desktop
+pgcli
+mycli
+SQLite Browser
+Redis Commander
+usql
 
 
 ## JavaScript and Node ##
-#Node Version Manager
+Node Version Manager
 Node TypeScript
 Nodemon
 Yarn
@@ -104,10 +104,10 @@ VSCode C++
 
 
 ## Go ##
-#Go
-#Goland
+Go
+Goland
 Go Version Manager
-#VSCode Go
+VSCode Go
 
 
 ## Version Control ##

@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sys_exec "shared/Cloud/AWS_CLI.sh"
+sudo apt-get install -y awscli
