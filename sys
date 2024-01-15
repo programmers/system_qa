@@ -33,7 +33,6 @@ check_args() {
     fi
 }
 
-## Provide CLI guidance
 show_cli_screen() {
 cat << EOF
 Welcome. Pass in your ecosystems with options below.
@@ -50,7 +49,7 @@ done)
 EOF
 }
 
-## Determines OS: Ubuntu, Fedora, Mac, etc
+## Determines OS: ubuntu, fedora, macos, etc
 detect_system() {
     if [ -e "/etc/os-release" ]; then
         sys_os=$(awk -F= '/^ID=/{print $2}' /etc/os-release)
@@ -60,41 +59,21 @@ detect_system() {
 }
 
 exec_script() {
-    #script="$1"
-
     # escaped path
     script=$(echo "$1" | sed 's/ /\\ /g')
 
     log="/tmp/progsys.log"
 
-    #timeout "$timeout_duration" bash "$script" > /dev/null 2>&1
+    duration=$((60 * 60))
+    timeout "$duration" bash -c "$script" 2>&1 | tee -a "$log"
 
-    # probably this one vvv
-    #timeout_duration=$((60 * 60))
-    #timeout "$timeout_duration" bash -c "$script" > /dev/null 2>&1
-
-
-    echo "the script: $script"
-    #bash -c "$script"
-    bash -c "$script" #> /dev/null 2>&1
-#    bash -c "$script" 2>&1 >/dev/null | grep -iE '\b(error|fail|exception|already)\b'
-    #bash -c "$script" 2>&1 | grep -iE '(error|fail|exception|already)'
-
-
-    #bash "$script"
-    exit_code=$?
-
-    if [[ $exit_code -ne 0 ]]; then
-        echo -e "[$(date)] [$exit_code] Failed to run \"$script\"..." >> "$log"
-        echo "ERROR. Check "$log
+    if [[ $? -ne 0 ]]; then
+        echo "ERROR. Check $log for more information"
         echo "Attempting to continue..."
     fi
-
-    echo "exit is $exit_code"
-    echo "exit is $exit_code"
-    echo "exit is $exit_code"
 }
 
+# _Init_.sh
 install_core_software() {
     local base_directory="$sys_root/$sys_os/_Base_"
     local base_lock_file="/var/run/progsys.lock"
@@ -113,12 +92,27 @@ install_core_software() {
     fi
 }
 
-### Main installation logic
+install_ecosystem() {
+    local eco_key="$1"
+    local line="$2"
+
+    if ! [[ $line =~ ^# ]]; then
+        santized_line=$(echo "$line" | sed 's/ /_/g')
+
+        # todo: better ways of match file number
+        script=$(find "$sys_root/$sys_os/$eco_key" -maxdepth 1 -type f -name "???_${santized_line}.sh")
+
+        exec_script "$script"
+    fi
+}
+
+# main installation logic
 install_ecosystems() {
     local selected_flags=("$@")
 
     mapfile -t lines < "$sys_root/$sys_os/requirements.txt"
 
+    # todo: in need of optimization
     for line in "${lines[@]}"; do
         if [[ $line =~ ^## ]]; then
             current_ecosystem=$(echo "$line" | sed -n 's/## \(.*\) ##/\1/p')
@@ -136,19 +130,6 @@ install_ecosystems() {
     done
 }
 
-### Install specific ecosystem
-install_ecosystem() {
-    local eco_key="$1"
-    local line="$2"
-
-    if ! [[ $line =~ ^# ]]; then
-        santized_line=$(echo "$line" | sed 's/ /_/g')
-
-        script=$(find "$sys_root/$sys_os/$eco_key" -maxdepth 1 -type f -name "???_${santized_line}.sh")
-
-        exec_script "$script"
-    fi
-}
 
 main() {
     sudo -v # prompt for sudo (unix-like standard)
@@ -159,7 +140,7 @@ main() {
 
     export sys_root="/home/$(whoami)/system"
 
-    # called in scripts
+    # called in the scripts
     sys_check() {
         local package=$1
 

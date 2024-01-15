@@ -6,22 +6,24 @@ sudo dnf update -y
 
 # General dependencies
 sudo dnf install -y curl \
-                   ca-certificates \
-                   dnf-plugins-core \
-                   gnupg \
-                   autoconf \
-                   unzip \
-                   zip \
-                   @development-tools \
-                   gpg \
-                   git \
-                   tree \
-                   zlib-devel \
-                   readline-devel \
-                   openssl-devel \
-                   libcurl-devel
+                    ca-certificates \
+                    dnf-plugins-core \
+                    gnupg \
+                    autoconf \
+                    unzip \
+                    zip \
+                    @development-tools \
+                    gpg \
+                    git \
+                    tree \
+                    zlib-devel \
+                    readline-devel \
+                    openssl-devel \
+                    libcurl-devel
 
-# Need Python for pip installs
+
+# The following are needed as general dependencies
+
 if ! command -v python3.10 &>/dev/null; then
     sudo dnf install -y python3.10
     sudo dnf install -y python3.10-devel
@@ -38,22 +40,21 @@ if ! command -v docker &>/dev/null; then
     sudo systemctl enable docker
 fi
 
-# Need Node for global npm installs - nvm later
 if ! command -v node &>/dev/null; then
     curl -sL https://rpm.nodesource.com/setup_21.x | bash -
     sudo dnf install -y nodejs
 fi
 
-# VSCode is our "base" editor and will come with many extensions
+if ! command -v snap &>/dev/null; then
+    sudo dnf install snapd
+    sudo systemctl enable --now snapd.socket
+fi
+
+# VSCode is our "base" editor for the ecosystems with many extensions
 if ! command -v code &>/dev/null; then
     sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
     sudo sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
     sudo dnf install -y code
-fi
-
-if ! command -v snap &>/dev/null; then
-    sudo dnf install snapd
-    sudo systemctl enable --now snapd.socket
 fi
 
 sudo chown -R "$user" /usr/local/bin

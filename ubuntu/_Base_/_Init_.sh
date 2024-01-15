@@ -22,8 +22,8 @@ sudo apt-get install -y curl \
                         libssl-dev \
                         libcurl4-openssl-dev
 
+# The following are needed as general dependencies
 
-# Need Python for pip installs 
 if ! command -v python3.10 &>/dev/null; then
     sudo add-apt-repository -y ppa:deadsnakes/ppa
     sudo apt-get update -y
@@ -43,13 +43,12 @@ if ! command -v docker &>/dev/null; then
     sudo systemctl enable docker
 fi
 
-# Need Node for global npm installs - nvm later
 if ! command -v node &>/dev/null; then
     curl -sL https://deb.nodesource.com/setup_21.x | sudo -E bash -
     sudo apt-get install -y nodejs
 fi
 
-# VSCode is our "base" editor and will come with many extensions
+# VSCode is our "base" editor for the ecosystems with many extensions
 if ! command -v code &>/dev/null; then
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
@@ -62,6 +61,3 @@ sudo chown -R "$user" /usr/local/bin
 
 touch /tmp/progsys.log
 chmod 664 /tmp/progsys.log
-
-
-

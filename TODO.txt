@@ -1,6 +1,3 @@
-. sys.sh cleanup (caller)
-. init cleanup
-. run fresh ubuntu ecos
-. timeout/updater
+. QA
 . README/docs
 . push
