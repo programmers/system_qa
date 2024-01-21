@@ -1,9 +1,7 @@
 ## Python ##
 pyenv
 Poetry
-pipx
 PyCharm
-IPython
 Black
 Flake8
 VSCode Python

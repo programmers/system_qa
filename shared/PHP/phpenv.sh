@@ -2,8 +2,4 @@
 
 sys_check ~/.phpenv && exit 0
 
-git clone https://github.com/phpenv/phpenv.git ~/.phpenv
-
-echo 'export PATH="$HOME/.phpenv/bin:$PATH"' >> ~/.bashrc
-
-echo 'eval "$(phpenv init -)"' >> ~/.bashrc
+curl -L https://raw.githubusercontent.com/phpenv/phpenv-installer/master/bin/phpenv-installer | bash

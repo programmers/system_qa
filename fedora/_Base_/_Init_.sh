@@ -61,7 +61,5 @@ if ! command -v code &>/dev/null; then
     sudo dnf install -y code
 fi
 
-# BAD sudo chown -R "$user" /usr/local/bin
-
 touch /tmp/progsys.log
 chmod 664 /tmp/progsys.log

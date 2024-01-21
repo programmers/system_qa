@@ -24,10 +24,9 @@ sudo apt-get install -y curl \
 
 # The following are needed as general dependencies
 
+# ppa:deadsnakes/ppa has been erring a lot
 sudo apt-get install -y python3.11-venv \
                         python3.11-dev \
-                        python3.11-pip \
-                        pipx \
                         python-is-python3
 
 
@@ -54,8 +53,6 @@ if ! command -v code &>/dev/null; then
     sudo apt-get -y update
     sudo apt-get install -y code
 fi
-
-# BAD... sudo chown -R "$user" /usr/local/bin
 
 sudo touch /tmp/progsys.log
 sudo chmod 664 /tmp/progsys.log
