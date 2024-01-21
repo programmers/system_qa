@@ -8,8 +8,7 @@ sudo passwd mvim
 
 su - mvim
 
-sudo apt update -y
-sudo apt-get upgrade -y
+ sudo apt-get update -y && sudo apt-get upgrade -y
 
 
 ############
@@ -23,9 +22,6 @@ sudo passwd mvim
 su - mvim
 
 sudo dnf update -y
-sudo dnf upgrade -y --refresh
-
-sudo dnf install -y git vim nodejs npm
 
 ################
 ## EVERYTHING ##
