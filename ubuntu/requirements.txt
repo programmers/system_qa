@@ -29,9 +29,9 @@ VSCode Docker
 
 ## Database Clients ##
 MySQL Workbench
-Beaver
+DBeaver
 DataGrip
-pgAdmin Desktop
+pgAdmin Web
 pgcli
 mycli
 SQLite Browser
@@ -62,6 +62,7 @@ localtunnel
 Local Web Server
 Mockoon
 insomnia
+Vue CLI
 VSCode Angular
 VSCode Vue
 VSCode React
@@ -106,7 +107,6 @@ VSCode C++
 ## Go ##
 Go
 Goland
-Go Version Manager
 VSCode Go
 
 

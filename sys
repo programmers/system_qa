@@ -4,7 +4,7 @@
 declare -A ecosystems
 ecosystems["--python"]="Python"
 ecosystems["--cloud"]="Cloud"
-ecosystems["--containers_vm"]="Containers and VMs"
+ecosystems["--containers_vms"]="Containers and VMs"
 ecosystems["--db_clients"]="Database Clients"
 ecosystems["--javascript_node"]="JavaScript and Node"
 ecosystems["--web_tools"]="Web Tools"
@@ -18,6 +18,10 @@ ecosystems["--rust"]="Rust"
 
 check_args() {
     local valid_args=false
+
+    if [[ "$1" == "--init" ]]; then
+        valid_args=true
+    fi
 
     # Check is present and non-empty
     for arg in "$@"; do
@@ -59,15 +63,18 @@ detect_system() {
 }
 
 exec_script() {
-    # escaped path
-    script=$(echo "$1" | sed 's/ /\\ /g')
+    eco_key="$1"
 
-    echo "Installing $script..."
+    # escaped path
+    script=$(echo "$2" | sed 's/ /\\ /g')
+
+    echo "[$eco_key] Installing $script..."
 
     log="/tmp/progsys.log"
 
-    duration=$((60 * 60))
-    timeout "$duration" bash -c "$script" 2>&1 | tee -a "$log"
+    #duration=$((60 * 60))
+    #timeout "$duration" bash -c "$script" 2>&1 | tee -a "$log"
+    bash -c "$script" 2>&1 | tee -a "$log"
 
     if [[ $? -ne 0 ]]; then
         echo "ERROR. Check $log for more information"
@@ -82,11 +89,11 @@ install_core_software() {
     local base_init_script=$base_directory"/_Init_.sh"
 
     if [ ! -e "$base_lock_file" ]; then
-        exec_script "$base_init_script"
+        exec_script "Core" "$base_init_script"
 
         for script in "$base_directory"/*; do
             if [ $script != "$base_init_script" ]; then
-                exec_script "$script"
+                exec_script "Core" "$script"
             fi
         done
 
@@ -104,7 +111,7 @@ install_ecosystem() {
         # todo: better ways of match file number
         script=$(find "$sys_root/$sys_os/$eco_key" -maxdepth 1 -type f -name "???_${santized_line}.sh")
 
-        exec_script "$script"
+        exec_script "$eco_key" "$script"
     fi
 }
 

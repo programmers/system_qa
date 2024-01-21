@@ -1,3 +1,5 @@
 #!/bin/bash
 
-sys_exec "shared/Cloud/Kubectl.sh"
+echo "TODO: better shared ways to install this"
+
+sudo snap install kubectl --classic

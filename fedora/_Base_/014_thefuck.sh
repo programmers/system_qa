@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sys_check /usr/local/bin/thefuck && exit 0
+sys_check /usr/bin/thefuck && exit 0
 
-sudo -H pip install thefuck
+sudo dnf -y install thefuck
 
 echo 'eval "$(thefuck --alias)"' >> ~/.bashrc

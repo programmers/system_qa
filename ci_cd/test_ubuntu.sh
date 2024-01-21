@@ -8,7 +8,7 @@ unit["Screen"]=/usr/bin/screen
 unit["tmux"]=/usr/bin/tmux
 unit["htop"]=/usr/bin/htop
 unit["ripgrep"]=/usr/bin/rg
-unit["fzf"]=~/.fzf
+unit["fzf"]=/usr/bin/fzf
 unit["jq"]=/usr/bin/jq
 unit["Neovim"]=/usr/bin/nvim
 unit["Amix_Vim"]=~/.vim_runtime/amix.lock
@@ -16,21 +16,20 @@ unit["Doom_Emacs"]=~/.config/emacs/bin/doom
 unit["7Zip"]=/usr/bin/7z
 unit["UnRAR"]=/usr/bin/unrar
 unit["Docs2Unix"]=/usr/bin/dos2unix
-unit["thefuck"]=/usr/local/bin/thefuck
+unit["thefuck"]=/usr/bin/thefuck
 unit["VSCode_Code_Runner"]=~/.vscode/extensions/%code-runner%
 unit["VSCode_Intellicode"]=~/.vscode/extensions/%intellicode%
 unit["VSCode_Spellchecker"]=~/.vscode/extensions/%spellchecker%
 
 
 ## Python
-unit["pyenv"]=""
 unit["Pipenv"]=""
 unit["Poetry"]=""
-unit["pipx"]=/usr/local/bin/pipx
+unit["pyenv"]="/home/$USER/.pyenv/bin/pyenv"
+unit["pipx"]=/usr/bin/pipx
 unit["PyCharm"]=/snap/bin/pycharm-community
-unit["IPython"]=/usr/local/bin/ipython
-unit["Black"]=/usr/local/bin/black
-unit["Flake8"]=/usr/local/bin/flake8
+unit["Black"]=/usr/bin/black
+unit["Flake8"]=/usr/bin/flake8
 unit["VSCode_Python"]=~/.vscode/extensions/%python%
 
 
@@ -40,7 +39,7 @@ unit["Azure_CLI"]=/usr/bin/az
 unit["Google_Cloud_CLI"]=/snap/bin/gcloud
 unit["Digital_Ocean_CLI"]=/snap/bin/doctl
 unit["Kubernetes_Kind"]=/usr/local/bin/kind
-unit["Kubectl"]=/usr/bin/kubectl
+unit["Kubectl"]=/snap/bin/kubectl
 unit["Helm"]=/snap/bin/helm
 unit["Terraform"]=/snap/bin/terraform
 
@@ -54,12 +53,12 @@ unit["VSCode_Docker"]=~/.vscode/extensions/%docker%
 
 
 ## Database Clients
-#unit["pgAdmin_Desktop"]=""
+unit["pgAdmin_Web"]="/usr/pgadmin4/"
 unit["MySQL_Workbench"]=/snap/bin/mysql-workbench-community
 unit["DBeaver"]=/usr/bin/dbeaver
 unit["DataGrip"]=/snap/bin/datagrip
 unit["SQLite_Browser"]=/snap/bin/sqlitebrowser
-unit["Redis_Commander"]=/usr/local/bin/redis-commander
+unit["Redis_Commander"]=/usr/bin/redis-commander
 unit["usql"]=/usr/bin/usql
 
 
@@ -78,8 +77,8 @@ unit["VSCode_Path_Intellisense"]=~/.vscode/extensions/%path-intellisense%
 
 ## Web Tools
 unit["Angular_CLI"]=/usr/bin/ng
-unit["Create_React_App"]=/usr/local/bin/create-react-app
-unit["Vue_CLI"]=/usr/local/bin/vue
+unit["Create_React_App"]=/usr/bin/create-react-app
+unit["Vue_CLI"]=/usr/bin/vue
 unit["Webstorm"]=/snap/bin/webstorm
 unit["Postman"]=/snap/bin/postman
 unit["ngrok"]=/snap/bin/ngrok
@@ -90,12 +89,12 @@ unit["Mockoon"]=/snap/bin/mockoon
 
 ## Java
 #unit["Gradle"]=""
-#unit["SDKMAN"]=~/.sdkman
-#unit["Eclipse"]=/snap/bin/eclipse
-#unit["IntelliJ_IDEA_Community"]=/snap/bin/intellij-idea-community
-#unit["Maven"]=/usr/bin/mvn
-#unit["Ant"]=/usr/bin/ant
-#unit["VSCode_Java"]=~/.vscode/extensions/%vscjava%
+unit["SDKMAN"]=~/.sdkman
+unit["Eclipse"]=/snap/bin/eclipse
+unit["IntelliJ_IDEA_Community"]=/snap/bin/intellij-idea-community
+unit["Maven"]=/usr/bin/mvn
+unit["Ant"]=/usr/bin/ant
+unit["VSCode_Java"]=~/.vscode/extensions/%vscjava%
 
 
 ## C and C++
@@ -105,7 +104,7 @@ unit["Mockoon"]=/snap/bin/mockoon
 #unit["Boost"]=""
 unit["Autoconf"]=/usr/bin/autoconf
 unit["Automake"]=/usr/bin/automake
-unit["Clang"]=/usr/bin/clang-14
+unit["Clang"]=/usr/bin/clang-16
 unit["CMake"]=/usr/bin/cmake
 unit["llvm"]=/usr/bin/%llvm%
 unit["Ninja_Build"]=/usr/bin/ninja
@@ -113,7 +112,6 @@ unit["Valgrind"]=/usr/bin/valgrind
 unit["GDB"]=/usr/bin/gdb
 unit["CLion"]=/snap/bin/clion
 unit["Conan"]=/usr/local/bin/conan
-unit["Meson"]=/usr/local/bin/meson
 unit["QT_Creator"]=/usr/bin/qtcreator
 unit["VSCode_C++"]=~/.vscode/extensions/%cpp%
 

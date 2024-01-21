@@ -1,3 +1,14 @@
 . QA
+    - Keep Conan
+    - Poetry Add `export PATH="/home/mvim/.local/bin:$PATH"` to your shell configuration file.
+    - Ubuntu systemctl for pgadmin is wrong
+    - remove snaps in shared
+
+. my _files_ are at the bottom
+. eco args is backwards
+. Rename to "Core"
+. Handle output
+. Do mockup of a UI / talk about json
+. how to get around apt-get errors
 . README/docs
 . push

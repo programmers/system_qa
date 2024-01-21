@@ -24,15 +24,12 @@ sudo apt-get install -y curl \
 
 # The following are needed as general dependencies
 
-if ! command -v python3.10 &>/dev/null; then
-    sudo add-apt-repository -y ppa:deadsnakes/ppa
-    sudo apt-get update -y
-    sudo apt-get install -y python3.10
-    sudo apt-get install -y python3.10-venv
-    sudo apt-get install -y python3.10-dev
-    sudo apt-get install -y python-is-python3
-    curl https://bootstrap.pypa.io/get-pip.py | sudo python
-fi
+sudo apt-get install -y python3.11-venv \
+                        python3.11-dev \
+                        python3.11-pip \
+                        pipx \
+                        python-is-python3
+
 
 if ! command -v docker &>/dev/null; then
     curl -fsSL https://get.docker.com -o get-docker.sh
@@ -43,9 +40,11 @@ if ! command -v docker &>/dev/null; then
     sudo systemctl enable docker
 fi
 
-if ! command -v node &>/dev/null; then
+node_version=$(node -v | cut -c 2-)
+if [ "${node_version%%.*}" -lt 21 ]; then
     curl -sL https://deb.nodesource.com/setup_21.x | sudo -E bash -
     sudo apt-get install -y nodejs
+    echo -e "export NPM_CONFIG_PREFIX=~/.npm-global\nexport PATH=\$PATH:~/.npm-global/bin" >> ~/.bashrc # https://stackoverflow.com/a/41395398
 fi
 
 # VSCode is our "base" editor for the ecosystems with many extensions
@@ -57,7 +56,7 @@ if ! command -v code &>/dev/null; then
     sudo apt-get install -y code
 fi
 
-sudo chown -R "$user" /usr/local/bin
+# BAD... sudo chown -R "$user" /usr/local/bin
 
-touch /tmp/progsys.log
-chmod 664 /tmp/progsys.log
+sudo touch /tmp/progsys.log
+sudo chmod 664 /tmp/progsys.log

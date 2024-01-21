@@ -25,10 +25,11 @@ sudo dnf install -y curl \
 # The following are needed as general dependencies
 
 if ! command -v python3.10 &>/dev/null; then
-    sudo dnf install -y python3.10
-    sudo dnf install -y python3.10-devel
-    sudo dnf install -y python-is-python3
-    curl https://bootstrap.pypa.io/get-pip.py | sudo python3
+    sudo dnf install -y python3.10 \
+                        python3.10-devel \
+                        python-is-python3
+
+    curl https://bootstrap.pypa.io/get-pip.py | sudo python
 fi
 
 if ! command -v docker &>/dev/null; then
@@ -40,9 +41,12 @@ if ! command -v docker &>/dev/null; then
     sudo systemctl enable docker
 fi
 
+#node_version=$(node -v | cut -c 2-) -------- is this needed? preinstall?
+#if [ "${node_version%%.*}" -lt 21 ]; then
 if ! command -v node &>/dev/null; then
     curl -sL https://rpm.nodesource.com/setup_21.x | bash -
     sudo dnf install -y nodejs
+    echo -e "export NPM_CONFIG_PREFIX=~/.npm-global\nexport PATH=\$PATH:~/.npm-global/bin" >> ~/.bashrc # https://stackoverflow.com/a/41395398
 fi
 
 if ! command -v snap &>/dev/null; then
@@ -57,7 +61,7 @@ if ! command -v code &>/dev/null; then
     sudo dnf install -y code
 fi
 
-sudo chown -R "$user" /usr/local/bin
+# BAD sudo chown -R "$user" /usr/local/bin
 
 touch /tmp/progsys.log
 chmod 664 /tmp/progsys.log

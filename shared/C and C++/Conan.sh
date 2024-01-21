@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo -H pip install conan
+sudo pipx install conan

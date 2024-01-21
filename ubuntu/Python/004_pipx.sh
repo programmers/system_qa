@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sys_exec "shared/Python/pipx.sh"
+sudo apt-get install -y pipx

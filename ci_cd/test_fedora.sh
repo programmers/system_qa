@@ -19,7 +19,7 @@ unit["Doom_Emacs"]=~/.config/emacs/bin/doom
 unit["7Zip"]=/usr/bin/7z
 unit["UnRAR"]=/usr/bin/unrar
 unit["Docs2Unix"]=/usr/bin/dos2unix
-unit["thefuck"]=/usr/local/bin/thefuck
+unit["thefuck"]=/usr/bin/thefuck
 unit["VSCode_Code_Runner"]=~/$vscode_root/extensions/%code-runner%
 unit["VSCode_Intellicode"]=~/$vscode_root/extensions/%intellicode%
 unit["VSCode_Spellchecker"]=~/$vscode_root/extensions/%spellchecker%
@@ -31,7 +31,6 @@ unit["VSCode_Spellchecker"]=~/$vscode_root/extensions/%spellchecker%
 #unit["Poetry"]=""
 unit["pipx"]="/usr/local/bin/pipx"
 unit["PyCharm"]="/snap/bin/pycharm-community"
-unit["IPython"]="/usr/local/bin/ipython"
 unit["Black"]="/usr/local/bin/black"
 unit["Flake8"]="/usr/local/bin/flake8"
 unit["VSCode_Python"]="$HOME/$vscode_root/extensions/%python%"
@@ -44,7 +43,7 @@ unit["Azure_CLI"]=/usr/bin/az
 unit["Google_Cloud_CLI"]=/snap/bin/gcloud
 unit["Digital_Ocean_CLI"]=/usr/bin/doctl
 unit["Kubernetes_Kind"]=/usr/local/bin/kind
-unit["Kubectl"]=/usr/local/bin/kubectl
+unit["Kubectl"]=/snap/bin/kubectl
 unit["Helm"]=/usr/bin/helm
 
 
@@ -57,10 +56,10 @@ unit["VSCode_Docker"]=~/$vscode_root/extensions/%docker%
 
 
 ## Database Clients
+unit["pgAdmin_Web"]="/usr/pgadmin4/"
 unit["MySQL_Workbench"]="/snap/bin/mysql-workbench-community"
 unit["DBeaver"]="/usr/bin/dbeaver-ce"
 unit["DataGrip"]="/snap/bin/datagrip"
-unit["pgAdmin_Desktop"]=""
 unit["SQLite_Browser"]="/usr/bin/sqlitebrowser"
 unit["Redis_Commander"]="/usr/bin/redis-commander"
 unit["usql"]="/usr/bin/usql"
@@ -82,7 +81,7 @@ unit["VSCode_Path_Intellisense"]=~/$vscode_root/extensions/%path-intellisense%
 ## Web Tools
 unit["Angular_CLI"]="/usr/bin/ng"
 unit["Create_React_App"]="/usr/bin/create-react-app"
-unit["Vue_CLI"]="/usr/local/bin/vue"
+unit["Vue_CLI"]="/usr/bin/vue"
 unit["Webstorm"]="/snap/bin/webstorm"
 unit["Postman"]="/snap/bin/postman"
 unit["ngrok"]="/snap/bin/ngrok"
@@ -115,7 +114,6 @@ unit["Valgrind"]=/usr/bin/valgrind
 unit["GDB"]=/usr/bin/gdb
 unit["CLion"]=/snap/bin/clion
 unit["Conan"]=/usr/local/bin/conan
-unit["Meson"]=/usr/local/bin/meson
 unit["QT_Creator"]=/usr/bin/qtcreator
 unit["VSCode_C++"]=~/$vscode_root/extensions/%cpp%
 
