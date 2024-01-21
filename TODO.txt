@@ -6,7 +6,7 @@
 
 . Cleanup
     . my _files_ are at the bottom
-    . eco args is backwards
+    . eco args are backwards
     . Rename to "Core"
     . Handle output - timeout - i dont think errors are showing in the log
 
