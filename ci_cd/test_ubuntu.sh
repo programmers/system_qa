@@ -23,8 +23,8 @@ unit["VSCode_Spellchecker"]=~/.vscode/extensions/%spellchecker%
 
 
 ## Python
-unit["Pipenv"]=""
-unit["Poetry"]=""
+#unit["Pipenv"]=""
+#unit["Poetry"]=""
 unit["pyenv"]="/home/$USER/.pyenv/bin/pyenv"
 unit["pipx"]=/usr/bin/pipx
 unit["PyCharm"]=/snap/bin/pycharm-community
@@ -59,15 +59,15 @@ unit["MySQL_Workbench"]=/snap/bin/mysql-workbench-community
 unit["DBeaver"]=/usr/bin/dbeaver
 unit["DataGrip"]=/snap/bin/datagrip
 unit["SQLite_Browser"]=/snap/bin/sqlitebrowser
-unit["Redis_Commander"]=/usr/bin/redis-commander
+unit["Redis_Commander"]=~/.npm-global/bin/redis-commander
 unit["usql"]=/usr/bin/usql
 
 
 ## JavaScript and Node
 unit["Node_Version_Manager"]=~/.nvm
-unit["Node_TypeScript"]=/usr/bin/ts-node
-unit["Nodemon"]=/usr/bin/nodemon
-unit["Yarn"]=/usr/bin/yarn
+unit["Node_TypeScript"]=~/.npm-global/bin/ts-node
+unit["Nodemon"]=~/.npm-global/bin/nodemon
+unit["Yarn"]=~/.npm-global/bin/yarn
 unit["VSCode_Node"]=~/.vscode/extensions/%node%
 unit["VSCode_JavaScript"]=~/.vscode/extensions/%javascript%
 unit["VSCode_TypeScript"]=~/.vscode/extensions/%typescript%
@@ -77,19 +77,19 @@ unit["VSCode_Path_Intellisense"]=~/.vscode/extensions/%path-intellisense%
 
 
 ## Web Tools
-unit["Angular_CLI"]=/usr/bin/ng
-unit["Create_React_App"]=/usr/bin/create-react-app
-unit["Vue_CLI"]=/usr/bin/vue
+unit["Angular_CLI"]=~/.npm-global/bin/ng
+unit["Create_React_App"]=~/.npm-global/bin/create-react-app
+unit["Vue_CLI"]=~/.npm-global/bin/vue
 unit["Webstorm"]=/snap/bin/webstorm
 unit["Postman"]=/snap/bin/postman
 unit["ngrok"]=/snap/bin/ngrok
-unit["localtunnel"]=/usr/bin/lt
-unit["Local_Web_Server"]=/usr/bin/ws
+unit["localtunnel"]=~/.npm-global/bin/lt
+unit["Local_Web_Server"]=~/.npm-global/bin/ws
 unit["Mockoon"]=/snap/bin/mockoon
 
 
 ## Java
-unit["Gradle"]=""
+#unit["Gradle"]=""
 unit["SDKMAN"]=~/.sdkman
 unit["Eclipse"]=/snap/bin/eclipse
 unit["IntelliJ_IDEA_Community"]=/snap/bin/intellij-idea-community
@@ -99,9 +99,10 @@ unit["VSCode_Java"]=~/.vscode/extensions/%vscjava%
 
 
 ## C and C++
-unit["Binutils"]=""
-unit["Libtool"]=""
-unit["Boost"]=""
+#unit["Binutils"]=""
+#unit["Libtool"]=""
+#unit["Boost"]=""
+#unit["Conan"]=""
 unit["Autoconf"]=/usr/bin/autoconf
 unit["Automake"]=/usr/bin/automake
 unit["Clang"]=/usr/bin/clang-16
@@ -111,7 +112,6 @@ unit["Ninja_Build"]=/usr/bin/ninja
 unit["Valgrind"]=/usr/bin/valgrind
 unit["GDB"]=/usr/bin/gdb
 unit["CLion"]=/snap/bin/clion
-unit["Conan"]=/usr/local/bin/conan
 unit["QT_Creator"]=/usr/bin/qtcreator
 unit["VSCode_C++"]=~/.vscode/extensions/%cpp%
 

@@ -99,7 +99,6 @@ Valgrind
 GDB
 CLion
 Conan
-Meson
 QT Creator
 VSCode C++
 

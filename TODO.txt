@@ -1,11 +1,19 @@
 . QA
-    - 2 new servers
+    ./sys: line 177: --go: command not found
+    /home/mvim/.pyenv/bin/pyenv: line 73: cd: /root: Permission denied
+    /home/mvim/.phpenv/bin/phpenv: line 30: cd: /root: Permission denied
+    doom emacs not installed
 
-. my _files_ are at the bottom
-. eco args is backwards
-. Rename to "Core"
-. Handle output
-. Do mockup of a UI / talk about json
-. how to get around apt-get errors
-. README/docs
-. push
+. Cleanup
+    . my _files_ are at the bottom
+    . eco args is backwards
+    . Rename to "Core"
+    . Handle output - timeout - i dont think errors are showing in the log
+
+. Print
+    . call out stuff like # TODO Something (link)
+    . Do mockup of a UI / talk about json
+    . how to get around apt-get errors
+
+. Push Plans
+    . preview/alpha

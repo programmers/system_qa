@@ -40,8 +40,7 @@ if ! command -v docker &>/dev/null; then
     sudo systemctl enable docker
 fi
 
-node_version=$(node -v | cut -c 2-)
-if [ "${node_version%%.*}" -lt 21 ]; then
+if ! command -v node &>/dev/null; then
     curl -sL https://deb.nodesource.com/setup_21.x | sudo -E bash -
     sudo apt-get install -y nodejs
     echo -e "export NPM_CONFIG_PREFIX=~/.npm-global\nexport PATH=\$PATH:~/.npm-global/bin" >> ~/.bashrc # https://stackoverflow.com/a/41395398

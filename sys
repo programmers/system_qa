@@ -97,7 +97,7 @@ install_core_software() {
             fi
         done
 
-        touch "$base_lock_file"
+        sudo touch "$base_lock_file"
     fi
 }
 
