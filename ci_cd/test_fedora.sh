@@ -11,7 +11,7 @@ unit["Screen"]=/usr/bin/screen
 unit["tmux"]=/usr/bin/tmux
 unit["htop"]=/usr/bin/htop
 unit["ripgrep"]=/usr/bin/rg
-unit["fzf"]=~/.fzf
+unit["fzf"]=/usr/bin/fzf
 unit["jq"]=/usr/bin/jq
 unit["Neovim"]=/usr/bin/nvim
 unit["Amix_Vim"]=~/.vim_runtime/amix.lock
@@ -26,13 +26,13 @@ unit["VSCode_Spellchecker"]=~/$vscode_root/extensions/%spellchecker%
 
 
 ## Python
-#unit["pyenv"]=""
-#unit["Pipenv"]=""
-#unit["Poetry"]=""
-unit["pipx"]="/usr/local/bin/pipx"
+unit["pyenv"]="/home/$USER/.pyenv/bin/pyenv"
+unit["Pipenv"]=""
+unit["Poetry"]=""
+unit["pipx"]="/usr/bin/pipx"
 unit["PyCharm"]="/snap/bin/pycharm-community"
-unit["Black"]="/usr/local/bin/black"
-unit["Flake8"]="/usr/local/bin/flake8"
+unit["Black"]="/usr/bin/black"
+unit["Flake8"]="/usr/bin/flake8"
 unit["VSCode_Python"]="$HOME/$vscode_root/extensions/%python%"
 
 
@@ -41,10 +41,11 @@ unit["VSCode_Python"]="$HOME/$vscode_root/extensions/%python%"
 unit["AWS_CLI"]=/usr/bin/aws
 unit["Azure_CLI"]=/usr/bin/az
 unit["Google_Cloud_CLI"]=/snap/bin/gcloud
-unit["Digital_Ocean_CLI"]=/usr/bin/doctl
+unit["Digital_Ocean_CLI"]=/snap/bin/doctl
 unit["Kubernetes_Kind"]=/usr/local/bin/kind
 unit["Kubectl"]=/snap/bin/kubectl
-unit["Helm"]=/usr/bin/helm
+unit["Helm"]=/snap/bin/helm
+unit["Terraform"]=/snap/bin/terraform
 
 
 ## Containers and VMs
@@ -56,17 +57,17 @@ unit["VSCode_Docker"]=~/$vscode_root/extensions/%docker%
 
 
 ## Database Clients
-unit["pgAdmin_Web"]="/usr/pgadmin4/"
-unit["MySQL_Workbench"]="/snap/bin/mysql-workbench-community"
-unit["DBeaver"]="/usr/bin/dbeaver-ce"
-unit["DataGrip"]="/snap/bin/datagrip"
-unit["SQLite_Browser"]="/usr/bin/sqlitebrowser"
-unit["Redis_Commander"]="/usr/bin/redis-commander"
-unit["usql"]="/usr/bin/usql"
+unit["pgAdmin_Web"]=/usr/pgadmin4
+unit["MySQL_Workbench"]=/snap/bin/mysql-workbench-community
+unit["DBeaver"]=/usr/bin/dbeaver-ce
+unit["DataGrip"]=/snap/bin/datagrip
+unit["SQLite_Browser"]=/usr/bin/sqlitebrowser
+unit["Redis_Commander"]=/usr/bin/redis-commander
+unit["usql"]=/usr/bin/usql
 
 
 ## JavaScript and Node
-unit["Node_Version_Manager"]=~.nvm
+unit["Node_Version_Manager"]=~/.nvm
 unit["Node_TypeScript"]=/usr/bin/ts-node
 unit["Nodemon"]=/usr/bin/nodemon
 unit["Yarn"]=/usr/bin/yarn
@@ -79,15 +80,15 @@ unit["VSCode_Path_Intellisense"]=~/$vscode_root/extensions/%path-intellisense%
 
 
 ## Web Tools
-unit["Angular_CLI"]="/usr/bin/ng"
-unit["Create_React_App"]="/usr/bin/create-react-app"
-unit["Vue_CLI"]="/usr/bin/vue"
-unit["Webstorm"]="/snap/bin/webstorm"
-unit["Postman"]="/snap/bin/postman"
-unit["ngrok"]="/snap/bin/ngrok"
-unit["localtunnel"]="/usr/bin/lt"
-unit["Local_Web_Server"]="/usr/bin/ws"
-unit["Mockoon"]="/snap/bin/mockoon"
+unit["Angular_CLI"]=/usr/bin/ng
+unit["Create_React_App"]=/usr/bin/create-react-app
+unit["Vue_CLI"]=/usr/bin/vue
+unit["Webstorm"]=/snap/bin/webstorm
+unit["Postman"]=/snap/bin/postman
+unit["ngrok"]=/snap/bin/ngrok
+unit["localtunnel"]=/usr/bin/lt
+unit["Local_Web_Server"]=/usr/bin/ws
+unit["Mockoon"]=/snap/bin/mockoon
 
 
 ## Java

@@ -2,8 +2,10 @@
 
 sys_check /usr/pgadmin4 && exit 0
 
-sudo dnf install -y https://ftp.postgresql.org/pub/pgadmin/pgadmin4/yum/pgadmin4-fedora-repo-1-1.noarch.rpm
-sudo dnf install -y pgadmin4
+sudo curl https://www.pgadmin.org/static/packages_pgadmin_org.pub | sudo apt-key add
 
-sudo systemctl start pgadmin4
-sudo systemctl enable pgadmin4
+echo "deb https://ftp.postgresql.org/pub/pgadmin/pgadmin4/apt/$(lsb_release -cs) pgadmin4 main" | sudo tee /etc/apt/sources.list.d/pgadmin4.list
+
+sudo apt-get update -y
+
+sudo apt-get install -y pgadmin4

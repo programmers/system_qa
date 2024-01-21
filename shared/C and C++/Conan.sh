@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pipx install conan
+echo "TODO: implement Conan"

@@ -108,7 +108,7 @@ install_ecosystem() {
     if ! [[ $line =~ ^# ]]; then
         santized_line=$(echo "$line" | sed 's/ /_/g')
 
-        # todo: better ways of match file number
+        # TODO: better ways of match file number
         script=$(find "$sys_root/$sys_os/$eco_key" -maxdepth 1 -type f -name "???_${santized_line}.sh")
 
         exec_script "$eco_key" "$script"
@@ -121,7 +121,7 @@ install_ecosystems() {
 
     mapfile -t lines < "$sys_root/$sys_os/requirements.txt"
 
-    # todo: in need of optimization
+    # TODO: in need of optimization
     for line in "${lines[@]}"; do
         if [[ $line =~ ^## ]]; then
             current_ecosystem=$(echo "$line" | sed -n 's/## \(.*\) ##/\1/p')

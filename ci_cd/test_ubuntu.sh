@@ -34,6 +34,7 @@ unit["VSCode_Python"]=~/.vscode/extensions/%python%
 
 
 ## Cloud
+# unit["Terraform"]=
 unit["AWS_CLI"]=/usr/bin/aws
 unit["Azure_CLI"]=/usr/bin/az
 unit["Google_Cloud_CLI"]=/snap/bin/gcloud
@@ -53,7 +54,7 @@ unit["VSCode_Docker"]=~/.vscode/extensions/%docker%
 
 
 ## Database Clients
-unit["pgAdmin_Web"]="/usr/pgadmin4/"
+unit["pgAdmin_Web"]=/usr/pgadmin4
 unit["MySQL_Workbench"]=/snap/bin/mysql-workbench-community
 unit["DBeaver"]=/usr/bin/dbeaver
 unit["DataGrip"]=/snap/bin/datagrip
@@ -88,7 +89,7 @@ unit["Mockoon"]=/snap/bin/mockoon
 
 
 ## Java
-#unit["Gradle"]=""
+unit["Gradle"]=""
 unit["SDKMAN"]=~/.sdkman
 unit["Eclipse"]=/snap/bin/eclipse
 unit["IntelliJ_IDEA_Community"]=/snap/bin/intellij-idea-community
@@ -98,10 +99,9 @@ unit["VSCode_Java"]=~/.vscode/extensions/%vscjava%
 
 
 ## C and C++
-#unit["Binutils"]=""
-#unit["build-essential"]=""
-#unit["Libtool"]=""
-#unit["Boost"]=""
+unit["Binutils"]=""
+unit["Libtool"]=""
+unit["Boost"]=""
 unit["Autoconf"]=/usr/bin/autoconf
 unit["Automake"]=/usr/bin/automake
 unit["Clang"]=/usr/bin/clang-16
@@ -156,6 +156,7 @@ for key in "${!unit[@]}"; do
     if [[ "${unit[$key]}" == *"%"* ]]; then
         placeholder=$(echo "${unit[$key]}" | sed -n 's/.*%\([^%]*\)%.*/\1/p')
         directory=$(dirname "${unit[$key]}")
+
         if ! ls "$directory"/*"$placeholder"* 1> /dev/null 2>&1; then
             not_found_packages+=("$key")
         fi

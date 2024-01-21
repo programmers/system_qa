@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "TODO: implement shared Gradle install"
+echo "TODO: implement Gradle install"
