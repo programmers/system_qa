@@ -1,20 +1,26 @@
-## Next
-. Caller
-. _files_ at bottom
-. eco args are backwards
+. Dev
+    . eco args are backwards
 
 
-## Docs
-. Figure out clone (git isn't always available / curl?)
-. Call out TODO w/ link
-. UI mockup
-. Always LTS
-. How to dev
-. deal with apt err
-. "Preview"?
-. note about pgadmin need
+. General
+    . Make repo public
+    . Figure out clone (git isn't always available / curl?)
+    . UI mockup
 
-    
-## Push
-    . Multi accts
+
+. Issues
+    . Call out TODO w/ link
+        . Describe
+    . note about pgadmin need
+    . How to diagnose
+
+
+. Docs
+    . "Preview"?
+    . How to dev
+
+
+. README
+    . HN accounts
+    . Call out LTS
     . Discord?

@@ -74,7 +74,7 @@ exec_script() {
     name="${name#[0-9]*_}"
     name="${name//_/ }"
 
-    echo "[$eco_key] Installing $name..."
+    echo "[$eco_key] Processing $name..."
 
     #output=$(timeout 30s bash -c "$script" 2>&1)  # Redirect stderr to stdout
     output=$(timeout 30s bash -c "$script" 2>&1 | tee -a /var/log/progsys.log)
@@ -87,7 +87,7 @@ exec_script() {
 
 # _Init_.sh
 install_core_software() {
-    local core_directory="$sys_root/$sys_os/_Core_"
+    local core_directory="$sys_root/$sys_os/-Core-"
     local core_lock_file="/var/run/progsys.lock"
     local core_init_script=$core_directory"/_Init_.sh"
 
