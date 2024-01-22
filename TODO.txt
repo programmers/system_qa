@@ -1,11 +1,10 @@
 ## Next
-. Base > Core
 . Caller
     . new style
     . better log
     . limit
-. eco args are backwards
 . _files_ at bottom
+. eco args are backwards
 
 
 ## Docs

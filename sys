@@ -84,20 +84,20 @@ exec_script() {
 
 # _Init_.sh
 install_core_software() {
-    local base_directory="$sys_root/$sys_os/_Base_"
-    local base_lock_file="/var/run/progsys.lock"
-    local base_init_script=$base_directory"/_Init_.sh"
+    local core_directory="$sys_root/$sys_os/_Core_"
+    local core_lock_file="/var/run/progsys.lock"
+    local core_init_script=$core_directory"/_Init_.sh"
 
-    if [ ! -e "$base_lock_file" ]; then
-        exec_script "Core" "$base_init_script"
+    if [ ! -e "$core_lock_file" ]; then
+        exec_script "Core" "$core_init_script"
 
-        for script in "$base_directory"/*; do
-            if [ $script != "$base_init_script" ]; then
+        for script in "$core_directory"/*; do
+            if [ $script != "$core_init_script" ]; then
                 exec_script "Core" "$script"
             fi
         done
 
-        sudo touch "$base_lock_file"
+        sudo touch "$core_lock_file"
     fi
 }
 
