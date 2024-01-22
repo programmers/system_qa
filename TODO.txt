@@ -1,26 +1,19 @@
-. Dev
-    . eco args are backwards
-
+. Issues
+    . Describe for readme
+    . Call out TODO w/ link
+    . note about pgadmin need
+    . How to diagnose
+ 
 
 . General
     . Make repo public
     . Figure out clone (git isn't always available / curl?)
     . UI mockup
-
-
-. Issues
-    . Call out TODO w/ link
-        . Describe
-    . note about pgadmin need
-    . How to diagnose
-
-
-. Docs
-    . "Preview"?
     . How to dev
 
 
 . README
     . HN accounts
+    . "Preview"?
     . Call out LTS
     . Discord?

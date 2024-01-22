@@ -124,22 +124,24 @@ install_ecosystems() {
 
     mapfile -t lines < "$sys_root/$sys_os/requirements.txt"
 
-    # TODO: in need of optimization
-    for line in "${lines[@]}"; do
-        if [[ $line =~ ^## ]]; then
-            current_ecosystem=$(echo "$line" | sed -n 's/## \(.*\) ##/\1/p')
-        elif [[ ! "$line" =~ ^[[:space:]]*$ && ! "$line" =~ ^# ]]; then
-            for selected_flag in "${!selected_flags[@]}"; do
-                flag_key="${selected_flags[$selected_flag]}"
+    for selected_flag_index in "${!selected_flags[@]}"; do
+        selected_flag="${selected_flags[$selected_flag_index]}"
+
+        for line in "${lines[@]}"; do
+            if [[ $line =~ ^## ]]; then
+                current_ecosystem=$(echo "$line" | sed -n 's/## \(.*\) ##/\1/p')
+            elif [[ ! "$line" =~ ^[[:space:]]*$ && ! "$line" =~ ^# ]]; then
+                flag_key="${selected_flag}"
                 ecos_key="${ecosystems[$flag_key]}"
 
                 if [ "$current_ecosystem" == "$ecos_key" ]; then
-                   install_ecosystem "$ecos_key" "$line"
+                    install_ecosystem "$ecos_key" "$line"
                 fi
-            done
-        fi
+            fi
+        done
     done
 }
+
 
 
 main() {
