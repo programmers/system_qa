@@ -1,17 +1,16 @@
-## QA
-. Fedora
-. Turn off modals?
-
-
-## Last Minute
+## Next
 . Base > Core
-. _files_ at bottom
+. Caller
+    . new style
+    . better log
+    . limit
 . eco args are backwards
-. Make prod caller
+. _files_ at bottom
 
 
-## Marketing
-. Figure out clone
+## Docs
+. note about pgadmin need
+. Figure out clone (git isn't always available / curl?)
 . Call out TODO w/ link
 . UI mockup
 . Always LTS

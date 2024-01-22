@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo "cant find terraform"
+echo "TODO: implement terraform"

@@ -53,7 +53,6 @@ unit["VSCode_Docker"]=~/.vscode/extensions/%docker%
 
 
 ## Database Clients
-unit["pgAdmin_Web"]=/usr/pgadmin4
 unit["MySQL_Workbench"]=/snap/bin/mysql-workbench-community
 unit["DBeaver"]=/usr/bin/dbeaver
 unit["DataGrip"]=/snap/bin/datagrip

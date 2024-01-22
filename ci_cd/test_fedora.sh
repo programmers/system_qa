@@ -3,7 +3,8 @@
 declare -A unit
 
 # fedora servers puts vscode assets in here:
-vscode_root=".vscode-server"
+#vscode_root=".vscode-server"
+vscode_root=".vscode"
 
 ##  Base
 unit["Terminator"]=/usr/bin/terminator
@@ -16,7 +17,7 @@ unit["jq"]=/usr/bin/jq
 unit["Neovim"]=/usr/bin/nvim
 unit["Amix_Vim"]=~/.vim_runtime/amix.lock
 unit["Emacs_Prelude"]=~/.emacs.d/core/prelude-core.el
-unit["7Zip"]=/usr/bin/7z
+unit["7Zip"]=/usr/bin/7za
 unit["UnRAR"]=/usr/bin/unrar
 unit["Docs2Unix"]=/usr/bin/dos2unix
 unit["thefuck"]=/usr/bin/thefuck
@@ -40,11 +41,10 @@ unit["VSCode_Python"]="$HOME/$vscode_root/extensions/%python%"
 unit["AWS_CLI"]=/usr/bin/aws
 unit["Azure_CLI"]=/usr/bin/az
 unit["Google_Cloud_CLI"]=/snap/bin/gcloud
-unit["Digital_Ocean_CLI"]=/snap/bin/doctl
+unit["Digital_Ocean_CLI"]=/usr/bin/doctl
 unit["Kubernetes_Kind"]=/usr/local/bin/kind
 unit["Kubectl"]=/snap/bin/kubectl
-unit["Helm"]=/snap/bin/helm
-unit["Terraform"]=/snap/bin/terraform
+unit["Helm"]=/usr/bin/helm
 
 
 ## Containers and VMs
@@ -56,7 +56,6 @@ unit["VSCode_Docker"]=~/$vscode_root/extensions/%docker%
 
 
 ## Database Clients
-unit["pgAdmin_Web"]=/usr/pgadmin4
 unit["MySQL_Workbench"]=/snap/bin/mysql-workbench-community
 unit["DBeaver"]=/usr/bin/dbeaver-ce
 unit["DataGrip"]=/snap/bin/datagrip

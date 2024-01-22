@@ -8,13 +8,14 @@ sudo passwd mvim
 
 su - mvim
 
- sudo apt-get update -y && sudo apt-get upgrade -y
+sudo apt-get update -y && sudo apt-get upgrade -y
 
 
 ############
 ## FEDORA ##
 ############
 
+sudo dnf install git -y
 sudo adduser mvim
 sudo usermod -aG wheel mvim
 sudo passwd mvim

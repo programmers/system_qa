@@ -167,6 +167,7 @@ main() {
 
     if [[ "$1" == "--init" ]]; then
         install_core_software
+        exec bash -l #reset 
     else
         install_ecosystems "$@"
     fi

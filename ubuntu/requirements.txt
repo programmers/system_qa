@@ -29,7 +29,6 @@ VSCode Docker
 MySQL Workbench
 DBeaver
 DataGrip
-pgAdmin Web
 pgcli
 mycli
 SQLite Browser

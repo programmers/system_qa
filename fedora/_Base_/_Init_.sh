@@ -41,17 +41,17 @@ if ! command -v docker &>/dev/null; then
     sudo systemctl enable docker
 fi
 
-#node_version=$(node -v | cut -c 2-) -------- is this needed? preinstall?
-#if [ "${node_version%%.*}" -lt 21 ]; then
-if ! command -v node &>/dev/null; then
-    curl -sL https://rpm.nodesource.com/setup_21.x | bash -
+# TODO: Getting the latest wasn't working... removed
+if [ ! -d "~/.npm-global/bin" ]; then
     sudo dnf install -y nodejs
     echo -e "export NPM_CONFIG_PREFIX=~/.npm-global\nexport PATH=\$PATH:~/.npm-global/bin" >> ~/.bashrc # https://stackoverflow.com/a/41395398
 fi
 
 if ! command -v snap &>/dev/null; then
-    sudo dnf install snapd
+    sudo dnf install -y snapd
     sudo systemctl enable --now snapd.socket
+    sudo dnf reinstall -y snapd # workaround for the "seeding" issue with Fedora
+    sudo ln -s /var/lib/snapd/snap /snap
 fi
 
 # VSCode is our "base" editor for the ecosystems with many extensions
