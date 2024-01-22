@@ -1,14 +1,10 @@
 ## Next
 . Caller
-    . new style
-    . better log
-    . limit
 . _files_ at bottom
 . eco args are backwards
 
 
 ## Docs
-. note about pgadmin need
 . Figure out clone (git isn't always available / curl?)
 . Call out TODO w/ link
 . UI mockup
@@ -16,6 +12,7 @@
 . How to dev
 . deal with apt err
 . "Preview"?
+. note about pgadmin need
 
     
 ## Push

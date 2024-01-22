@@ -68,17 +68,20 @@ exec_script() {
     # escaped path
     script=$(echo "$2" | sed 's/ /\\ /g')
 
-    echo "[$eco_key] Installing $script..."
+    # TODO: messy... this extracts/formats the program name 
+    name="${script##*/}"
+    name="${name%.*}"
+    name="${name#[0-9]*_}"
+    name="${name//_/ }"
 
-    log="/tmp/progsys.log"
+    echo "[$eco_key] Installing $name..."
 
-    #duration=$((60 * 60))
-    #timeout "$duration" bash -c "$script" 2>&1 | tee -a "$log"
-    bash -c "$script" 2>&1 | tee -a "$log"
-
-    if [[ $? -ne 0 ]]; then
-        echo "ERROR. Check $log for more information"
-        echo "Attempting to continue..."
+    #output=$(timeout 30s bash -c "$script" 2>&1)  # Redirect stderr to stdout
+    output=$(timeout 30s bash -c "$script" 2>&1 | tee -a /var/log/progsys.log)
+    if [ $? -ne 0 ]; then
+        echo "[ERROR] check /var/log/progsys.log"
+        echo "$output"
+        echo "continuing......"
     fi
 }
 

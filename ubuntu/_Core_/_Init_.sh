@@ -54,5 +54,5 @@ if ! command -v code &>/dev/null; then
     sudo apt-get install -y code
 fi
 
-sudo touch /tmp/progsys.log
-sudo chmod 664 /tmp/progsys.log
+sudo touch /var/log/progsys.log
+sudo chmod 777 /var/log/progsys.log

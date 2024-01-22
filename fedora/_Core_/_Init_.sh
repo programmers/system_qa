@@ -61,5 +61,5 @@ if ! command -v code &>/dev/null; then
     sudo dnf install -y code
 fi
 
-touch /tmp/progsys.log
-chmod 664 /tmp/progsys.log
+sudo touch /var/log/progsys.log
+sudo chmod 777 /var/log/progsys.log
