@@ -1,21 +1,30 @@
 ![logo](logo.jpg)
 
-## Welcome
-
 Setting up a development machine is a time-consuming and error-prone process. Programmer's System eliminates these issues by providing a light weight, automated, configurable solution to install industry standard software ecosystems in Linux/Mac enviroments.
 
-Design Objective: The primary goal of this project is to maintain simplicity, grounded in the philosophy that it's built on a foundation of "just scripts." For a comprehensive overview, please refer to the [development guide](www.google.com). In essence, Programmer's System enables the seamless addition of Linux/Mac distributions with a focus on stability. Each distribution requires an initialization script for core packages and a package configuration file (requirements.txt format). Once configured, all scripts are neatly organized in distinct "ecosystem" folders, allowing users to customize their installation by commenting out specific packages. For example, if a user prefers Pipenv over Poetry in the "Python" ecosystem, they can easily modify their preferences, making sure to pass in `--python` when running.
 
-Each package is encapsulated within a dedicated bash script, and a set of exposed bash functions facilitate package installation checks and the utilization of a shared script across all distributions. Explore the "ubuntu" directory for insights into the requirements.txt and "-core-" scripts, showcasing how ecosystems contain targeted and focused installation code within clearly defined folders and supporting script files. To ensure independence and code sharing, accessible bash functions are integrated into the install script. The system operates by executing scripts dedicated to installing individual packages, providing a streamlined and efficient provisioning mechanism. The code that powers the system is called sys.sh.
+**Design**: The project prioritizes simplicity, built on the foundation of "it's just scripts." For a detailed overview, consult the development guide. Essentially, Programmer's System facilitates the seamless addition of Linux/Mac distributions with a stability-focused approach. Initialization scripts for core packages and package configuration files (in requirements.txt format) are plugged in for each distribution. Once in place, isolated scripts (and supporting helper functions to support idependonce and shared scripte calls) are neatly organized into "ecosystem" folders, exemplified in the ubuntu folder.
+
+**Usage**: Leveraging the [setup guide](https://google.com), users can customize installations by commenting out specific packages. For instance, if a user prefers Pipenv over Poetry in the "Python" ecosystem, they can easily comment it out. Before installation, users specify their desired ecosystems (e.g., --python, --web_tools). This solution is designed for fresh setups, ensuring a hassle-free development environment.
 
 
 ## Ecosystems
 
-Utilizing the traditional *requirements.txt* configuration style, you can effortlessly define the packages to be included in your distribution's folder. Afterward, the command-line interface (CLI) is run used to do the rest:
+|                       |                       |                       |                       |
+|-----------------------|-----------------------|-----------------------|-----------------------|
+| Python                | JavaScript and Node   | Web Tools             | Cloud                 |
+| Containers and VMs    | Database Clients      | Version Control       | C and C++             |
+| Java                  | Go                    | PHP                   | Rust                  |
+| Ruby                  |                       |                       |                       |
+
+<br/>
+
+**Reference**: Utilizing the traditional *requirements.txt* configuration style, you can effortlessly define the packages to be included in your distribution's folder. Afterward, the command-line interface (CLI) is run used to do the rest:
+
 
 ```bash
-./sys --cloud --web_tools --javascript_node --db_clients \
-      --python --containers_vms --java 
+./sys --cloud --web_tools --javascript_node --db_clients --python \
+      --containers_vms --java --version_control
 ```
 
 ## Getting Started
