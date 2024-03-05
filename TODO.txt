@@ -1,0 +1,8 @@
+# TODO
+
+- Finish catalog rework
+- Account for entire catalog
+- Ugh - do docs - VBox
+- Ugh - make tickets
+- asciinema
+- Last look at _ref1.sh, _ref2.sh

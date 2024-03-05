@@ -65,14 +65,11 @@ detect_system() {
 exec_script() {
     eco_key="$1"
 
-    # escaped path
+    # Escaped path
     script=$(echo "$2" | sed 's/ /\\ /g')
 
-    # TODO: messy... this extracts/formats the program name 
-    name="${script##*/}"
-    name="${name%.*}"
-    name="${name#[0-9]*_}"
-    name="${name//_/ }"
+    # Extract the name from script absolute file path
+    name=$(echo "${script#*_}" | sed 's/_/ /g' | sed 's/\.sh$//')
 
     echo "[$eco_key] Processing $name..."
 
@@ -81,22 +78,23 @@ exec_script() {
     if [ $? -ne 0 ]; then
         echo "[ERROR] check /var/log/progsys.log"
         echo "$output"
-        echo "continuing......"
+        echo "continuing..."
     fi
 }
 
-# _Init_.sh
+# For _Init_.sh
 install_core_software() {
     local core_directory="$sys_root/$sys_os/-Core-"
     local core_lock_file="/var/run/progsys.lock"
     local core_init_script=$core_directory"/_Init_.sh"
+    local core_key="Core"
 
     if [ ! -e "$core_lock_file" ]; then
-        exec_script "Core" "$core_init_script"
+        exec_script "$core_key" "$core_init_script"
 
         for script in "$core_directory"/*; do
             if [ $script != "$core_init_script" ]; then
-                exec_script "Core" "$script"
+                exec_script "$core_key" "$script"
             fi
         done
 
@@ -104,21 +102,29 @@ install_core_software() {
     fi
 }
 
-install_ecosystem() {
-    local eco_key="$1"
-    local line="$2"
+sanitize_raw_filename() {
+    local raw_filename="$1"
 
-    if ! [[ $line =~ ^# ]]; then
-        santized_line=$(echo "$line" | sed 's/ /_/g')
-
-        # TODO: better ways of match file number
-        script=$(find "$sys_root/$sys_os/$eco_key" -maxdepth 1 -type f -name "???_${santized_line}.sh")
-
-        exec_script "$eco_key" "$script"
+    # Don't process files that are commented out
+    if ! [[ $raw_filename =~ ^# ]]; then
+        sanitized=$(echo "$line" | sed 's/ /_/g')
+        echo "$sanitized"
     fi
 }
 
-# main installation logic
+install_ecosystem_package() {
+    local eco_key="$1"
+    local package="$2"
+
+    # TODO: better ways of match file number
+    script=$(find "$sys_root/$sys_os/$eco_key" -maxdepth 1 -type f -name "???_${package}.sh")
+
+    exec_script "$eco_key" "$script"
+}
+
+# Main installation logic. This reads in a "requirements.txt" file, inspired by the classic Python
+# packaging format. If an selected ecosystem "flag" is matched, subsequent uncommented lines (keyed
+# by package name) are installed. 
 install_ecosystems() {
     local selected_flags=("$@")
 
@@ -134,8 +140,10 @@ install_ecosystems() {
                 flag_key="${selected_flag}"
                 ecos_key="${ecosystems[$flag_key]}"
 
-                if [ "$current_ecosystem" == "$ecos_key" ]; then
-                    install_ecosystem "$ecos_key" "$line"
+                filename=$(sanitize_raw_filename "$line")
+
+                if [ "$current_ecosystem" == "$ecos_key" ] && [ -n "$filename" ]; then
+                    install_ecosystem_package "$ecos_key" "$filename"
                 fi
             fi
         done
@@ -172,7 +180,7 @@ main() {
 
     if [[ "$1" == "--init" ]]; then
         install_core_software
-        exec bash -l #reset 
+        exec bash -l # done, reset 
     else
         install_ecosystems "$@"
     fi
