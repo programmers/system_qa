@@ -1,8 +1,8 @@
 # TODO
 
-- Finish catalog rework
-- Account for entire catalog
+- Switch -This- to _this_
 - Ugh - do docs - VBox
+- "-Core-" doesn't work do _Core_
 - Ugh - make tickets
 - asciinema
 - Last look at _ref1.sh, _ref2.sh
