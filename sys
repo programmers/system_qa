@@ -84,7 +84,7 @@ exec_script() {
 
 # For _Init_.sh
 install_core_software() {
-    local core_directory="$sys_root/$sys_os/-Core-"
+    local core_directory="$sys_root/$sys_os/#Core"
     local core_lock_file="/var/run/progsys.lock"
     local core_init_script=$core_directory"/_Init_.sh"
     local core_key="Core"
