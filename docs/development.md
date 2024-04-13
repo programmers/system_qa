@@ -1,91 +1,172 @@
 ## Development Guide
 
+## Welcome
 
-LOOK AT ref1 569
-LOOK AT ref1 569
-LOOK AT ref1 569
-LOOK AT ref1 569
-LOOK AT ref1 569
-LOOK AT ref1 569
+This guide provides an overview of the main script functions, how the scripts run, and how to include your own OS.
 
-### Introduction
+This project aims to reduce the time-consuming and error-prone process of setting up a dev machine. While there are many provisioning system options out there (typically for cloud), not many prioritizes simplicity and accessibility. The project favors a philosophy "it's all just scripts" with limited abstraction.
 
-This 2 part development guide provides an overview and explanation of the functionalities implemented in the main `.sys` Bash script as well as how to introducing new operating system.
+Your contributions are greatly appreciated with this new and ambitious project.
 
-## Part 1: Main Bash Script
 
-The code is designed to manage and install various software ecosystems on different operating systems in a generic fashion. 
-It utilizes a set of options to determine the ecosystems to be installed and supports features such as initialization, error handling, and logging.
+## Current Ecosystems
 
-**Ecosystems Array**
-The script defines an associative array ecosystems that maps ecosystem flags to their corresponding display names. This array is used to identify and select specific ecosystems throughout execution.
+|                       |                       |                       |                       |
+|-----------------------|-----------------------|-----------------------|-----------------------|
+| Python                | JavaScript and Node   | Web Tools             | Cloud                 |
+| Containers and VMs    | Database Clients      | Version Control       | C and C++             |
+| Java                  | Go                    | PHP                   | Rust                  |
+| Ruby                  |                       |                       |                       |
+
+## Current OS Support
+
+Current support: Ubuntu 22.04 LTS and Fedora 39.
+
+
+## Part 1: Main Script
+
+The `sys` script acts as the engine and CLI of the system. It intelligently installs specific software ecosystems across different operating systems in a generic manner. It enables many functions, OS detection and initialization, exposing helper functions to scripts, error handling, and ensuring idempotency.
+
+### CLI / Initialization
+
+The script defines an associative array at the very top that maps ecosystems to their corresponding display names in the CLI and the keys referenced throughout the execution.
 
 ```bash
 declare -A ecosystems
 ecosystems["--python"]="Python"
 ecosystems["--cloud"]="Cloud"
 ecosystems["--containers_vms"]="Containers and VMs"
-ecosystems["--db_clients"]="Database Clients"
-ecosystems["--javascript_node"]="JavaScript and Node"
-ecosystems["--web_tools"]="Web Tools"
-ecosystems["--java"]="Java"
-ecosystems["--c_c++"]="C and C++"
-ecosystems["--go"]="Go"
-...
-...
 ...
 ...
 ```
 
-2. Argument Validation
-The check_args function validates the command-line arguments passed to the script. It ensures that the provided options are either valid ecosystem flags or the --init flag for initialization.
+Before execution, users will want to specify what packages are to be installed at the selected ecosystem level. For example, suppose a Java developer only needs version management, Eclipse, and Gradle. They can represent this by commenting out what isn't needed in the "`## Java ##`" section of `Fedora` > `requirements.txt`:
 
-3. CLI Screen Display
-The show_cli_screen function generates a help message, displaying available options and usage instructions. This information is displayed when invalid arguments are provided.
+```
+## Java ##
+SDKMAN
+Eclipse
+#IntelliJ IDEA Community
+#Maven
+Gradle
+#Ivy
+#Ant
+#VSCode Java
+```
 
-4. OS Detection
-The detect_system function determines the operating system on which the script is running by checking the existence of /etc/os-release file or identifying macOS based on the uname command.
+The user can now invoke the CLI to start the installation process. All inputs are validated - a help/usage screen will appear if a flag doesn't exist. Example use:
 
-5. Script Execution
-The exec_script function executes a given script for a specified ecosystem. It captures the output and logs any errors to /var/log/progsys.log.
+```bash
+./sys --cloud --web_tools --javascript_node --db_clients --python --containers_vms \
+      --java --version_control
+```
 
-6. Core Software Installation
-The install_core_software function installs core software by executing the initialization script and subsequent scripts in the core directory. It ensures that the core installation is performed only once by using a lock file.
 
-7. Ecosystem Installation
-The install_ecosystem function installs a specific ecosystem based on the provided ecosystem key and script line. It sanitizes the script line and matches it to a corresponding script file in the ecosystem directory.
+### main()
 
-8. Main Installation Logic
-The install_ecosystems function orchestrates the installation of selected ecosystems based on the provided flags and the content of the requirements.txt file.
+This function is responsible for running all major functions as well as exposing functions that can be referenced in the ecosystem scripts. The following steps shows only the flow of the function. Individual functions will be described in their own section.
 
-9. Main Function
-The main function serves as the entry point for the script. It performs tasks such as prompting for sudo privileges, checking arguments, detecting the operating system, defining system-related functions, and initiating the installation process.
+1. Prompt user to provide password
+2. Calling the aforementioned `check_args()` for input validation
+3. Dynamically detecting the OS (typically by distribution name) via `detect_system()`
+4. Setting needed variables for execution
+5. Exporting functions to be used in scripts such as `sys_check()` and `sys_exec()`
+6. Determine if the:
+- OS needs to be resolve dependencies and base configurations in `install_core_system()`
+- (or) If the system is ready to run the scripts via `install_ecosystems()`
+
+
+### detect_system()
+
+This function determines the OS by accessing information from the `/etc/os-release` file or `uname` command.
+
+### exports
+
+`sys_check()` takes in the "package name", which represents a its directory path. This is used by folks creating/editing scripts to ensure the installation runs only once.
+
+`sys_exec()` is used to call another script in a an existing script. It takes in the which is presumably script for execution. This is primary used to called "shared" functions.
+
+### install_core_software()
+
+This function installs the required software by calling each OS's custom initialization script and supporting scripts in the "`#Core`" directory. Upon execution completion, the ecosystems can be installed. This part is very nuanced and will be expanded upon in later section.
+
+Users (currently) must execute the follow before supplying the ecosystem arguments.
+
+```bash
+./sys --init
+```
+
+### install_ecosystems()
+
+This function is responsible for locating and ultimately a specific package within an ecosystem. It requires the ecosystem's key and the package name to match script paths as well as pass this information to the executing script function `exec_script()`.
+
+The major focus of this function is to filter the selected scripts that are included in the `requirements.txt` and pass those scripts to the following functions.
+
+
+### install_ecosystem_package()
+
+The function requires the ecosystem's key and the package name. It pattern matches the package names with their prefixed, numeric name (ie.: `005_Gradle.sh` or `012_Clion.sh`), allowing the finalized package script reference to be send for installation.
+
+
+### exec_script()
+
+Generic function that executes scripts using bash with a timeout of 30 seconds, capturing both stdout and stderr in the output variable. All output is appended to the log file /var/log/progsys.log.
+
+In the case where the script times or fails with a non-zero status code, it echoes an error message (is logged) and continues processing.
 
 ## Part 2: OS Implementation
 
-This development guide provides an overview and explanation of the functionalities implemented in the provided Bash script. The script is designed for setting up a development environment by installing general dependencies and tools. It includes installation commands for packages such as Docker, Node.js, and Visual Studio Code. The script also ensures the availability of necessary dependencies and sets up a log file.
+In order to provide great development environment, we must configure the operating system by installing general dependencies and tools. This includes installation "default" packages such as VSCode, Python, NodeJS, Docker and Snap. The script also ensures the availability of necessary dependencies and writes to a log file.
 
-Script Overview
-1. User Information
-The script starts by obtaining the username using the whoami command and assigns it to the variable user.
+Each OS is expected to implement a file called `_init_.sh` in its `#Core` dir as well as a series of basic packages. Using the Fedora implementation as an example, we will explore the main sections of this code
 
-2. Package Updates
-The script runs sudo apt-get update -y to ensure that the package information is up-to-date.
+Note: if there is an issue with execution, the script creates a log file at `/var/log/progsys.log` and sets its permissions to allow write access. This log file is used to capture output and potential errors during the overall execution of the script.
 
-3. General Dependencies Installation
-The script installs a set of general dependencies required for development. These dependencies include tools like curl, ca-certificates, software-properties-common, autoconf, unzip, zip, build-essential, gpg, git, tree, zlib1g-dev, libreadline-dev, libssl-dev, and libcurl4-openssl-dev.
+### User Information
+The script starts by obtaining the username using the `whoami` command and assigns it to the variable user.
 
-4. Specific Python Dependencies
-The script installs specific Python dependencies using the apt-get install command for Python 3.11, its virtual environment (python3.11-venv), and development headers (python3.11-dev). Additionally, it ensures that python-is-python3 is installed.
+### Package Updates
+The script updates with `dnf` to ensure that the package information is up-to-date.
 
-5. Docker Installation
-If Docker is not already installed (checked with command -v docker), the script downloads and executes the Docker installation script from get.docker.com. It also starts and enables the Docker service using systemctl.
+# General dependencies
+Essential dependencies required for basic operations on the OS are installed such as `curl`, `ca-certificates`, `@development-tools`, `zip`, `git`, and many more 
 
-6. Node.js Installation
-If Node.js is not already installed (checked with command -v node), the script uses curl to download and execute the Node.js setup script. It then installs Node.js and configures the NPM environment variables in the user's .bashrc file.
+### Default Opinionated Dependencies
 
-7. Visual Studio Code Installation
-If Visual Studio Code (VSCode) is not already installed (checked with command -v code), the script adds Microsoft's GPG key, sets up the VSCode repository, and installs the application using apt-get. This step ensures that VSCode is available as the base editor for ecosystems with many extensions.
+Each OS implementation relies on a certain common tooling to thrive. All OS implementations must implement the following in `_init_.sh`:
 
-8. Log File Setup
-The script creates a log file at /var/log/progsys.log and sets its permissions to allow write access. This log file is used to capture output and potential errors during the execution of the script.
+**Python**: Python is well-used language and many scripts (for many Oses) depend on it existing, along with the common development headers, environments, and packaging capabilities.
+
+**Visual Studio Code**: If Visual Studio Code (VSCode) is not already installed (checked with command -v code), the script adds Microsoft's GPG key, sets up the VSCode repository, and installs the application. _This step ensures that VSCode is available as the base editor for ecosystems with many extensions_.
+
+**NodeJS**: If Node.js is not already installed (checked with command -v node), the script uses curl to download and execute the setup script. It then installs Node.js and configures the NPM environment variables in the user's .bashrc file.
+
+**Docker**: Docker is not already installed (checked with command -v docker), the script downloads and executes the Docker installation script from get.docker.com. It also starts and enables the Docker service using systemctl.
+
+**Snap**: Snap is need for a variety of packages. It also must be installed.
+
+### OS Core Package & Execution
+
+As discussed in the section that refers **install_core_software** above. Once the `_init_.sh` script completes processing by running:
+
+```bash
+./sys --init
+```
+
+...the main script will then install all packages that neighbor the OS `_init_.sh` script. It's best to look at the other OSes to see an example of how these scripts look. They are installed automatically using the same scripting mechanism found in `.sys` that is used for the software ecosystems. These packages, which are *very* common, that are considered to be more "general" and the user shouldn't have to bother selected them. Examples of such "auto-included" packages:
+
+- Terminator
+- Screen
+- ripgrep
+- jq 
+- Amix Vim
+- Emacs Prelude
+- VSCode Intellicode
+- htop
+- ...and so on
+
+Once this process is complete, the user can now run system with their selected ecosystems (including any edits to requirements.txt) via:
+
+```bash
+./sys --cloud --web_tools --python --javascript_node --more_and_more_ecosystems_here
+```

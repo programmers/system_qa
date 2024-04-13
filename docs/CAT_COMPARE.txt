@@ -1,8 +1,0 @@
-
-7Zip
-UnRAR
-Docs2Unix
-thefuck
-VSCode_Code_Runner
-VSCode_Intellicode
-VSCode_Spellchecker
